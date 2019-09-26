@@ -1,0 +1,22 @@
+=================== text editor ===================
+
+https://ckeditor.com/
+https://quilljs.com/
+https://summernote.org/
+
+
+=================== mailing services ===================
+
+https://mailtrap.io
+
+
+=================== hosting /servers ===================
+
+https://laragon.org/
+https://ngrok.com
+
+
+
+=================== form/page builder ===================
+
+https://grapesjs.com/

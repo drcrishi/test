@@ -1,0 +1,172 @@
+Magento 2 installations
+
+Requirements for installation
+
+->Memory – min 2 gb ram
+-> composer
+-> Apache 2.2 or 2.4
+-> Mysql 5.6, 5.7
+-> php versions – min 7.1
+
+Changes in php.ini file
+
+max_execution_time = 1800
+max_input_time = 1800
+memory_limit = 1024M
+
+Php moduels to be enabled
+
+ext-bcmath
+ext-intl
+ext-soap
+ext-xsl
+
+This command will install necessary packages for magento.
+If any module is left then it will showing during installation.
+
+sudo apt-get install -y php7.2 libapache2-mod-php7.2 php7.2-common php7.2-gd php7.2-mysql php7.2-curl php7.2-intl php7.2-xsl php7.2-mbstring php7.2-zip php7.2-bcmath php7.2-iconv php7.2-soap
+
+===================================== Errors section start =====================================
+
+0) on extracting the zip of magento if the browser doesn't show 500 internal server error then edit the .htaccess file of the root directory and remove all "<IfVersion < 2.4>  </IfVersion>" tags and replace it with "Require all denied"
+eg 
+change
+<Files composer.json>
+        <IfVersion < 2.4>
+            order allow,deny
+            deny from all
+        </IfVersion>
+        <IfVersion >= 2.4>
+            Require all denied
+        </IfVersion>
+</Files>
+to 
+<Files composer.json>
+        Require all denied
+</Files>
+
+When admin login shows 404 or frontend doesn’t load css
+
+1) edit the file /etc/apache2/apache2.conf
+
+change from 
+
+<Directory /var/www/>
+     Options Indexes FollowSymLinks
+     AllowOverride None
+     Require all granted
+</Directory>
+
+to 
+
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+
+
+
+2) (Magento\Framework\Exception\ValidatorException): Invalid template file: 'D:/wamp/www/magento/vendor/magento/module-backend/view/adminhtml/templates/page/js/require_js.phtml' in module: 'Magento_Backend' block's name: 'require.js'
+
+-> goto D:\wamp\www\magento\vendor\magento\framework\View\Element\Template\File\Validator.php
+
+find - '$realPath = $this->fileDriver->getRealPath($path);' 
+and replace with following
+ '$realPath = str_replace('\\', '/', $this->fileDriver->getRealPath($path));'
+
+
+==========================================error section end ========================================
+
+To create a Module in Magento the following files are required
+
+-> registration.php – register a module
+-> etc/module.xml – describes module version, name and other dependencies
+-> composer.json – manage dependencies
+
+To make a module manually 
+
+->create a folder(Vendor name) in ‘app/code/’ folder
+-> Inside vendor folder create another folder(Module name)
+it will look like this 
+	app/code/vendor/module
+
+
+
+
+After creating a module runt the below command to check the status of module
+-> php bin/magento module:status
+
+If your module is showing in disabled modules then run the following command
+->  php bin/magento module:enable module_name
+
+
+
+Whenever you change a code, run these following commands
+
+->    php bin/magento setup:upgrade
+-> php bin/magento setup:static-content:deploy -f
+-> php bin/magento cache:flush
+
+
+
+
+Magento admin URL not working: 404 after changing it
+
+Locate your Magento Database and select the core_config_data table.
+Locate and edit the following rows:
+Scope:"Default" and Path:"admin/url/custom"
+Select the NULL checkbox and save.
+Scope:"Default" and Path:"admin/url/use_custom"
+Change value from 1 to 0 and save.
+Scope:"Default" and Path:"admin/url/use_custom_path"
+Change value from 1 to 0 if it isn't already and save.
+Locate and delete the following rows:
+Scope:"Stores" and Path:"web/secure/base_url"
+Scope:"Stores" and Path:"web/unsecure/base_url" (should be located on the last page)
+Delete /var/cache folder
+
+
+
+To reindex the indexes run the following command
+
+sudo php -f bin/magento indexer:reindex
+
+
+Difference between cost and sell price?
+-> Cost price is the price at which the product is bought and selling price is the price at which the product is sold.
+
+
+To create multiple websites, follow the instructions of below link
+
+https://www.simicart.com/blog/magento-2-multiple-stores-domains/
+
+
+To change the product type after adding product
+
+-> Login to your database
+-> Select the database and run the following query
+	UPDATE catalog_product_entity SET type_id=”simple” WHERE type_id = 	“downloadable”
+
+Types of products
+1: simple
+	A simple product is a physical item with a single SKU. This type of products has a variety of pricing and of input controls which make it possible to sell variations of the product. Simple products can be used in association with grouped, bundle, and configurable products.
+2: Configurable 
+	This type is almost the same as simple product types, it also appears to be a single product with lists of options for each variation eg: color variations. However, each option represents a separate, simple product with a distinct SKU, which makes it possible to track inventory for each variation.
+
+3: Grouped Product
+	Grouped product is made up of simple standalone products that are presented as a group. You can offer variations of a single product, or group them by season or theme to create a set of different products. Each product can be purchased separately or as part of the group. In the shopping cart, each item is listed separately.
+	Eg: a strap having different lengths 6, 8, and 10 feet are selled. Prices are different for all products. We can have each product with different quantities according to our need.
+
+
+
+4: Virtual 
+	Virtual products are services, memberships, warranties, and subscriptions. Virtual products can be sold individually, or included as part of the following product types: Grouped Product and Bundle Product.
+
+5: Bundle product
+	A bundled product let customers “build their own” from an assortment of options. The bundle could be a gift basket, computer, or anything else that can be customized. Each item in a bundle can be based on one of the following product types: Simple Product and Virtual Product.
+Eg: buying different products to assemble a computer
+
+6: Downloadable
+	A downloadable product can be anything that you can deliver as a file, anything you can put online. The files can reside on your server or be provided as URLs to any other server.You can offer an album for sale, and sell each song individually. 
+	

@@ -1,0 +1,22 @@
+magento 
+
+For Compilation command
+php -dmemory_limit=5G bin/magento setup:di:compile
+
+For Deployment
+php -dmemory_limit=5G bin/magento setup:static-content:deploy -f
+
+php bin/magento cache:clean / php bin/magento c:c
+php bin/magento cache:flush / php bin/magento c:f
+
+
+php bin/magento indexer:reindex
+
+php bin/magento cache:clean
+php bin/magento cache:flush
+
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+
+
+memory_limit = 136M

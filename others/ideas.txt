@@ -1,0 +1,9 @@
+common helper
+get current date
+get current date with time
+check if id exists in db checkexists('tablename','fieldname','id').
+
+to do 
+popup after specific seconds for subscription
+popup of donation after clicking thumbs up
+on subscriptoion give user the list of categories he/she want to subscribe

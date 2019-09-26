@@ -1,0 +1,47 @@
+multiple conditions
+------------------------ Old way 
+if(model === 'renault' || model === 'peugeot') { 
+    console.log('model valid');
+  }
+  
+------------------------ Better way
+  
+  if(['peugeot', 'renault'].includes(model)) { 
+    console.log('model valid');
+  }
+
+Use Indexing or Maps Instead of switch Statement
+------------------------ old way 
+const getCarsByState = (state) => {
+  switch (state) {
+    case 'usa':
+      return ['Ford', 'Dodge'];
+    case 'france':
+      return ['Renault', 'Peugeot'];
+    case 'italy':
+      return ['Fiat'];
+    default:
+      return [];
+  }
+}
+
+console.log(getCarsByState()); // outputs []
+console.log(getCarsByState('usa')); // outputs ['Ford', 'Dodge']
+console.log(getCarsByState('italy')); // outputs ['Fiat']
+
+------------------------ Better way
+const carState = {
+  usa: ['Ford', 'Dodge'],
+  france: ['Renault', 'Peugeot'],
+  italy: ['Fiat']
+};
+
+const getCarsByState = (state) => {
+  return carState[state] || [];
+}
+
+console.log(getCarsByState()); // outputs []
+console.log(getCarsByState('usa')); // outputs ['Ford', 'Dodge']
+console.log(getCarsByState('france')); // outputs ['Renault', 'Peugeot']
+
+
