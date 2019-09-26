@@ -1,0 +1,425 @@
+ERROR - 2019-08-04 03:30:30 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 03:30:30 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 06:32:02 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 06:32:02 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 08:09:48 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 08:09:48 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 08:09:49 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:09:49 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:10:33 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 08:10:33 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 08:10:33 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:10:33 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:42:55 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 08:43:03 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 08:43:03 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:43:03 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:43:19 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 08:43:19 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 08:43:19 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 08:43:19 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 08:45:14 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 08:45:14 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 08:45:14 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 08:45:14 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 10:47:16 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 10:47:16 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 12:20:55 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 12:20:55 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 12:21:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 12:21:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 12:21:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 12:21:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 12:22:01 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at /home/hireabox/crm/application/controllers/Enquiries.php:24) /home/hireabox/crm/system/helpers/url_helper.php 564
+ERROR - 2019-08-04 12:39:51 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 12:39:51 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 12:43:14 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 12:43:14 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 12:44:45 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 12:44:45 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 12:44:45 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 12:44:45 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 12:44:51 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 12:44:51 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 12:44:51 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 12:44:51 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 12:44:51 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 605
+ERROR - 2019-08-04 12:44:51 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 744
+ERROR - 2019-08-04 12:44:56 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 12:44:56 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 12:44:57 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/enquiries_notes_view.php 10
+ERROR - 2019-08-04 12:49:26 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 12:49:26 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 12:49:26 --> 404 Page Not Found: Apple-touch-icon-precomposedpng/index
+ERROR - 2019-08-04 12:49:26 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:37 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:42 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/third_party/mpdf/classes/otl.php 5377
+ERROR - 2019-08-04 12:49:49 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 12:49:49 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 12:49:49 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 12:49:49 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1136
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Cannot assign an empty string to a string offset /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1139
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'ID' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> Illegal string offset 'LANG' /home/hireabox/crm/application/third_party/mpdf/classes/cssmgr.php 1190
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> A non-numeric value encountered /home/hireabox/crm/application/third_party/mpdf/mpdf.php 31965
+ERROR - 2019-08-04 12:49:51 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/third_party/mpdf/classes/otl.php 5377
+ERROR - 2019-08-04 13:13:04 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 13:13:04 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 13:13:04 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 13:13:04 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 13:25:34 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 13:25:34 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 13:25:34 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 13:25:34 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 14:27:43 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 14:27:43 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 14:44:19 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:44:19 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:44:19 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:44:19 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:44:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:44:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:44:39 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:44:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:45:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:45:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:45:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:45:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:45:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:45:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:45:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:45:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:45:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:45:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:45:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:45:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:46:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:46:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:46:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:46:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:46:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:46:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:46:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:46:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:46:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:46:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:46:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:46:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:47:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:47:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:47:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:47:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:47:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:47:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:47:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:47:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:47:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:47:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:47:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:47:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:48:08 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:48:08 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:48:08 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:48:08 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:48:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:48:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:48:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:48:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:48:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:48:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:48:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:48:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:49:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:49:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:49:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:49:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:49:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:49:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:49:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:49:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:49:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:49:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:49:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:49:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:50:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:50:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:50:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:50:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:50:29 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:50:29 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:50:29 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:50:29 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:50:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:50:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:50:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:50:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:51:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:51:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:51:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:51:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:51:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:51:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:51:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:51:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:51:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:51:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:51:48 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:51:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:52:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:52:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:52:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:52:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:52:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:52:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:52:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:52:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:52:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 14:52:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 14:52:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:52:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:52:48 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:52:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:53:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:53:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:53:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:53:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:53:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:53:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:53:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:53:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:53:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:53:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:53:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:53:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:54:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:54:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:54:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:54:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:54:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:54:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:54:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:54:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:54:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:54:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:54:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:54:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:55:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:55:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:55:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:55:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:55:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:55:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:55:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:55:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:55:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:55:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:55:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:55:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:56:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:56:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:56:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:56:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:56:28 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:56:28 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:56:28 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:56:28 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:56:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:56:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:56:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:56:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:57:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:57:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:57:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:57:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:57:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:57:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:57:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:57:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:57:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:57:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:57:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:57:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:58:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:58:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:58:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:58:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:58:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:58:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:58:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:58:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:58:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:58:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:58:48 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:58:48 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:59:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:59:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:59:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:59:07 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:59:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:59:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:59:27 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:59:27 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 14:59:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 37
+ERROR - 2019-08-04 14:59:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 42
+ERROR - 2019-08-04 14:59:47 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Notification.php 47
+ERROR - 2019-08-04 14:59:47 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/controllers/Notification.php 68
+ERROR - 2019-08-04 15:24:55 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 15:24:55 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 15:26:20 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 15:26:20 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 15:26:21 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 15:26:21 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 15:26:21 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 15:26:21 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 15:40:56 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 15:40:56 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 15:40:57 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:40:57 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:41:04 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 15:41:04 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 15:41:04 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 15:41:04 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 15:41:45 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 15:41:45 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 15:41:45 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 15:41:45 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 15:41:53 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 15:41:53 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 15:41:54 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/enquiries_notes_view.php 10
+ERROR - 2019-08-04 15:41:58 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_booking_view.php 323
+ERROR - 2019-08-04 15:41:58 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_booking_view.php 407
+ERROR - 2019-08-04 15:42:05 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Email.php 651
+ERROR - 2019-08-04 15:42:11 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/controllers/Enquiries.php 1064
+ERROR - 2019-08-04 15:42:37 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 15:42:37 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 15:42:37 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:42:37 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:42:59 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 15:42:59 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 15:42:59 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:42:59 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:51:31 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 15:51:31 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 15:51:31 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 15:51:31 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 17:10:55 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 17:10:55 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 17:11:36 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 17:11:36 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 17:11:36 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 17:11:37 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 17:11:39 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 17:11:39 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 17:11:39 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 17:11:39 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 17:11:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 605
+ERROR - 2019-08-04 17:11:39 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 744
+ERROR - 2019-08-04 18:24:43 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 18:24:43 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 18:24:43 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 18:24:43 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 19:51:46 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 19:51:46 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 19:54:25 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 19:54:25 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 19:54:25 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 19:54:25 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 20:02:52 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 20:02:52 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 20:02:52 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 20:02:52 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 20:27:41 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 20:27:41 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 20:31:09 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 20:31:09 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 20:31:09 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 20:31:09 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 20:31:11 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 20:31:11 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 20:31:11 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 20:31:11 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 20:31:11 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 605
+ERROR - 2019-08-04 20:31:11 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 744
+ERROR - 2019-08-04 21:06:15 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 21:06:15 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 21:08:18 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 21:08:18 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 21:08:18 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:08:18 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:08:30 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 21:08:30 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 21:08:30 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:08:30 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:09:41 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 21:09:41 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 21:09:41 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:09:41 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:09:43 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 21:09:43 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 21:09:43 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 21:09:43 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 21:09:43 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 605
+ERROR - 2019-08-04 21:09:43 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 744
+ERROR - 2019-08-04 21:09:58 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 758
+ERROR - 2019-08-04 21:09:58 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 768
+ERROR - 2019-08-04 21:09:59 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/enquiries_notes_view.php 10
+ERROR - 2019-08-04 21:22:58 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 21:22:58 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 21:22:58 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:22:58 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:57:13 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 21:57:13 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 21:57:29 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 21:57:29 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 21:57:29 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:57:29 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 21:57:30 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 246
+ERROR - 2019-08-04 21:57:30 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 267
+ERROR - 2019-08-04 21:57:30 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 349
+ERROR - 2019-08-04 21:57:30 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_enquiries_view.php 435
+ERROR - 2019-08-04 21:57:30 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 605
+ERROR - 2019-08-04 21:57:30 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/views/edit_enquiries_view.php 744
+ERROR - 2019-08-04 22:15:38 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 22:15:38 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 22:16:29 --> 404 Page Not Found: Apple-touch-icon-120x120-precomposedpng/index
+ERROR - 2019-08-04 22:16:29 --> 404 Page Not Found: Apple-touch-icon-120x120png/index
+ERROR - 2019-08-04 22:16:29 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 22:16:29 --> 404 Page Not Found: Apple-touch-iconpng/index
+ERROR - 2019-08-04 22:26:24 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_booking_view.php 323
+ERROR - 2019-08-04 22:26:24 --> Severity: Warning --> Invalid argument supplied for foreach() /home/hireabox/crm/application/views/edit_booking_view.php 407
+ERROR - 2019-08-04 22:26:24 --> 404 Page Not Found: _forms/controls
+ERROR - 2019-08-04 22:34:17 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 22:34:17 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 22:34:17 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 22:34:17 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 22:36:25 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 22:36:25 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169
+ERROR - 2019-08-04 22:45:15 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 159
+ERROR - 2019-08-04 22:45:15 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable /home/hireabox/crm/application/models/Enquiry_model.php 169

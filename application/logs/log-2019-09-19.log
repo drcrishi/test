@@ -1,0 +1,2 @@
+ERROR - 2019-09-19 17:10:56 --> 404 Page Not Found: Crontest/testing
+ERROR - 2019-09-19 17:12:26 --> Severity: error --> Exception: Call to undefined function now() D:\wamp\www\crm\application\controllers\Crontest.php 14
