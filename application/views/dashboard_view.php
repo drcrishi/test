@@ -40,22 +40,6 @@ foreach ($getChartForFiveMonth as $getEnquiryChartData) {
     <?php
 }
 ?>
-<?php
-
-/*foreach ($getEnquiryChartDataByMonth as $getEnquiryChartData) {
-    if($getEnquiryChartData['bookingcnt'] == NULL){
-        $getEnquiryChartData['bookingcnt'] = 0;
-    }
-    if("January-18"==$getEnquiryChartData['enqStrmonth'] . '-' . $getEnquiryChartData['enqYear']){
-        $getEnquiryChartData['bookingcnt']=171;
-    }
-    ?>
-            chartData.push(['<?php echo $getEnquiryChartData['enqStrmonth'] . '-' . $getEnquiryChartData['enqYear']; ?>', <?php echo $getEnquiryChartData['enquiryCnt']; ?>, <?php echo $getEnquiryChartData['bookingcnt']; ?>]);
-    <?php
-}*/
-?>        
-        
-
     </script>
     <div class="page-wrapper">
         <!-- BEGIN HEADER -->
