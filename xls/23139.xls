@@ -1,0 +1,230 @@
+,    <table width="100%" border="1" id="reportTable" style="border-collapse: collapse;border-bottom: 1px solid;"> 
+    <tr>
+        <th>State</th>
+        <th>Removalist</th>
+        <th>Client</th>
+        <th>Move Date</th>
+        <th align="right">Total Cost</th>
+        <th align="right">Total Revenue</th>
+        <th align="right">Margin</th>
+    </tr>
+        <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td>NSW</td>
+                                            <td>gautam</td>
+                                            <!--<td>Darshak</td>-->
+                                <td>Darshak</td>    
+            <td>08/11/2017</td>
+            <td align="right">$50.00</td>
+            <td align="right">$250.00</td>
+            <td align="right">$200.00</td>
+        </tr>
+            <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//50.00</strong></td>
+    <td align="right"><strong>$//250.00</strong></td>
+    <td align="right"><strong>$//200.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td class="no-border"></td>-->
+                                <td>Darshak</td>    
+            <td>16/11/2017</td>
+            <td align="right">$80.00</td>
+            <td align="right">$100.00</td>
+            <td align="right">$20.00</td>
+        </tr>
+            <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//130.00</strong></td>
+    <td align="right"><strong>$//350.00</strong></td>
+    <td align="right"><strong>$//220.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>bhaveshbhai</td>-->
+                                <td>bhaveshbhai</td>    
+            <td>14/11/2017</td>
+            <td align="right">$400.00</td>
+            <td align="right">$800.00</td>
+            <td align="right">$400.00</td>
+        </tr>
+            <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//530.00</strong></td>
+    <td align="right"><strong>$//1,150.00</strong></td>
+    <td align="right"><strong>$//620.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Darshak</td>-->
+                                <td>Darshak</td>    
+            <td>08/11/2017</td>
+            <td align="right">$50.00</td>
+            <td align="right">$250.00</td>
+            <td align="right">$200.00</td>
+        </tr>
+            <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//580.00</strong></td>
+    <td align="right"><strong>$//1,400.00</strong></td>
+    <td align="right"><strong>$//820.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td class="no-border"></td>
+                                            <td>gomzeel</td>
+                                            <!--<td>Darshak</td>-->
+                                <td>Darshak</td>    
+            <td>15/11/2017</td>
+            <td align="right">$25.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$375.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$605.00</strong></td>
+                    <td align="right"><strong>$1,800.00</strong></td>
+                    <td align="right"><strong>$1,195.00</strong></td>
+                </tr>
+                    <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//1,800.00</strong></td>
+    <td align="right"><strong>$//1,195.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td>VIC</td>
+                                            <td>Pinkal</td>
+                                            <!--<td>jignasa</td>-->
+                                <td>jignasa</td>    
+            <td>14/11/2017</td>
+            <td align="right">$0.00</td>
+            <td align="right">$0.00</td>
+            <td align="right">$0.00</td>
+        </tr>
+            <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>zeell</td>-->
+                                <td>zeell</td>    
+            <td>01/11/2017</td>
+            <td align="right">$50.00</td>
+            <td align="right">$100.00</td>
+            <td align="right">$50.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$50.00</strong></td>
+                    <td align="right"><strong>$100.00</strong></td>
+                    <td align="right"><strong>$50.00</strong></td>
+                </tr>
+                    <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//100.00</strong></td>
+    <td align="right"><strong>$//50.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td>WA</td>
+                                            <td>zeell</td>
+                                            <!--<td>Pinkal</td>-->
+                                <td>Pinkal</td>    
+            <td>01/11/2017</td>
+            <td align="right">$500.00</td>
+            <td align="right">$999.99</td>
+            <td align="right">$499.99</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td  align="right"><strong>$500.00</strong></td>
+                    <td align="right"><strong>$999.99</strong></td>
+                    <td align="right"><strong>$499.99</strong></td>
+                </tr>
+                    <tr>
+        <td colspan="4" align="right"><strong>Grand-Total</strong></td>
+        <td align="right"><strong>$1,155.00</strong></td>
+        <td align="right"><strong>$2,899.99</strong></td>
+        <td align="right"><strong>$1,744.99</strong></td>            
+    </tr>
+</table>
+<br>
+ 
+
+ <script>
+ jQuery(document).ready(function () {    
+	$("#exportPDFviewer").click(function(){
+		$('#pdforxls').val('pdf');
+	});	
+	$("#exportXLSviewer").click(function(){
+		$('#pdforxls').val('xls');
+	});
+	
+	//$("#exportPDFviewer").trigger("click").attr("target", "_blank");
+});
+ </script>
+<style type="text/css">
+    #reportTable th{
+        background: #ECECEC;
+        padding: 6px;
+        text-align: center;
+    }
+    #reportTable td{
+        border-bottom: none;
+        padding: 5px;
+    }
+    .no-border{
+        border-top: none;
+        border-right: 1px solid;
+    }
+    .revenue-logo{display: block; margin: 0 auto; margin-bottom: 10px;}
+/*    .top-border{
+        border-top:1px solid;
+    }*/
+</style>

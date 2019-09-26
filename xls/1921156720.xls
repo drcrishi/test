@@ -1,0 +1,577 @@
+,<table width="100%" border="1" id="reportTable" style="border-collapse: collapse;border-bottom: 1px solid;"> 
+    <tr>
+        <th>State</th>
+        <th>Service</th>
+        <th>Removalist</th>
+        <th>Client</th>
+        <th>Move Date</th>
+        <th align="right">Total Cost</th>
+        <th align="right">Total Revenue</th>
+        <th align="right">Margin</th>
+    </tr>
+            <tr>
+                            <td>NSW</td>
+                                <td>Removal</td>
+                                            <td>Chris Murfet (NSW)</td>
+                                            <!--<td>Adriana Aguilera</td>-->
+                            <td>Adriana Aguilera</td>    
+            <td>01/07/2018</td>
+            <td align="right">$450.00</td>
+            <td align="right">$600.00</td>
+            <td align="right">$150.00</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Alexandra Coulter</td>-->
+                            <td>Alexandra Coulter</td>    
+            <td>06/07/2018</td>
+            <td align="right">$472.50</td>
+            <td align="right">$630.00</td>
+            <td align="right">$157.50</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Arnaldo Sandoval</td>-->
+                            <td>Arnaldo Sandoval</td>    
+            <td>05/07/2018</td>
+            <td align="right">$720.00</td>
+            <td align="right">$960.00</td>
+            <td align="right">$240.00</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Christina Gaehl</td>-->
+                            <td>Christina Gaehl</td>    
+            <td>03/07/2018</td>
+            <td align="right">$877.50</td>
+            <td align="right">$1,170.00</td>
+            <td align="right">$292.50</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Eri Liu</td>-->
+                            <td>Eri Liu</td>    
+            <td>01/07/2018</td>
+            <td align="right">$315.00</td>
+            <td align="right">$420.00</td>
+            <td align="right">$105.00</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Roz Moffat</td>-->
+                            <td>Roz Moffat</td>    
+            <td>04/07/2018</td>
+            <td align="right">$720.00</td>
+            <td align="right">$960.00</td>
+            <td align="right">$240.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$3,555.00</strong></td>
+                    <td align="right"><strong>$4,740.00</strong></td>
+                    <td align="right"><strong>$1,185.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Daniel Muller (NSW)</td>
+                                            <!--<td>Gene Quevedo</td>-->
+                            <td>Gene Quevedo</td>    
+            <td>14/07/2018</td>
+            <td align="right">$405.00</td>
+            <td align="right">$540.00</td>
+            <td align="right">$135.00</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Praveen Ranjan</td>-->
+                            <td>Praveen Ranjan</td>    
+            <td>14/07/2018</td>
+            <td align="right">$405.00</td>
+            <td align="right">$540.00</td>
+            <td align="right">$135.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$810.00</strong></td>
+                    <td align="right"><strong>$1,080.00</strong></td>
+                    <td align="right"><strong>$270.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$4,365.00</strong></td>
+                    <td align="right"><strong>$5,820.00</strong></td>
+                    <td align="right"><strong>$1,455.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td>Packing/Unpacking</td>
+                                            <td>Effie Balomatis <br/> Christine Gooley</td>
+                                            <!--<td>Annie Cannon-Brookes</td>-->
+                            <td>Annie Cannon-Brookes</td>    
+            <td>02/07/2018</td>
+            <td align="right">$450.00</td>
+            <td align="right">$750.00</td>
+            <td align="right">$300.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$450.00</strong></td>
+                    <td align="right"><strong>$750.00</strong></td>
+                    <td align="right"><strong>$300.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Effie Balomatis <br/> Victoria Kitanov</td>
+                                            <!--<td>Kylie Jackson</td>-->
+                            <td>Kylie Jackson</td>    
+            <td>07/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Joanna Rogers <br/> Effie Balomatis <br/> Sharon Augustin</td>
+                                            <!--<td>Annie Cannon-Brookes</td>-->
+                            <td>Annie Cannon-Brookes</td>    
+            <td>10/07/2018</td>
+            <td align="right">$630.00</td>
+            <td align="right">$1,050.00</td>
+            <td align="right">$420.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$630.00</strong></td>
+                    <td align="right"><strong>$1,050.00</strong></td>
+                    <td align="right"><strong>$420.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Joanna Rogers <br/> Sharon Augustin</td>
+                                            <!--<td>Anna Gorton</td>-->
+                            <td>Anna Gorton</td>    
+            <td>07/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Karen Niederer <br/> Sharna Fish</td>
+                                            <!--<td>Ralph Zeltzer</td>-->
+                            <td>Ralph Zeltzer</td>    
+            <td>07/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Karen Niederer <br/> Victoria Kitanov</td>
+                                            <!--<td>Athena Kontellis</td>-->
+                            <td>Athena Kontellis</td>    
+            <td>02/07/2018</td>
+            <td align="right">$330.00</td>
+            <td align="right">$550.00</td>
+            <td align="right">$220.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$330.00</strong></td>
+                    <td align="right"><strong>$550.00</strong></td>
+                    <td align="right"><strong>$220.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Monique Lambert <br/> Karen Niederer</td>
+                                            <!--<td>Ralph Zeltzer</td>-->
+                            <td>Ralph Zeltzer</td>    
+            <td>06/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Victoria Kitanov <br/> Effie Balomatis</td>
+                                            <!--<td>Kylie Jackson</td>-->
+                            <td>Kylie Jackson</td>    
+            <td>06/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$2,610.00</strong></td>
+                    <td align="right"><strong>$4,350.00</strong></td>
+                    <td align="right"><strong>$1,740.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>QLD</td>
+                                <td>Packing/Unpacking</td>
+                                            <td>Jenny Monaghan <br/> Sarah Antliff</td>
+                                            <!--<td>Helen Bell</td>-->
+                            <td>Helen Bell</td>    
+            <td>09/07/2018</td>
+            <td align="right">$271.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$129.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$271.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$129.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$271.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$129.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td>Removal</td>
+                                            <td>Lupa Bernacchi (QLD)</td>
+                                            <!--<td>Brian Martin</td>-->
+                            <td>Brian Martin</td>    
+            <td>05/07/2018</td>
+            <td align="right">$660.00</td>
+            <td align="right">$880.00</td>
+            <td align="right">$220.00</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Meredith Nolan</td>-->
+                            <td>Meredith Nolan</td>    
+            <td>09/07/2018</td>
+            <td align="right">$360.00</td>
+            <td align="right">$480.00</td>
+            <td align="right">$120.00</td>
+                    </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Michael Tangue</td>-->
+                            <td>Michael Tangue</td>    
+            <td>07/07/2018</td>
+            <td align="right">$630.00</td>
+            <td align="right">$840.00</td>
+            <td align="right">$210.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$1,650.00</strong></td>
+                    <td align="right"><strong>$2,200.00</strong></td>
+                    <td align="right"><strong>$550.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$1,650.00</strong></td>
+                    <td align="right"><strong>$2,200.00</strong></td>
+                    <td align="right"><strong>$550.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td>Packing/Unpacking</td>
+                                            <td>Sarah Antliff <br/> Nerida Smith</td>
+                                            <!--<td>Sasha Wishart</td>-->
+                            <td>Sasha Wishart</td>    
+            <td>04/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>SA</td>
+                                <td>Removal</td>
+                                            <td>Ali Chandoo (SA)</td>
+                                            <!--<td>Kateryna Miniailo</td>-->
+                            <td>Kateryna Miniailo</td>    
+            <td>04/07/2018</td>
+            <td align="right">$225.00</td>
+            <td align="right">$300.00</td>
+            <td align="right">$75.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$225.00</strong></td>
+                    <td align="right"><strong>$300.00</strong></td>
+                    <td align="right"><strong>$75.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Harmeet Ghumman (SA)</td>
+                                            <!--<td>Andrew Martin</td>-->
+                            <td>Andrew Martin</td>    
+            <td>02/07/2018</td>
+            <td align="right">$840.00</td>
+            <td align="right">$1,120.00</td>
+            <td align="right">$280.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$840.00</strong></td>
+                    <td align="right"><strong>$1,120.00</strong></td>
+                    <td align="right"><strong>$280.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$1,065.00</strong></td>
+                    <td align="right"><strong>$1,420.00</strong></td>
+                    <td align="right"><strong>$355.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>WA</td>
+                                <td>Packing/Unpacking</td>
+                                            <td>Dorina Crisan <br/> Jacqueline Pixie Hanson</td>
+                                            <!--<td>Leanne Percival</td>-->
+                            <td>Leanne Percival</td>    
+            <td>02/07/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+                    </tr>
+                        <tr>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                                <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                    <td align="right"><strong>$400.00</strong></td>
+                    <td align="right"><strong>$160.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td>Removal</td>
+                                            <td>Frank Femia (WA)</td>
+                                            <!--<td>Leanne Percival</td>-->
+                            <td>Leanne Percival</td>    
+            <td>01/07/2018</td>
+            <td align="right">$945.00</td>
+            <td align="right">$1,260.00</td>
+            <td align="right">$315.00</td>
+                    </tr>
+                    <tr>
+                <td class="no-border"></td>
+                <td class="no-border"></td>
+                <td></td>
+                <td></td>
+                <td align="right"><strong>Sub-Total</strong></td>
+                <td align="right"><strong>$945.00</strong></td>
+                <td align="right"><strong>$1,260.00</strong></td>
+                <td align="right"><strong>$315.00</strong></td>
+            </tr>
+                            <tr>
+                    <td class="no-border top-border"></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td  align="right"><strong>$945.00</strong></td>
+                    <td align="right"><strong>$1,260.00</strong></td>
+                    <td align="right"><strong>$315.00</strong></td>
+                </tr>
+                    <tr>
+        <td colspan="5" align="right"><strong>Grand-Total</strong></td>
+        <td align="right"><strong>$11,386.00</strong></td>
+        <td align="right"><strong>$16,250.00</strong></td>
+        <td align="right"><strong>$4,864.00</strong></td>            
+    </tr>
+</table>
+<br>
+
+
+<script>
+    jQuery(document).ready(function () {
+        $("#exportPDFviewer").click(function () {
+            $('#pdforxls').val('pdf');
+        });
+        $("#exportXLSviewer").click(function () {
+            $('#pdforxls').val('xls');
+        });
+
+        //$("#exportPDFviewer").trigger("click").attr("target", "_blank");
+    });
+</script>
+<style type="text/css">
+    #reportTable th{
+        background: #ECECEC;
+        padding: 6px;
+        text-align: center;
+    }
+    #reportTable td{
+        border-bottom: none;
+        padding: 5px;
+    }
+    .no-border{
+        border-top: none;
+        border-right: 1px solid;
+    }
+    .revenue-logo{display: block; margin: 0 auto; margin-bottom: 10px;}
+    /*    .top-border{
+            border-top:1px solid;
+        }*/
+</style>

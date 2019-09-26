@@ -1,0 +1,397 @@
+,<table width="100%" border="1" id="reportTable" style="border-collapse: collapse;border-bottom: 1px solid;"> 
+    <tr>
+        <th>State</th>
+        <th>Service</th>
+        <th>Removalist</th>
+        <th>Client</th>
+        <th>Move Date</th>
+        <th align="right">Total Cost</th>
+        <th align="right">Total Revenue</th>
+        <th align="right">Margin</th>
+    </tr>
+            <tr>
+                            <td>NSW</td>
+                                <td>Removal</td>
+                                            <td>Chris</td>
+                                            <!--<td>Jon</td>-->
+                            <td>Jon</td>    
+            <td>03/02/2018</td>
+            <td align="right">$1,620.00</td>
+            <td align="right">$2,160.00</td>
+            <td align="right">$540.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Jovina</td>-->
+                            <td>Jovina</td>    
+            <td>03/02/2018</td>
+            <td align="right">$371.00</td>
+            <td align="right">$500.00</td>
+            <td align="right">$129.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>John</td>-->
+                            <td>John</td>    
+            <td>02/02/2018</td>
+            <td align="right">$585.00</td>
+            <td align="right">$780.00</td>
+            <td align="right">$195.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Monique</td>-->
+                            <td>Monique</td>    
+            <td>04/02/2018</td>
+            <td align="right">$405.00</td>
+            <td align="right">$540.00</td>
+            <td align="right">$135.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Rose</td>-->
+                            <td>Rose</td>    
+            <td>03/02/2018</td>
+            <td align="right">$495.00</td>
+            <td align="right">$660.00</td>
+            <td align="right">$165.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Jessica</td>-->
+                            <td>Jessica</td>    
+            <td>01/02/2018</td>
+            <td align="right">$315.00</td>
+            <td align="right">$420.00</td>
+            <td align="right">$105.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Shashank</td>-->
+                            <td>Shashank</td>    
+            <td>05/02/2018</td>
+            <td align="right">$360.00</td>
+            <td align="right">$480.00</td>
+            <td align="right">$120.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Jane</td>-->
+                            <td>Jane</td>    
+            <td>05/02/2018</td>
+            <td align="right">$405.00</td>
+            <td align="right">$540.00</td>
+            <td align="right">$135.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Kenneth</td>-->
+                            <td>Kenneth</td>    
+            <td>02/02/2018</td>
+            <td align="right">$225.00</td>
+            <td align="right">$300.00</td>
+            <td align="right">$75.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Antonio</td>-->
+                            <td>Antonio</td>    
+            <td>01/02/2018</td>
+            <td align="right">$450.00</td>
+            <td align="right">$600.00</td>
+            <td align="right">$150.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Kelly</td>-->
+                            <td>Kelly</td>    
+            <td>01/02/2018</td>
+            <td align="right">$1,023.00</td>
+            <td align="right">$1,320.00</td>
+            <td align="right">$297.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>John</td>
+                                            <!--<td>Stephanie</td>-->
+                            <td>Stephanie</td>    
+            <td>03/02/2018</td>
+            <td align="right">$540.00</td>
+            <td align="right">$720.00</td>
+            <td align="right">$180.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Lindley</td>-->
+                            <td>Lindley</td>    
+            <td>05/02/2018</td>
+            <td align="right">$765.00</td>
+            <td align="right">$1,020.00</td>
+            <td align="right">$255.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Brianna</td>-->
+                            <td>Brianna</td>    
+            <td>03/02/2018</td>
+            <td align="right">$315.00</td>
+            <td align="right">$420.00</td>
+            <td align="right">$105.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$7,874.00</strong></td>
+                    <td align="right"><strong>$10,460.00</strong></td>
+                    <td align="right"><strong>$2,586.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td>Packing/Unpacking</td>
+                                            <td>Sharna</td>
+                                            <!--<td>Jon</td>-->
+                            <td>Jon</td>    
+            <td>02/02/2018</td>
+            <td align="right">$360.00</td>
+            <td align="right">$600.00</td>
+            <td align="right">$240.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$360.00</strong></td>
+                    <td align="right"><strong>$600.00</strong></td>
+                    <td align="right"><strong>$240.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>QLD</td>
+                                <td>Packing/Unpacking</td>
+                                            <td></td>
+                                            <!--<td>Denham</td>-->
+                            <td>Denham</td>    
+            <td>05/02/2018</td>
+            <td align="right">$320.00</td>
+            <td align="right">$500.00</td>
+            <td align="right">$180.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Nicole</td>-->
+                            <td>Nicole</td>    
+            <td>03/02/2018</td>
+            <td align="right">$360.00</td>
+            <td align="right">$600.00</td>
+            <td align="right">$240.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$680.00</strong></td>
+                    <td align="right"><strong>$1,100.00</strong></td>
+                    <td align="right"><strong>$420.00</strong></td>
+                </tr>
+                        <tr>
+                            <td class="no-border"></td>
+                                <td>Removal</td>
+                                            <td>Oliver</td>
+                                            <!--<td>Ken</td>-->
+                            <td>Ken</td>    
+            <td>03/02/2018</td>
+            <td align="right">$720.00</td>
+            <td align="right">$960.00</td>
+            <td align="right">$240.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Daniel</td>-->
+                            <td>Daniel</td>    
+            <td>03/02/2018</td>
+            <td align="right">$675.00</td>
+            <td align="right">$900.00</td>
+            <td align="right">$225.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Sabina</td>-->
+                            <td>Sabina</td>    
+            <td>03/02/2018</td>
+            <td align="right">$360.00</td>
+            <td align="right">$480.00</td>
+            <td align="right">$120.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Cameron</td>-->
+                            <td>Cameron</td>    
+            <td>05/02/2018</td>
+            <td align="right">$495.00</td>
+            <td align="right">$660.00</td>
+            <td align="right">$165.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$2,250.00</strong></td>
+                    <td align="right"><strong>$3,000.00</strong></td>
+                    <td align="right"><strong>$750.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>SA</td>
+                                <td>Removal</td>
+                                            <td>Ali</td>
+                                            <!--<td>Andrea</td>-->
+                            <td>Andrea</td>    
+            <td>03/02/2018</td>
+            <td align="right">$315.00</td>
+            <td align="right">$420.00</td>
+            <td align="right">$105.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>Emily</td>-->
+                            <td>Emily</td>    
+            <td>02/02/2018</td>
+            <td align="right">$315.00</td>
+            <td align="right">$420.00</td>
+            <td align="right">$105.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$630.00</strong></td>
+                    <td align="right"><strong>$840.00</strong></td>
+                    <td align="right"><strong>$210.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>VIC</td>
+                                <td>Removal</td>
+                                            <td>Dener</td>
+                                            <!--<td>Vijaya</td>-->
+                            <td>Vijaya</td>    
+            <td>05/02/2018</td>
+            <td align="right">$630.00</td>
+            <td align="right">$840.00</td>
+            <td align="right">$210.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$630.00</strong></td>
+                    <td align="right"><strong>$840.00</strong></td>
+                    <td align="right"><strong>$210.00</strong></td>
+                </tr>
+                        <tr>
+                            <td>WA</td>
+                                <td>Removal</td>
+                                            <td>Frank</td>
+                                            <!--<td>Kate</td>-->
+                            <td>Kate</td>    
+            <td>03/02/2018</td>
+            <td align="right">$540.00</td>
+            <td align="right">$720.00</td>
+            <td align="right">$180.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td  align="right"><strong>$540.00</strong></td>
+                    <td align="right"><strong>$720.00</strong></td>
+                    <td align="right"><strong>$180.00</strong></td>
+                </tr>
+                    <tr>
+        <td colspan="5" align="right"><strong>Grand-Total</strong></td>
+        <td align="right"><strong>$12,964.00</strong></td>
+        <td align="right"><strong>$17,560.00</strong></td>
+        <td align="right"><strong>$4,596.00</strong></td>            
+    </tr>
+</table>
+<br>
+
+
+<script>
+    jQuery(document).ready(function () {
+        $("#exportPDFviewer").click(function () {
+            $('#pdforxls').val('pdf');
+        });
+        $("#exportXLSviewer").click(function () {
+            $('#pdforxls').val('xls');
+        });
+
+        //$("#exportPDFviewer").trigger("click").attr("target", "_blank");
+    });
+</script>
+<style type="text/css">
+    #reportTable th{
+        background: #ECECEC;
+        padding: 6px;
+        text-align: center;
+    }
+    #reportTable td{
+        border-bottom: none;
+        padding: 5px;
+    }
+    .no-border{
+        border-top: none;
+        border-right: 1px solid;
+    }
+    .revenue-logo{display: block; margin: 0 auto; margin-bottom: 10px;}
+    /*    .top-border{
+            border-top:1px solid;
+        }*/
+</style>

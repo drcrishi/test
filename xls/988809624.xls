@@ -1,0 +1,105 @@
+,<table width="100%" border="1" id="reportTable" style="border-collapse: collapse;border-bottom: 1px solid;"> 
+    <tr>
+        <th>State</th>
+        <th>Service</th>
+        <th>Removalist</th>
+        <th>Client</th>
+        <th>Move Date</th>
+        <th align="right">Total Cost</th>
+        <th align="right">Total Revenue</th>
+        <th align="right">Margin</th>
+    </tr>
+            <tr>
+                            <td>QLD</td>
+                                <td>Removal</td>
+                                            <td>Oliver</td>
+                                            <!--<td>Jonathan</td>-->
+                            <td>Jonathan</td>    
+            <td>25/01/2018</td>
+            <td align="right">$292.50</td>
+            <td align="right">$390.00</td>
+            <td align="right">$97.50</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td align="right"><strong>$292.50</strong></td>
+                    <td align="right"><strong>$390.00</strong></td>
+                    <td align="right"><strong>$97.50</strong></td>
+                </tr>
+                        <tr>
+                            <td>SA</td>
+                                <td>Packing/Unpacking</td>
+                                            <td>Elly</td>
+                                            <!--<td>David</td>-->
+                            <td>David</td>    
+            <td>31/01/2018</td>
+            <td align="right">$540.00</td>
+            <td align="right">$900.00</td>
+            <td align="right">$360.00</td>
+        </tr>
+                <tr>
+                            <td class="no-border"></td>
+                                <td class="no-border"></td>
+                                            <td>Kim</td>
+                                            <!--<td>Margaret</td>-->
+                            <td>Margaret</td>    
+            <td>27/01/2018</td>
+            <td align="right">$240.00</td>
+            <td align="right">$400.00</td>
+            <td align="right">$160.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td  align="right"><strong>$780.00</strong></td>
+                    <td align="right"><strong>$1,300.00</strong></td>
+                    <td align="right"><strong>$520.00</strong></td>
+                </tr>
+                    <tr>
+        <td colspan="5" align="right"><strong>Grand-Total</strong></td>
+        <td align="right"><strong>$1,072.50</strong></td>
+        <td align="right"><strong>$1,690.00</strong></td>
+        <td align="right"><strong>$617.50</strong></td>            
+    </tr>
+</table>
+<br>
+
+
+<script>
+    jQuery(document).ready(function () {
+        $("#exportPDFviewer").click(function () {
+            $('#pdforxls').val('pdf');
+        });
+        $("#exportXLSviewer").click(function () {
+            $('#pdforxls').val('xls');
+        });
+
+        //$("#exportPDFviewer").trigger("click").attr("target", "_blank");
+    });
+</script>
+<style type="text/css">
+    #reportTable th{
+        background: #ECECEC;
+        padding: 6px;
+        text-align: center;
+    }
+    #reportTable td{
+        border-bottom: none;
+        padding: 5px;
+    }
+    .no-border{
+        border-top: none;
+        border-right: 1px solid;
+    }
+    .revenue-logo{display: block; margin: 0 auto; margin-bottom: 10px;}
+    /*    .top-border{
+            border-top:1px solid;
+        }*/
+</style>

@@ -1,0 +1,253 @@
+.custom-row {
+    padding: 15px;
+}
+
+.custom-col {
+    padding: 5px 5px;
+}
+
+.custom-col .col-md-12 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.pricelist-form {
+    min-height: 38px;
+    color: #2f353b!important;
+}
+
+.form-control {
+    padding: 6px 6px !important;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+span.state-class {
+    padding: 5px;
+    background-color: bisque;
+    margin-right: 5px;
+}
+
+/* radio button starts*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    margin: 0px 0px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #32c5d2;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* radio button end*/
+
+label.col-md-12.control-label.pricelist-form {
+    /*font-weight: bold;*/
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.fa-trash{
+    color: red;
+}
+.fa-pencil, .fa-save{
+    color: green;
+}
+.rule-title{
+    /*margin: 0;
+    padding: 15px 0;
+    font-weight: bold;
+    color: #555;
+    font-size: 20px;*/
+
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+    padding: 15px 25px;
+    text-align: left;
+}
+.nrf{
+    padding: 0 10px;
+    text-align: center;
+}
+.error-border{
+    border: 1px solid red;
+}
+button.add-new-pricelist ,button.add-new-bedroom{
+    margin-bottom: 10px;
+}
+
+.yui3-calendar-day-selected {
+    background-color: #b3d4ff;
+}
+.bootstrap-select {
+    padding: 0px!important;
+}
+ .bs-searchbox{
+    padding:0px!important;
+ }
+.selectStates {
+    height: 70px!important;
+}
+td.ui-state-highlight {
+    border: 1px solid #fff!important;
+}
+#default-accordion, #custom-accordion, #holiday-accordion, #packing-accordion, #packerholiday-accordion,#collapseDefault, #collapseCustom, #collapseHoliday{
+    border: 1px #578ebe solid;
+    margin-bottom: 25px;
+}
+.people-wrapper {
+    background-color: #e1e5ec;
+}
+#default-values-div, #custom-values-div, #holiday-values-div, #packing-values-div{
+    margin-bottom: 10px;
+}
+.select2-search__field {
+    width: 6em!important;
+}
+.no-margin{margin-left: 0; margin-right: 0;}
+.action-button{margin-bottom: 5px;}
+.readonly-background{background-color: #ececec;}
+
+#default-price-rules-container .delete-pricelist, #custom-price-rules-container .delete-pricelist, #holiday-price-rules-container .delete-pricelist , #packing-price-rules-container .delete-pricelist, #packerholiday-price-rules-container .delete-pricelist{
+    padding:0;
+}
+
+/*  ghanshyam bhai */
+.hide-desk{display: none;}
+.pricelist-headings.hide-mob{padding-top: 20px;}
+input+.slider.round{border-radius: 25px !important;}
+input+.slider.round:before{left: 9px;bottom: 7px;}
+.toToggle{background: #2b3643;border: 1px solid #2b3643;color: #fff;font-size: 30px;width: 30px;height: auto;line-height: 6px;vertical-align: -2px;display: inline-block;padding: 7px 4px 8px; outline: none; margin-left: 10px; float: right; margin-top: -4px;}
+button.add-new-pricelist, button.add-new-bedroom{background: #2b3643;border: 1px solid #2b3643;color: #fff;padding: 5px 25px; margin: 10px 5px 20px;}
+button.add-new-pricelist:hover, button.add-new-bedroom:hover, .toToggle:hover{background: none; color: #2b3643;}
+.update-span.noclick{display: inline-block; position: relative;}
+.update-span.noclick:before{content: ''; position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
+.noclick .fa{color: #bbb;}
+#default-values-div{margin-top: 25px;}
+
+.col-md-offset-0-5{margin-left: 4.166666%;}
+.col-md-offset-1-5{margin-left: 12.48888%;}
+
+.select2-container{border: 1px solid #c2cad8;display: inline-block; min-width: 100%; padding: 5px}
+.select2-selection__choice{display: inline-block;; margin-right: 5px;}
+.select2-container .select2-search--inline .select2-search__field{border: 1px solid #ccc;}
+.select2-container .select2-search--inline{width: 100%;}
+.select2-container .select2-search--inline .select2-search__field{width: 100% !important;}
+.select2-container .select2-selection--multiple .select2-selection__rendered{width: 100%; margin: 0; padding:0; white-space: normal;}
+.select2-results__option[aria-selected="true"]{background: #e1e5ec;}
+
+
+
+@media only screen and (max-width: 767px) {
+    
+    .hide-desk{display: block; min-height: inherit; text-align: left !important;}
+    .hide-mob{display: none;}
+    .row.pricelist-values{margin-left: 0; margin-right: 0; padding: 20px 10px 20px;background: #f5f5f5;margin-bottom: 0px;margin-top: 20px;}
+    .action-button{text-align: center;}
+    .action-button .custom-col{width: auto; float: none; display: inline-block; margin:0px 5px;}
+    .add-price-row{margin-left: 0; margin-right: 0;}
+    .custom-col, .col-md-12, .col-md-6, .col-md-1, .col-md-3, .col-md-2{width: 100%; float: left;}
+    .custom-col .col-auto{width: 50%; float: left; padding-right: 15px !important; text-align: left;}    
+    .col-md-offset-0-5, .col-md-offset-1-5{margin-left: 0;}
+    .bedroom-frm .col-xs-3{width: 25%; padding-left: 5px; padding-right: 5px;}
+    .bedroom-frm .col-xs-2{width: 16.66667%;  padding-left: 5px; padding-right: 5px;}
+    .bedroom-frm .col-xs-4{width: 33.33333%;  padding-left: 5px; padding-right: 5px;}
+    .rule-label{font-size: 12px;}
+    .update-rule, .delete-pricelist{padding: 5px !important;}
+    .rule-title{font-size: 16px; padding: 15px 15px}
+
+}
+
+/* bedroom */
+.bedroom-row, .desk-row, .mover-row, .update-rule, .delete-pricelist {
+    padding: 10px;
+}   
+.bedroom-row a.update-rules, .desk-row a.update-rules {
+    padding: 15px;
+}
+.fa-check{
+    color:green;
+}
+.border-1solid{
+    border: 1px #578ebe solid;
+}
+.toggleAnchor, .toggleAnchor:hover{
+    text-decoration: none;
+    color: #666;
+}
+.bedroom-title{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+    padding: 15px 25px;
+    text-align: left;
+}
+.sub-rule-title{
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 15px; 
+    margin-bottom: 25px;
+}
+.rule-label{
+    font-weight: bold;
+}
+
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
+    background: #32c5d2 none!important;
+    color: white!important;
+}

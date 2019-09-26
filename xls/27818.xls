@@ -1,0 +1,97 @@
+,<table width="100%" border="1" id="reportTable">
+    <tr>
+        <th>State</th>
+        <th>Removalist</th>
+        <th>Client</th>
+        <th>Move Date</th>
+        <th align="right">Total Cost</th>
+        <th align="right">Total Revenue</th>
+        <th align="right">Margin</th>
+    </tr>
+        <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    <td align="right"><strong>$//0.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td>NSW</td>
+                                            <td>gautam</td>
+                                            <!--<td>Darshak</td>-->
+                                <td>Darshak</td>    
+            <td>16/11/2017</td>
+            <td align="right">$80.00</td>
+            <td align="right">$100.00</td>
+            <td align="right">$20.00</td>
+        </tr>
+            <!--                <tr class="re">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><strong>$//80.00</strong></td>
+    <td align="right"><strong>$//100.00</strong></td>
+    <td align="right"><strong>$//20.00</strong></td>
+    </tr>-->
+                <tr>
+                            <td class="no-border"></td>
+                                            <td class="no-border"></td>
+                                            <!--<td>bhavesh</td>-->
+                                <td>bhavesh</td>    
+            <td>14/11/2017</td>
+            <td align="right">$400.00</td>
+            <td align="right">$800.00</td>
+            <td align="right">$400.00</td>
+        </tr>
+                        <tr>
+                    <td class="no-border top-border"></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td align="right"><strong>Sub-Total</strong></td>
+                    <td  align="right"><strong>$480.00</strong></td>
+                    <td align="right"><strong>$900.00</strong></td>
+                    <td align="right"><strong>$420.00</strong></td>
+                </tr>
+                    <tr>
+        <td colspan="4" align="right"><strong>Grand-Total</strong></td>
+        <td align="right"><strong>$480.00</strong></td>
+        <td align="right"><strong>$900.00</strong></td>
+        <td align="right"><strong>$420.00</strong></td>            
+    </tr>
+</table>
+<br>
+ 
+
+ <script>
+ jQuery(document).ready(function () {    
+	$("#exportPDFviewer").click(function(){
+		$('#pdforxls').val('pdf');
+	});	
+	$("#exportXLSviewer").click(function(){
+		$('#pdforxls').val('xls');
+	});
+	
+	//$("#exportPDFviewer").trigger("click").attr("target", "_blank");
+});
+ </script>
+<style type="text/css">
+    #reportTable th{
+        background: #ECECEC;
+        padding: 6px;
+        text-align: center;
+    }
+    #reportTable td{
+        border-bottom: none;
+        padding: 5px;
+    }
+    .no-border{
+        border: none;
+        border-right: 1px solid;
+    }
+/*    .top-border{
+        border-top:1px solid;
+    }*/
+</style>
