@@ -1,0 +1,45 @@
+Software 
+1) Git bash to execute commands - https://git-scm.com/downloads
+
+If you are making a new project then Make a folder of your project and go to the root of your project and execute the following command
+-> git init 
+
+-> git pull - to fetch files from the branch 
+-> git branch [branch name] - lists all branches of your repository
+-> git checkout [branch name] - switches to the desired branch of your repository
+-> git add [file 1] [ file 2] ... [file n]  - moves to staging 
+-> git add . moves all files to staging 
+-> git commit -m [commit message] - commits the changes 
+-> git push- pushes the files to the git repository
+
+to temporarily remove some files from showing in changes execute the following command
+-> git update-index --skip-worktree <file>
+
+to bring it back as before execute the following command
+-> git update-index --no-skip-worktree <file>
+
+
+steps when already a project in local and upload to git
+-> goto the root of project folder
+-> git init
+-> git add .
+-> git commit -m "commit message"
+-> git remote add origin [url]
+-> git push -u origin master
+
+
+to remove a file from git but not from local
+-> git rm --cached [file name]
+-> git commit -m "commit message"
+-> git push origin branch_name  
+
+
+to create a branch and push it to remote
+-> git checkout -b [branch name]
+-> git push -u origin [branch name]
+
+to delete branch locally
+-> git branch -d [branch name]
+
+to delete a branch remotely 
+git push origin --delete [branch name]
