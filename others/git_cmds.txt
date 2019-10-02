@@ -46,7 +46,3 @@ git push origin --delete [branch name]
 
 to unstage a file 
 -> git reset others/git_cmds.txt
-
---------------
-cm1 cmd2
---------------
