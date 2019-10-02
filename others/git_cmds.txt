@@ -49,4 +49,5 @@ to unstage a file
 
 --------------
 first commit
+second commit
 --------------
