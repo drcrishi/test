@@ -45,3 +45,55 @@ console.log(getCarsByState('usa')); // outputs ['Ford', 'Dodge']
 console.log(getCarsByState('france')); // outputs ['Renault', 'Peugeot']
 
 
+instead of using long switch conditions for returning data, follow the below procedures
+
+// use object literal to find fruits by color
+  const fruitColor = {
+    red: ['apple', 'strawberry'],
+    yellow: ['banana', 'pineapple'],
+    purple: ['grape', 'plum']
+  };
+
+function printFruits(color) {
+  return fruitColor[color] || [];
+}
+
+or 
+
+// use Map to find fruits by color
+  const fruitColor = new Map()
+    .set('red', ['apple', 'strawberry'])
+    .set('yellow', ['banana', 'pineapple'])
+    .set('purple', ['grape', 'plum']);
+
+function printFruits(color) {
+  return fruitColor.get(color) || [];
+}
+
+
+Default Parameters and Destructuring
+ ===============old way
+ function printVegetablesWithQuantity(vegetable, quantity = 1) { // 
+  if quantity has no value, assign 1
+
+  if (!vegetable) return;
+    console.log(`We have ${quantity} ${vegetable}!`);
+  }
+
+  //results
+  printVegetablesWithQuantity('cabbage'); // We have 1 cabbage!
+  printVegetablesWithQuantity('potato', 2); // We have 2 potato!
+  
+  
+  =============== new way
+  // destructing - get name property only
+  // assign default empty object {}
+
+  function printVegetableName({name} = {}) {
+   console.log (name || 'unknown');
+ }
+
+
+ printVegetableName(undefined); // unknown
+ printVegetableName({ }); // unknown
+ printVegetableName({ name: 'cabbage', quantity: 2 }); // cabbage
