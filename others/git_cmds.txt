@@ -44,5 +44,26 @@ to delete branch locally
 to delete a branch remotely 
 git push origin --delete [branch name]
 
-to unstage a file 
--> git reset others/git_cmds.txt
+
+If you accidently push changes to git hub you can revert it by following steps
+-> install github desktop sw
+-> connect your repository
+-> in the history you will see the history of commits you have done on that repository
+-> right click on the commit and select option "revert this commit"
+-> check whether the changes are reverted and in the git bash push the changes to the respective branch 
+ 
+ 
+errors
+
+1)
+
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+solution 
+you have unmerged files at that branch 
+use below command to resolve it 
+-> git reset --hard origin/[branch name]
+

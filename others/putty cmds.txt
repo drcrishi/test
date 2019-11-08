@@ -1,0 +1,23 @@
+putty
+
+-> open a file in edit mode
+	sudo nano filename
+	
+-> select all and cut text 
+	ctrl + shift + 6
+	sht + down arrow until the selected text 
+	ctrl + k
+	
+-> paste from clipboard
+	ctrl + shift _ v or right click of mouse
+	
+-> save file
+	ctrl + x 
+	it will ask you to save file 
+	click on y tosave file
+	
+-> 	goto line number
+	ALT + G
+
+
+	
