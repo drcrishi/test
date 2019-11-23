@@ -97,3 +97,61 @@ Default Parameters and Destructuring
  printVegetableName(undefined); // unknown
  printVegetableName({ }); // unknown
  printVegetableName({ name: 'cabbage', quantity: 2 }); // cabbage
+
+
+========> get unique array elements from an array
+
+var fruits = [“banana”, “apple”, “orange”, “watermelon”, “apple”, “orange”, “grape”, “apple”];
+
+// First method
+var uniqueFruits = Array.from(new Set(fruits));
+console.log(uniqueFruits); // returns [“banana”, “apple”, “orange”, “watermelon”, “grape”]
+// Second method
+var uniqueFruits2 = […new Set(fruits)];
+console.log(uniqueFruits2); // returns [“banana”, “apple”, “orange”, “watermelon”, “grape”]
+
+
+========> fill an array with random data
+
+var newArray = new Array(10).fill(“1”);
+console.log(newArray); // returns [“1”, “1”, “1”, “1”, “1”, “1”, “1”, “1”, “1”, “1”, “1”]
+
+
+========> merge multuiple arrays in single array
+
+var fruits = [“apple”, “banana”, “orange”];
+var meat = [“poultry”, “beef”, “fish”];
+var vegetables = [“potato”, “tomato”, “cucumber”];
+var food = […fruits, …meat, …vegetables];
+console.log(food); // [“apple”, “banana”, “orange”, “poultry”, “beef”, “fish”, “potato”, “tomato”, “cucumber”]
+
+
+========> remove empty, null values from array
+
+var mixedArr = [0, “blue”, “”, NaN, 9, true, undefined, “white”, false];
+var trueArr = mixedArr.filter(Boolean);
+console.log(trueArr); // returns [“blue”, 9, true, “white”]
+
+==========>
+
+-> var has function scope while let has block scope
+
+var a=1;
+var b=2;
+if(a === 1){
+    var a=10;
+    let b = 20;
+    console.log(a); //10
+    console.log(b); //20
+}
+console.log(a); //10
+console.log(b); //2
+
+-> const keyword is block scope
+
+-> if you want to send default value of  left parameter to the function then you can send undefined as value
+eg :  
+function setValues(a=10,b=20){
+	return a*b;
+}
+console.log(setValues(undefined,100)); //  1000

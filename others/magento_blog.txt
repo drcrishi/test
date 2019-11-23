@@ -76,6 +76,18 @@ and replace with following
  '$realPath = str_replace('\\', '/', $this->fileDriver->getRealPath($path));'
 
 
+3) if admin panel or frontend doesn't load css then please check if there is .htaccess file in pub and pub/static folder.
+If not then copy from the installation file and paste it 
+
+
+4) invalid form key. please refresh the page on login magento 2
+
+change the baseurl from localhost to 127.0.0.1
+
+5) Uncaught Error: Call to a member function setActive()
+
+	php bin/magento cache:clean
+	php bin/magento deploy:mode:set developer
 ==========================================error section end ========================================
 
 To create a Module in Magento the following files are required
@@ -105,7 +117,7 @@ If your module is showing in disabled modules then run the following command
 Whenever you change a code, run these following commands
 
 ->    php bin/magento setup:upgrade
--> php bin/magento setup:static-content:deploy -f
+-> php bin/magento setup:static-content:deploy -f  / php -dmemory_limit=5G bin/magento setup:static-content:deploy -f
 -> php bin/magento cache:flush
 
 
@@ -169,4 +181,56 @@ Eg: buying different products to assemble a computer
 
 6: Downloadable
 	A downloadable product can be anything that you can deliver as a file, anything you can put online. The files can reside on your server or be provided as URLs to any other server.You can offer an album for sale, and sell each song individually. 
+	
+	
+	
+	
+	
+	
+	
+==================================== Module devlopment =====================================
+
+files 
+-> composer.json
+	ability to install module, its dependencies and another meta data 
+-> registration.php
+	registers module in magento
+-> block
+	contains php view classes
+-> Controller
+	contains controller classes
+-> etc
+	contains configuration files such as module.xml, menu.xml, system.xml, routes.xml etc/apache2/apache2
+-> etc/module.xml
+	specifies module name, version and any dependencies
+-> etc/acl.xml
+	access control list
+-> etc/config.xml
+	contains system configuration
+-> etc/di.xml
+	configures which dependencies to inject by the object manager
+-> etc/adminhtml/menu.xml
+	add menu to admin panel
+-> etc/adminhtml/routes.xml
+	tells magento to route requests that use front name of module
+-> etc/admin/system.xml
+	used to create configuration fields in system configuration
+-> i18n 
+	contains localization files
+-> Model 
+	contains model classes of MVC
+-> Setup 
+	contains classes for module database structure and data setup which are invoked when installing and upgrading
+-> view
+	contains view, template, layout files
+-> Helper
+	Conatins methods which can be called from any template, file,block, model, controller or from another helper
+
+
+To develop a module you need belo files
+	-> registration.php
+	-> etc/module.xml
+	-> composer.json
+	
+	
 	

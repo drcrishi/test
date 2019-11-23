@@ -1,0 +1,14 @@
+Create a laravel application 
+
+Functionality - frontend and backend
+
+-> Scrap News, videos, images, movie search
+-> Chatting
+-> Todo list with reminder feature with push notification
+-> Image library management(central image management system like wp)
+-> twitter application
+-> Blogs various topics
+
+Use git to manage work flow
+
+use envoyer to deploy your code

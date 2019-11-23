@@ -20,4 +20,11 @@ putty
 	ALT + G
 
 
-	
+
+cronjob 
+
+edit 
+-> sudo crontab -u forge[user] -e
+
+list
+-> sudo crontab -u forge[user] -l 

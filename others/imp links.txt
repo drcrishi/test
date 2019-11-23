@@ -20,7 +20,3 @@ https://ngrok.com
 =================== form/page builder ===================
 
 https://grapesjs.com/
-
-
-=================== git to live ===================
-https://envoyer.io/
