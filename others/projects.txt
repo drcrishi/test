@@ -1,5 +1,9 @@
 Create a laravel application 
 
+-------> Use git to manage work flow
+
+-------> use envoyer to deploy your code
+
 Functionality - frontend and backend
 
 -> Scrap News, videos, images, movie search
@@ -8,7 +12,16 @@ Functionality - frontend and backend
 -> Image library management(central image management system like wp)
 -> twitter application
 -> Blogs various topics
+-> create helper class
+-> create a email template manager
 
-Use git to manage work flow
 
-use envoyer to deploy your code
+Follow procedure 
+
+-> Try catch
+
+
+innovative ideas
+
+-> create a function which returns a randon string. length can be passed as arguement. 
+	options - if the word doesn't end the eaxct length then return with count arounf the number. also give an option to get exact number of string. (exact-  true, false- by default false)
