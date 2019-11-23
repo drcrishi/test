@@ -4,8 +4,11 @@ Create a laravel application
 
 -------> use envoyer to deploy your code
 
+-------> use of ssh
+
 Functionality - frontend and backend
 
+-> Social login(google, facebook, github, twitter)
 -> Scrap News, videos, images, movie search
 -> Chatting
 -> Todo list with reminder feature with push notification
@@ -14,6 +17,7 @@ Functionality - frontend and backend
 -> Blogs various topics
 -> create helper class
 -> create a email template manager
+-> create a db backup module
 
 
 Follow procedure 
