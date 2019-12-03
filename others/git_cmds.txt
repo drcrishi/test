@@ -38,11 +38,9 @@ to create a branch and push it to remote
 -> git checkout -b [branch name]
 -> git push -u origin [branch name]
 
-to delete branch locally
+to delete branch locally and remotely
 -> git branch -d [branch name]
-
-to delete a branch remotely 
-git push origin --delete [branch name]
+-> git push origin --delete [branch name]
 
 
 If you accidently push changes to git hub you can revert it by following steps
