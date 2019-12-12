@@ -18,7 +18,7 @@ Functionality - frontend and backend
 -> create helper class
 -> create a email template manager
 -> create a db backup module
-
+-> create a calendar which performs crud and sync it with google calendar
 
 Follow procedure 
 
