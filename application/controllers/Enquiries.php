@@ -34,6 +34,7 @@ class Enquiries extends CI_Controller {
         $this->data['description'] = "";
         $this->data['notification'] = webNotification();
         // $this->data['user'] = $this->session->userdata('userData');
+        $this->load->helper('tokens');
     }
 
     public function newEnquiry() {
@@ -44,12 +45,10 @@ class Enquiries extends CI_Controller {
             'global/plugins/jquery-validation/js/additional-methods.min.js',
             //'global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
             'global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
-            'pages/scripts/toaster/toaster.js',
+            'pages/scripts/toaster/toaster.js'
         );
         $data['jsTPFooter'] = array(
-            'https://code.jquery.com/ui/1.12.1/jquery-ui.js',
-            'https://momentjs.com/downloads/moment.js',
-            'https://momentjs.com/downloads/moment-with-locales.js'
+            'https://code.jquery.com/ui/1.12.1/jquery-ui.js'
         );
         $data['jsFooter'] = array(
             'pages/scripts/form-enquiries.js',
@@ -188,12 +187,14 @@ class Enquiries extends CI_Controller {
                     }
                 }
                 $additionaldelivery = json_encode($additionaldelivery1);
-                
+
+                $sTime = $this->input->post("serviceFullTime", true);
+                $sTime = str_replace(":00", "", $sTime);
                 $data = array(
                     'en_movetype' => $this->input->post("en_movetype", true),
                     'en_home_office' => $this->input->post("en_home_office", true),
                     'en_servicedate' => date('Y-m-d', strtotime($this->input->post("en_servicedate", true))),
-                    'en_servicetime' => $this->input->post("serviceFullTime", true),
+                    'en_servicetime' => $sTime,
                     'en_deliverydate' => date('Y-m-d', strtotime($this->input->post("en_deliverydate", true))),
                     'en_deliverytime' => $this->input->post("en_deliverytime", true),
                     'en_storagedate' => date('Y-m-d', strtotime($this->input->post("en_storagedate", true))),
@@ -267,13 +268,7 @@ class Enquiries extends CI_Controller {
                 if ($this->input->post("en_eft_receivedon", true) == "")
                     unset($data['en_eft_receivedon']);
 
-
-
                 $this->upload->do_upload('notes_attachedfile');
-
-//        echo "<pre>";
-//        print_r($this->upload->data());
-//        die;
                 $notesdata = array(
                     'notes_description' => $this->input->post("notes_description", true),
                     'notes_attachedfile' => $this->upload->data("file_name"),
@@ -282,22 +277,12 @@ class Enquiries extends CI_Controller {
                 $uniqueId = $this->enquiry_model->addEnquirydata($data);
                 $enqId = $this->enquiry_model->getEnquiryIDFromUUID($uniqueId);
 
-
-                /* if ($uniqueId !== FALSE) {
-                  if ($this->enquiry_model->addNotes($notesdata, $enqId)) {
-                  echo json_encode(array("success" => 1, 'uniqueid' => $uniqueId));
-                  }
-                  } else {
-                  echo json_encode(array("error" => "<p>Data are not inserted.</p>"));
-                  } */
                 if ($uniqueId !== FALSE) {
-                    // echo "zzzz";
                     if ($notesdata['notes_description'] != "") {
                         $this->enquiry_model->addNotes($notesdata, $enqId);
                     }
                     echo json_encode(array("success" => 1, 'uniqueid' => $uniqueId));
                 } else {
-                    // echo "gggg";
                     echo json_encode(array("error" => "<p>Data are not inserted.</p>"));
                 }
             }
@@ -378,7 +363,7 @@ class Enquiries extends CI_Controller {
             <?php
 
         }
-        //$data['packersdata'] = $this->enquiry_model->getPackersData($en_unique_id); 
+        //$data['packersdata'] = $this->enquiry_model->getPackersData($en_unique_id);
         /* echo "<pre>";
           print_r($data['packersdata']);
           die; */
@@ -451,11 +436,15 @@ class Enquiries extends CI_Controller {
             }
         }
         $additionaldelivery = json_encode($additionaldelivery1);
+
+        $sTime = $this->input->post("serviceFullTime", true);
+        $sTime = str_replace(":00", "", $sTime);
+
         $data = array(
             'en_movetype' => $this->input->post("en_movetype", true),
             'en_home_office' => $this->input->post("en_home_office", true),
             'en_servicedate' => date('Y-m-d', strtotime($this->input->post("en_servicedate", true))),
-            'en_servicetime' => $this->input->post("serviceFullTime", true),
+            'en_servicetime' => $sTime,
             'en_deliverydate' => date('Y-m-d', strtotime($this->input->post("en_deliverydate", true))),
             'en_deliverytime' => $this->input->post("en_deliverytime", true),
             'en_storagedate' => date('Y-m-d', strtotime($this->input->post("en_storagedate", true))),
@@ -537,17 +526,12 @@ class Enquiries extends CI_Controller {
 
         $filedata = $this->upload->do_upload('notes_attachedfile');
 
-//        echo "<pre>";
-//        print_r($this->upload->data());
-//        die;
         $notesdata = array(
             'notes_description' => $this->input->post("notes_description", true),
             'notes_attachedfile' => $this->upload->data("file_name"),
         );
 
-        //enquiry update log start...........................@DRCZ
         $enqdata = $this->enquiry_model->getEnquiryDataByUUID($enquiryUUIDId);
-
         if($enqdata[0]['additional_pickup'] == ''){
             $enqdata[0]['additional_pickup'] = $data['additional_pickup'];
         }
@@ -572,9 +556,6 @@ class Enquiries extends CI_Controller {
 
         $diffarray1 = array_diff_assoc($data, $enqdata[0]);
         $diffarray = array_filter($diffarray1);
-//        echo "<pre>";
-//        print_r($diffarray);
-//        die;
 
         if ($data['en_movetype'] == "1" || $data['en_movetype'] == "2") {
             $diffData = array(
@@ -827,10 +808,6 @@ class Enquiries extends CI_Controller {
             'enquiry_session_id' => $this->session->userdata('admin_id'),
             'enquiry_status' => $diffKey,
         );
-//    echo "<pre>";
-//    print_r($enquiryLogData);
-//    die;
-//enquiry update log end...........................@DRCZ
 
         if ($notesdata['notes_description'] != "" && $notesdata['notes_description'] != "") {
 
@@ -890,8 +867,7 @@ class Enquiries extends CI_Controller {
         $data['css'] = array(
             'global/plugins/bootstrap-summernote/summernote.css',
         );
-//echo $EnquiryId;
-//die;
+
         $data['enquiry_data'] = $this->enquiry_model->getEnquiryDataByEnquiryID($EnquiryId);
         $this->load->model("email_template_model");
         $data['form_data'] = $this->email_template_model->getEmailTemplate($data['enquiry_data'][0]['en_movetype'], $templateID);
@@ -933,9 +909,7 @@ class Enquiries extends CI_Controller {
 
         $data['templateID'] = $templateID;
         $data['form_data'][0]['EnquiryId'] = $EnquiryId;
-//        echo "<pre>";
-//        print_r($data);
-//        die;
+
         $data['form_data'][0]['email_to'] = $data['enquiry_data'][0]['en_email'];
         $data['form_data'][0]['email_editor'] = str_replace("{{amt}}", $data['enquiry_data'][0]["en_deposit_amt"], $data['form_data'][0]['email_editor']);
         $data['form_data'][0]['email_editor'] = str_replace("{{uuid}}", $data['enquiry_data'][0]["en_unique_id"], $data['form_data'][0]['email_editor']);
@@ -969,7 +943,7 @@ class Enquiries extends CI_Controller {
     }
 
     /**
-     * Booking data insertion............... 
+     * Booking data insertion...............
      */
     function bookingData($en_unique_id) {
         $this->load->model("enquiry_model");
@@ -989,16 +963,6 @@ class Enquiries extends CI_Controller {
             $contactemail = $cont['contact_email'];
             $contId = $this->contact_model->addContactdata($cont);
             $contactuuid = $this->contact_model->getContactIDFromUUID($contId);
-
-            /* Check contact Email Id before add new contact entry............ */
-//            $contemail = $this->enquiry_model->checkContactEmail($contactemail);
-//            if ($contemail !== FALSE) {
-//                $contactuuid = $contemail[0]['contact_id'];
-//            } else {
-//                $contId = $this->contact_model->addContactdata($cont);
-//                $contactuuid = $this->contact_model->getContactIDFromUUID($contId);
-//            }
-            /* Check contact Email Id before add new contact entry............ */
 
             $enqId = $this->enquiry_model->getEnquiryIDFromUUID($en_unique_id);
             $this->enquiry_model->getCustomerId($contactuuid, $enqId);
@@ -1051,26 +1015,15 @@ class Enquiries extends CI_Controller {
             $this->load->helper('download');
 
             $fileInfo = $this->enquiry_model->getNotesFile($notes_id);
-//            echo "<pre>";
-//            print_r($fileInfo);
-//            die;
-//            echo $fileInfo[0]['notes_attachedfile'];
-//            die;
             $data = file_get_contents(base_url("assets/uploads/notes/" . $fileInfo[0]['notes_attachedfile'])); // Read the file's contents
             $name = $fileInfo[0]['notes_attachedfile'];
             force_download($name, $data);
-//            $file = 'assets/uploads/notesfile/' . $fileInfo[0]['notes_attachedfile'];
-//            force_download($file, NULL);
         }
     }
 
     function fetchNotes($enquiryID) {
-//        echo $enquiryID;
-//        die;
         $this->load->model("enquiry_model");
         $data['notes'] = $this->enquiry_model->getNotesById($enquiryID);
-//        print_r( $data['notes']);
-//        die;
         echo $this->load->view('enquiries_notes_view.php', $data, true);
     }
 
@@ -1200,4 +1153,113 @@ class Enquiries extends CI_Controller {
         $searchResult = $this->enquiry_model->searchEmail();
         echo json_encode($searchResult);
     }
+
+	public function sendEnquirySMS($id)
+	{
+		# Lookup Enquiry and obtain enquiry details
+        $enquiry = $this->enquiry_model->getEnquiryDataByEnquiryID($id)[0];
+		$number = str_replace(' ', '', trim($enquiry['en_phone']));
+
+		$shortcode = $this->enquiry_model->getMobileToken($id);
+
+		$CI =& get_instance();
+		$CI->config->load('www');
+
+		$message = '';
+		switch (($enquiry['en_movetype'])){
+			case 1: # Home
+			case 2: # Office
+                $message = "Hi {$enquiry['en_fname']}. You can view your removal quote here https://www.hireamover.com.au/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire A Mover";
+				break;
+            case 4: # Packing
+                $message = "Hi {$enquiry['en_fname']}. You can view your packing quote here https://hireapacker.com.au/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire A Packer";
+                break;
+			case 5: # Unpacking
+                $message = "Hi {$enquiry['en_fname']}. You can view your unpacking quote here https://hireapacker.com.au/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire A Packer";
+				break;
+			case 6: # Storage
+				$message = "Hi {$enquiry['en_fname']}. You can view your quote here {$CI->config->item('www')->website_url}/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire Storage";
+				break;
+        }
+		$sms = new App\SMS\Sms();
+
+		try {
+            $sms->send($number, $message, '12345',$enquiry['en_movetype']);
+            $this->enquiry_model->addSmsActivity($id,$number,'send');
+		} catch (Exception $e) {
+			return response()->json(['error'=>1,'message' => $e->getMessage()]);
+		}
+
+		return response()->json(['success'=>1]);
+    }
+
+    public function isSmsSent(){
+        $res= $this->enquiry_model->isSmsSent();
+        $response= array();
+        $response['code']= $res->is_sms_sent;
+        echo json_encode($response);
+    }
+
+    public function editSendMail($EnquiryId) {
+        $data['jsFooter'] = array(
+            'global/plugins/jquery-validation/js/jquery.validate.min.js',
+            'global/plugins/bootstrap-summernote/summernote.min.js',
+            'custom/js/edit-email_template.js'
+        );
+        $data['css'] = array(
+            'global/plugins/bootstrap-summernote/summernote.css',
+        );
+        $data['enquiry_data'] = $this->enquiry_model->getEnquiryDataByEnquiryID($EnquiryId);
+        $this->load->model("email_template_model");
+        // $data['form_data'] = $this->email_template_model->getEmailTemplate($data['enquiry_data'][0]['en_movetype'], $templateID);
+        $data['form_data'][0]['email_editor'] = $this->enquiry_model->getSmsTemplate($data['enquiry_data'][0]);
+        if ($data['form_data'] === FALSE) {
+            show_404();
+        }
+        $this->load->view("template/header", $this->data);
+        $this->load->view("template/css", $data);
+        $this->load->view("template/js", $data);
+        $this->load->view("editSms", $data);
+        $this->load->view("template/footer", $this->data);
+    }
+
+    public function sendEditSms(){
+        $enquiryId = $this->input->post('enquiryId');
+        $number = $this->input->post('phonenumber');
+        $enquiry = $this->enquiry_model->getEnquiryDataByEnquiryID($enquiryId)[0];
+        $shortcode = $this->enquiry_model->getMobileToken($enquiryId);
+        $responseArr= array();
+		$CI =& get_instance();
+		$CI->config->load('www');
+		$message = '';
+		switch (($enquiry['en_movetype'])){
+			case 1: # Home
+			case 2: # Office
+				$message = "Hi {$enquiry['en_fname']}. You can view your removal quote here https://www.hireamover.com.au/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire A Mover";
+				break;
+            case 4: # Packing
+            $message = "Hi {$enquiry['en_fname']}. You can view your packing quote here https://hireapacker.com.au/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire A Packer";
+            break;
+			case 5: # Unpacking
+				$message = "Hi {$enquiry['en_fname']}. You can view your unpacking quote here https://hireapacker.com.au/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire A Packer";
+				break;
+			case 6: # Storage
+				$message = "Hi {$enquiry['en_fname']}. You can view your quote here {$CI->config->item('www')->website_url}/q/{$shortcode} or alternatively check your email. Thanks, " . $this->session->userdata('admin_firstname') ." Hire Storage";
+				break;
+        }
+		$sms = new App\SMS\Sms();
+        
+		try {
+            $sms->send($number, $message, '12345',$enquiry['en_movetype']);
+            $this->enquiry_model->addSmsActivity($enquiryId,$number,'edit','1');
+		} catch (Exception $e) {
+            // return response()->json(['error'=>1,'message' => $e->getMessage()]);
+            $response['error']= '1';
+            echo json_encode($response);
+		}
+        // return response()->json(['success'=>1]);        
+        $response['success']= '1';
+        echo json_encode($response);
+    }
+
 }

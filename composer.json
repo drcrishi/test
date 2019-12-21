@@ -1,0 +1,27 @@
+{
+    "name": "vagrant/crm.hireamover.com.au",
+    "require": {
+        "codeigniter/framework": "3.1.3",
+        "ext-curl": "*",
+        "nesbot/carbon": "^2.25"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "files": [
+            "application/ResponseController.php",
+            "application/sms/Sms.php",
+            "application/sms/Sms.php",
+            "application/helpers/response_helper.php"
+        ],
+        "psr-4": {
+            "Kenjis\\CodeIgniter\\": "src/",
+            "App\\": "application/"
+        }
+    },
+    "scripts" : {
+        "post-create-project-cmd": [
+            "Kenjis\\CodeIgniter\\Installer::postInstall"
+        ]
+    }
+}

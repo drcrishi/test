@@ -4,37 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Booking_model extends CI_Model {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
-     */
     public function __construct() {
         parent::__construct();
         $this->load->database();
     }
 
-    /**
-     * Get inquiry id and check isqulified...........@DRCZ
-     */
     function getEnquiryDataByUUID($en_unique_id) {
-//        $this->db->select('*,group_CONCAT(notes_title) as nt, group_concat(notes_description) as nd')->from('enquiry')
-//                ->join('notes', 'enquiry.enquiry_id = notes.enquiry_id')
-//                ->join('admin', 'enquiry.created_by = admin.admin_id')
-//                ->where('enquiry.en_unique_id', $en_unique_id)
-//                ->where('enquiry.is_qualified', 1)
-//                ->group_by('enquiry.enquiry_id');
-
 
         $this->db->select("enquiry_id, is_qualified");
         $this->db->where('en_unique_id', $en_unique_id);
@@ -89,7 +64,7 @@ class Booking_model extends CI_Model {
         //non-billable
         $nonBillablePackerNameArr=$this->input->post('non-billable-packer-name');
         $nonBillablePackerHoursArr=$this->input->post('non-billable-packer-hours');
-        $nonBillablePackerDataFromEnquiry=$this->getPackerIdFromEnquiry($lastID);
+        $nonBillablePackerDataFromEnquiry=$this->getPackerIdFromEnquiry($enquiryId);
         $nonBillablePackerDataFromEnquiry=array_column($packerDataFromEnquiry, 'packer_id');
         $nonBillableCombinedArr = array_combine($nonBillablePackerNameArr,$nonBillablePackerHoursArr);
 
@@ -679,9 +654,16 @@ class Booking_model extends CI_Model {
 //            if (!empty($_POST['removalist_booking'])) {
 //                $where .= " AND ( CONCAT(c.contact_fname, ' ', c.contact_lname) like '" . $_POST['removalist_booking'] . "%' )";
 //            }
+            // if (!empty($_POST['en_movingfrom_state'])) {
+            //     $where .= " AND ( e.en_movingfrom_state like '" . trim($_POST['en_movingfrom_state']) . "%' or e.en_movingto_state like '" . trim($_POST['en_movingfrom_state']) . "%' )";
+            // }
+
+            $stateWiseSearch = '';
             if (!empty($_POST['en_movingfrom_state'])) {
-                $where .= " AND ( e.en_movingfrom_state like '" . trim($_POST['en_movingfrom_state']) . "%' )";
+                $stateWiseSearch .= " and data.en_movingfrom_state like '" . trim($_POST['en_movingfrom_state']) . "%'";
             }
+            
+
 //            if (!empty($_POST['movetype_name'])) {
 //                $where .= " AND ( m.movetype_name like '" . $_POST['movetype_name'] . "%' )";
 //            }
@@ -696,7 +678,8 @@ class Booking_model extends CI_Model {
                 $where .= " AND ( e.qualified_date <= '" . $_POST['en_date2'] . " 23:59:59' )";
             }
             if (!empty($_POST['en_servicedate'])) {
-                $where .= " AND ( e.en_servicedate like '" . $_POST['en_servicedate'] . "%' )";
+                // $where .= " AND ( e.en_servicedate like '" . $_POST['en_servicedate'] . "%' )";
+                $where .= " AND IF( e.en_movetype = '6', e.en_storagedate, e.en_servicedate) like '" . $_POST['en_servicedate'] . "%' ";
             }
             if (!empty($_POST['fullname'])) {
                 $where .= " AND (( CONCAT(c2.contact_fname , ' ', c2.contact_lname) like '%" . addslashes(trim($_POST['fullname'])) . "%' )
@@ -762,18 +745,31 @@ class Booking_model extends CI_Model {
               qualified_date,
               booking_status,
               e.en_movetype as mtype , (IF(FIND_IN_SET('JobSheet', GROUP_CONCAT(template_master_name)) > 0, 'Yes', 'No')) AS JobSheet, (IF(FIND_IN_SET('BookingConfirmation', GROUP_CONCAT(template_master_name)) > 0, 'Yes', 'No')) AS BookingConfirmation, IF(e.en_deposit_received = 1, 'Yes', 'No') is_deposited,  GROUP_CONCAT(distinct(CONCAT(trim(c.contact_fname), ' ', trim(c.contact_lname)))SEPARATOR '<br/>') AS contact_fullname, CONCAT(trim(c2.contact_fname) , ' ', trim(c2.contact_lname)) AS clientname FROM enquiry AS e INNER JOIN move_type AS m ON e.en_movetype = m.movetype_id LEFT JOIN contact c ON find_in_set(c.contact_id,e.contact_id) LEFT JOIN contact AS c2 ON c2.contact_id = e.customer_id LEFT JOIN email_log AS email ON e.enquiry_id = email.enquiry_id LEFT JOIN email_master emI ON email.email_master_id = emI.email_master_id LEFT JOIN template_master tm ON tm.template_master_id = emI.template_master_id where $where group by e.enquiry_id ORDER BY $orderBy $orderType limit $start,$length"; */
-            $sql = "SELECT data.*,(if(data.contact_id IS NULL, data.en_storage_provider, concat(c.contact_fname,' ',c.contact_lname) )) as contact_fullname from (SELECT qualified_date,IF(e.en_movetype = 6,
-        en_storagedate,
-        en_servicedate) AS en_servicedate,
-    en_servicetime,
-    en_movingfrom_state,
-    movetype_name,
-    en_storagedate,
-    en_movingto_state,
-    en_unique_id,
-    booking_status,
-    (IF(jobsheetsent > 0, 'Yes', 'No')) AS JobSheet, (IF(bookingconfirmationsent > 0, 'Yes', 'No')) AS BookingConfirmation,    CONCAT(trim(c2.contact_fname) , ' ', trim(c2.contact_lname)) AS clientname,e.contact_id,e.en_storage_provider,e.enquiry_id,e.booking_created_by FROM enquiry AS e INNER JOIN move_type AS m ON e.en_movetype = m.movetype_id  LEFT JOIN contact AS c2 ON c2.contact_id = e.customer_id where $where group by e.enquiry_id ORDER BY $orderBy1 $orderType1 limit $start,$length ) as data , contact c where  FIND_IN_SET(c.contact_id, if(data.contact_id IS NULL,0,if(data.contact_id = '',0,data.contact_id))) > 0 $where1 order by  $orderBy $orderType,data.enquiry_id desc";
-//             echo $sql;die;
+            $sql = "SELECT data.*,(if(data.contact_id IS NULL, data.en_storage_provider, concat(c.contact_fname,' ',c.contact_lname) )) as contact_fullname 
+            from (SELECT qualified_date,IF(e.en_movetype = 6,
+            en_storagedate,
+            en_servicedate) AS en_servicedate,
+            en_servicetime,
+            IF(
+                e.en_movetype = 5,
+                en_movingto_state,
+                en_movingfrom_state
+            ) AS en_movingfrom_state,
+            movetype_name,
+            en_storagedate,
+            en_movingto_state,
+            en_unique_id,
+            booking_status,
+            (IF(jobsheetsent > 0, 'Yes', 'No')) AS JobSheet, (IF(bookingconfirmationsent > 0, 'Yes', 'No')) AS BookingConfirmation,    
+            CONCAT(trim(c2.contact_fname) , ' ', trim(c2.contact_lname)) AS clientname,e.contact_id,e.en_storage_provider,e.enquiry_id,
+            e.booking_created_by 
+            FROM enquiry AS e 
+            INNER JOIN move_type AS m ON e.en_movetype = m.movetype_id  
+            LEFT JOIN contact AS c2 ON c2.contact_id = e.customer_id 
+            where $where group by e.enquiry_id ORDER BY $orderBy1 $orderType1 limit $start,$length ) as data , contact c 
+            where  FIND_IN_SET(c.contact_id, if(data.contact_id IS NULL,0,if(data.contact_id = '',0,data.contact_id))) > 0 
+            $where1 $stateWiseSearch order by  $orderBy $orderType,data.enquiry_id desc";
+            // echo $sql;die;
             $query = $this->db->query($sql);
             if (!empty($_POST['removalistfilter'])) {
                 $recordsTotal = $query->num_rows();
@@ -886,7 +882,7 @@ class Booking_model extends CI_Model {
      * @param type $bookingID
      */
     function getBookingDataByBookingID($bookingID) {
-        $this->db->select("enquiry.*,c.contact_email as removalistEmail ,contact.contact_email as clientEmail,contact.contact_fname as clientFname,contact.contact_lname as clientLname,contact.contact_phno as clientContactNo, contact.company_name as clientCompanyname");
+        $this->db->select("enquiry.*,c.contact_email as removalistEmail,c.contact_email_2 as removalistEmail2, contact.contact_email as clientEmail,contact.contact_fname as clientFname,contact.contact_lname as clientLname,contact.contact_phno as clientContactNo, contact.company_name as clientCompanyname");
         $this->db->join("contact", "contact.contact_id=enquiry.customer_id");
         $this->db->join("contact as c", "c.contact_id=enquiry.contact_id", "left");
         $getMoveTypeID = $this->db->get_where("enquiry", array("enquiry_id" => $bookingID, "is_qualified" => 1));
@@ -984,30 +980,20 @@ class Booking_model extends CI_Model {
     }
 
     function revenueReportData($data) {
-//        echo "<pre>";
-//        print_r($data);
-//        die;
         $servicefrom = $data['servicedatefrom'];
         $serviceto = $data['servicedateto'];
         $movetype = $data['enmovetype'];
         $state = $data['state'];
         $removalist = $data['removalist'];
         $bookingstatus = $data['bookingstatus'];
-//        echo $servicefrom;
-//        die;
-        // checking `$state has set`
         if (isset($state) && (trim($state) != '')) {
             $having = 'HAVING movingfrom_state = "' . $state . '"';
             // $this->db->having('movingfrom_state', $state);
         }
-        // checking `$removalist has set`
         if (isset($removalist) && (trim($removalist) != '')) {
             $where = ' and c.contact_fname ="' . $removalist . '"';
-            // $this->db->where('c.contact_fname', $removalist);
         }
-//        if ($movetype != 'All') {
-//            $mov = ' and en_movetype =' .$movetype;
-//        }
+
         if ($movetype != 'All') {
             if ($movetype == 12) {
                 $mov = ' and en_movetype IN (1,2)';
@@ -1016,14 +1002,13 @@ class Booking_model extends CI_Model {
             } else {
                 $mov = ' and en_movetype =' . $movetype;
             }
-            // $this->db->where('en_movetype', $movetype);
         }
         $booking_status="";
         if ($bookingstatus == 3) {
             $booking_status = ' and booking_status ="3"';
         }
 
-        $sql = 'select data.*,group_concat(concat(contact_fname," ",contact_lname)SEPARATOR " <br/> ") as rp from 
+        $sql = 'select data.*, if(data.en_movetype = 6,data.en_storage_provider, group_concat(concat(contact_fname," ",contact_lname)SEPARATOR " <br/> ")) as rp from 
             (SELECT if(en_movetype=1 or en_movetype=2 or en_movetype=3,1,if(en_movetype=4  or en_movetype=5,4,6)) as en_movetype,
             if(en_movetype=5,en_movingto_state,en_movingfrom_state) as movingfrom_state,
             en_movingfrom_state,
@@ -1032,20 +1017,21 @@ class Booking_model extends CI_Model {
             concat(c2.contact_fname," ",c2.contact_lname) as client,
             c2.contact_id as client_id,
             enquiry_id,
-            en_servicedate,
-            en_total_costprice,
-            en_total_sellprice,
+            if(en_movetype =6 , en_storagedate, en_servicedate) as en_servicedate,
+            if(en_movetype =6 , en_quotedcost_price, en_total_costprice) as en_total_costprice,
+            if(en_movetype =6 , en_quotedsell_price, en_total_sellprice) as en_total_sellprice,
             enquiry.contact_id as packer,
-            (en_total_sellprice - en_total_costprice) AS margin ,booking_status
+            if(en_movetype =6 , (en_quotedsell_price - en_quotedcost_price), (en_total_sellprice - en_total_costprice)) as margin,
+            booking_status,en_storage_provider
             FROM `enquiry` LEFT JOIN `contact` `c` ON `c`.`contact_id` = `enquiry`.`contact_id` JOIN
 	    `contact` `c2` ON `enquiry`.`customer_id` = `c2`.`contact_id` WHERE
-            en_servicedate >= "' . $servicefrom . '" '
-                . 'AND en_servicedate <= "' . $serviceto . '" '
+            ((en_servicedate >= "' . $servicefrom . '" '
+                . 'AND en_servicedate <= "' . $serviceto . '" ) or en_storagedate >= " ' . $servicefrom .'" and en_storagedate <= "'. $serviceto .'" )'
                 . $booking_status . ' AND is_qualified=1 AND enquiry.is_deleted=0  ' . $where . '' . $mov . ' ' . $having . ' '
                 . 'ORDER BY en_movingfrom_state , client, en_movetype) as data,'
-                . ' contact where find_in_set(contact_id,data.packer) '
+                . ' contact where if(en_movetype=6,1=1,FIND_IN_SET(contact_id, data.packer)) '
                 . 'group by data.enquiry_id '
-                . 'order by `en_movingfrom_state`,data.en_movetype ,rp, data.client asc';
+                . 'order by `movingfrom_state`,data.en_movetype ,rp, data.client asc';
         // echo $sql;die;
         $query = $this->db->query($sql);
 //        echo $this->db->last_query();
@@ -1184,4 +1170,93 @@ class Booking_model extends CI_Model {
             ->delete('packer_hours');
     }
     
+    public function getContactEmail($enquiryId, $contactId){
+        $res = $this->db->select('contact_email')
+        ->where('contact_id',$contactId)
+        ->get('contact')->row_array();
+
+        $this->db->where('enquiry_id',$enquiryId)
+        ->delete('cronjob_mails');
+
+        $cronArr = array(
+            'enquiry_id' => $enquiryId,
+            'contact_id' => $this->input->post("contact_id"),
+            'contact_email'=> $res['contact_email']
+        );
+        $this->db->insert('cronjob_mails',$cronArr);
+    }
+
+    public function updateCronJobsheetMail($enquiryId){
+        $this->db->where('enquiry_id',$enquiryId)
+        ->update('cronjob_mails',array('is_email_sent'=> '1'));
+    }
+
+    function storageReportData($data) {
+        // $servicefrom = $data['servicedatefrom'];
+        // $serviceto = $data['servicedateto'];
+        // $movetype = $data['enmovetype'];
+        $state = $data['state'];
+        // $removalist = $data['removalist'];
+        $bookingstatus = $data['bookingstatus'];
+        if (isset($state) && (trim($state) != '')) {
+            $having = 'HAVING movingfrom_state = "' . $state . '"';
+        }
+        // if (isset($removalist) && (trim($removalist) != '')) {
+        //     $where = ' and c.contact_fname ="' . $removalist . '"';
+        // }
+
+        // if ($movetype != 'All') {
+        //     if ($movetype == 12) {
+        //         $mov = ' and en_movetype IN (1,2)';
+        //     } else if ($movetype == 45) {
+        //         $mov = ' and en_movetype IN (4,5)';
+        //     } else {
+        //         $mov = ' and en_movetype =' . $movetype;
+        //     }
+        // }
+
+        $mov = ' and en_movetype = '. 6;
+
+        $booking_status="";
+        if ($bookingstatus == 12) {
+            $booking_status = '( booking_status ="1" or booking_status = "2") AND';
+        }
+        else if ($bookingstatus == 3) {
+            $booking_status = ' ( booking_status ="3") AND';
+        }
+        
+        // $booking_status = ' ( booking_status ="1" or booking_status = "2") ';
+
+        $sql = 'select data.*, data.en_storage_provider as rp from 
+            (SELECT if(en_movetype=1 or en_movetype=2 or en_movetype=3,1,if(en_movetype=4  or en_movetype=5,4,6)) as en_movetype,
+            if(en_movetype=5,en_movingto_state,en_movingfrom_state) as movingfrom_state,
+            en_movingfrom_state,
+            concat(c.contact_fname," ",c.contact_lname) as removalist,
+            c.contact_id as removalist_id,
+            concat(c2.contact_fname," ",c2.contact_lname) as client,
+            c2.contact_id as client_id,
+            enquiry_id,
+            en_storagedate as en_servicedate,
+            en_quotedcost_price as en_total_costprice,
+            en_quotedsell_price as en_total_sellprice,
+            enquiry.contact_id as packer,
+            (en_quotedsell_price - en_quotedcost_price) as margin,
+            booking_status,en_storage_provider,storage_completed_date
+            FROM `enquiry` LEFT JOIN `contact` `c` ON `c`.`contact_id` = `enquiry`.`contact_id` JOIN
+	    `contact` `c2` ON `enquiry`.`customer_id` = `c2`.`contact_id` WHERE'
+                . $booking_status . ' is_qualified=1 AND enquiry.is_deleted=0  ' . $mov . ' ' . $having . ' '
+                . 'ORDER BY en_movingfrom_state , client, en_movetype) as data,'
+                . ' contact where if(en_movetype=6,1=1,FIND_IN_SET(contact_id, data.packer)) '
+                . 'group by data.enquiry_id '
+                . 'order by `movingfrom_state`,data.en_movetype ,rp, data.client asc';
+        $query = $this->db->query($sql);
+        // echo $sql;die;
+        if ($query->num_rows() > 0) {
+            $row = $query->result_array();
+            return $row;
+        } else {
+            return false;
+        }
+    }
+
 }

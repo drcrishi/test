@@ -19,31 +19,9 @@ if ($this->session->flashdata('flashError')) {
 </style>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
     <div class="page-wrapper">
-        <!-- BEGIN HEADER -->
         <?php include "template/leftmenu.php"; ?>
-        <!-- END HEADER -->
-
-        <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
-            <!-- BEGIN CONTENT BODY -->
             <div class="page-content" style="margin-left: 0px;">
-                <!-- BEGIN PAGE HEADER-->
-                <div class="page-bar">
-<!--                    <ul class="page-breadcrumb">
-                        <li>
-                            <a href="<?php echo base_url("dashboard"); ?>">Home</a>
-                            <i class="fa fa-circle"></i>
-                        </li>
-                        <li>
-                            <span>Contact List</span>
-                        </li>
-                    </ul>-->
-                </div>
-                <!-- END PAGE BAR -->
-                <!-- BEGIN PAGE TITLE-->
-
-                <!-- END PAGE TITLE-->
-                <!-- END PAGE HEADER-->
                 <div class="row peoles-nav-border people-wrapper">
                     <div class="page-bar col-md-2 col-xs-12 col-sm-2 people-left listtit-table" style="margin-left: 0; margin-top: 0px;">
                     <ul class="page-breadcrumb">
@@ -149,94 +127,6 @@ if ($this->session->flashdata('flashError')) {
                                     </div>
                                     <div class="filter-wrapper">
                                         <span class="filter-close">&#x2716;</span>
-
-                                        <!--                                        <div class="alphabet-wrapper">
-                                                                                    <span class="alpha-span">Search : </span>
-                                                                                    <div class="alphabet">
-                                                                                        <span>
-                                                                                            <span class="clear active alphasearch open" id="all">all</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="A">A</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="B">B</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="C">C</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="D">D</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="E">E</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasaerch" id="F">F</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="G">G</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="H">H</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="I">I</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="J">J</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="K">K</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="L">L</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="M">M</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="N">N</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="O">O</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="P">P</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="Q">Q</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="R">R</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="S">S</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="T">T</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="U">U</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="V">V</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="W">W</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="X">X</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="Y">Y</span>
-                                                                                        </span>
-                                                                                        <span>
-                                                                                            <span class="alphasearch" id="Z">Z</span>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>-->
-
                                         <div class="row">
                                             <div class="col-sm-3 col-xs-12">
                                                 <div class="form-group">
@@ -311,27 +201,19 @@ if ($this->session->flashdata('flashError')) {
                                                     <th>Email</th>											
                                                     <th>State</th>											
                                                     <th>Phone</th>
-<!--                                                    <th>Move Type</th>-->
-                                                    <!--<th>Action</th>-->
                                                 </tr>
                                             </thead>																	
                                         </table>
                                     </div>
                                 </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- END CONTENT BODY -->
         </div>
-        <!-- END CONTENT -->
-
     </div>
-    <!-- END CONTAINER -->
 </div>
-<!-- Modal -->
 
 <div id="new-people" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -399,6 +281,11 @@ if ($this->session->flashdata('flashError')) {
                                 <label class="formLbl" for="form_control_1">Email
                                     <span class="required">*</span>
                                 </label>
+                            </div>
+                            <div class="form-group form-md-line-input">
+                                <input type="email" class="hide"  name="contact_email2" autocomplete="cc-blank" autocorrect="false"  autofill="false" placeholder="Enter your second email" >
+                                <input type="text" class="form-control txtemail email"  name="contact_email2" autocomplete="cc-blank" autocorrect="false"  autofill="false" placeholder="Enter your second email" >
+                                <label class="formLbl" for="form_control_1">Email 2</label>
                             </div>
                              <div class="form-group form-md-line-input" id="contact-password">
                                 <input type="password" class="form-control password" autocomplete="cc-blank" name="contact_password" placeholder="Enter your password">
@@ -517,36 +404,7 @@ if ($this->session->flashdata('flashError')) {
             }
             jQuery(this).data('lastTouch', now);
         });
-        
-
-        //        var DELAY = 500, clicks = 0, timer = null;
-        //
-        //        jQuery(function(){
-        //
-        //            jQuery("html body").on("click", "#contactlist tbody tr", function(e){
-        //                jQuery("#contactlist tbody tr").removeClass('select');
-        //                jQuery(this).addClass('select');
-        //                
-        //                //this will redirect us in same window
-        //                clicks++;
-        //                if(clicks === 1) {
-        //                    timer = setTimeout(function() {
-        //                        
-        //                        clicks = 0;           
-        //                    }, DELAY);
-        //                } else {
-        //                    clearTimeout(timer);                                        
-        //                    
-        //                    clicks = 0;             
-        //                    jQuery('#contactlist tbody tr.select td a.btn-success').trigger('click');
-        //                }
-        //            })
-        //            .on("dblclick", function(e){
-        //                e.preventDefault();
-        //            });
-        //
-        //        });
-        //        
+          
         jQuery("html body").on("click", "#contactlist tbody tr", function (e) {
             var evt = e || window.event
             if (jQuery(this).hasClass('select')) {

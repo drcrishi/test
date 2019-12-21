@@ -1,7 +1,5 @@
-var Booking = function () {
-
-    var handleBooking = function () {
-
+var Booking = function() {
+    var handleBooking = function() {
         var bookingForm = $('#booking-form');
         var error1 = $('.alert-danger', bookingForm);
         var success1 = $('.alert-success', bookingForm);
@@ -16,9 +14,9 @@ var Booking = function () {
                 en_home_office: {
                     required: true
                 },
-//                contact_data: {
-//                    required: true
-//                },
+                //                contact_data: {
+                //                    required: true
+                //                },
                 en_servicedate: {
                     regxdate: /\d{2}(\.|-)\d{2}(\.|-)\d{4}/,
                 },
@@ -33,24 +31,24 @@ var Booking = function () {
                     required: true,
                     email: true
                 },
-//                removalist_name: {
-//                    required: function (element) {
-//                        if (jQuery("#removalist_data").val() == "") {
-//                            return true;
-//                        } else {
-//                            return false;
-//                        }
-//                    }
-//                },
-//                packers_data: {
-//                    required: function (element) {
-//                        if (jQuery("#packer_data").val() == "") {
-//                            return true;
-//                        } else {
-//                            return false;
-//                        }
-//                    }
-//                },
+                //                removalist_name: {
+                //                    required: function (element) {
+                //                        if (jQuery("#removalist_data").val() == "") {
+                //                            return true;
+                //                        } else {
+                //                            return false;
+                //                        }
+                //                    }
+                //                },
+                //                packers_data: {
+                //                    required: function (element) {
+                //                        if (jQuery("#packer_data").val() == "") {
+                //                            return true;
+                //                        } else {
+                //                            return false;
+                //                        }
+                //                    }
+                //                },
                 en_movingfrom_postcode: {
                     number: true,
                     maxlength: 4
@@ -126,13 +124,13 @@ var Booking = function () {
                 en_eway_refno: {
                     number: true
                 },
-                en_storage_provider:{
+                en_storage_provider: {
                     required: true
                 },
-                en_storagedate:{
+                en_storagedate: {
                     required: true
                 },
-                photoIdReceived:{
+                photoIdReceived: {
                     required: true
                 },
                 serviceTimeStartHour: {
@@ -142,28 +140,28 @@ var Booking = function () {
                     required: true
                 },
                 en_additional_item: {
-                    required: function (element) {
+                    required: function(element) {
                         var movetype = jQuery("#enquirymovetype option:selected").val();
 
                         if (movetype == "4" || movetype == "7" || movetype == "5" || movetype == "8") {
                             if ($('.additional-charges-packer').val() != '' && $('.additional-charges-packer').val() != "0.00") {
                                 return true;
                             } else {
-//                            element.closest('.form-group').removeClass('has-error');
+                                //                            element.closest('.form-group').removeClass('has-error');
                                 return false;
                             }
                         } else {
                             if ($('#additionalChargesinput').val() != '') {
                                 return true;
                             } else {
-//                            element.closest('.form-group').removeClass('has-error');
+                                //                            element.closest('.form-group').removeClass('has-error');
                                 return false;
                             }
                         }
                     }
-                },      
-                storageAgreementRecieved:{      
-                required: true,     
+                },
+                storageAgreementRecieved: {
+                    required: true,
                 }
             },
             messages: {
@@ -173,15 +171,15 @@ var Booking = function () {
                 en_home_office: {
                     required: "Home/Office is required."
                 },
-//                contact_data: {
-//                    required: "Client name is required or not exists in database."
-//                },
-//                removalist_name: {
-//                    required: "Removalist is required."
-//                },
-//                packers_data: {
-//                    required: "Packers is required."
-//                },
+                //                contact_data: {
+                //                    required: "Client name is required or not exists in database."
+                //                },
+                //                removalist_name: {
+                //                    required: "Removalist is required."
+                //                },
+                //                packers_data: {
+                //                    required: "Packers is required."
+                //                },
                 en_movingfrom_state: {
                     required: "Moving from state is required."
                 },
@@ -272,14 +270,14 @@ var Booking = function () {
                 en_eway_refno: {
                     number: "Enter only digits."
                 },
-                en_storage_provider:{
+                en_storage_provider: {
                     required: "Storage Provider is Required"
                 },
-                en_storagedate:{
+                en_storagedate: {
                     required: "Storage Date is Required"
                 },
-                photoIdReceived:{
-                    required: "Photo Id Received field is Required" 
+                photoIdReceived: {
+                    required: "Photo Id Received field is Required"
                 },
                 en_eft_receivedon: {
                     regxdate: /\d{2}(\.|-)\d{2}(\.|-)\d{4}/,
@@ -287,7 +285,7 @@ var Booking = function () {
                 final_payment_eft_payment: {
                     regxdate: /\d{2}(\.|-)\d{2}(\.|-)\d{4}/,
                 },
-                storageAgreementRecieved:{
+                storageAgreementRecieved: {
                     required: "Required",
                 },
                 serviceTimeStartHour: {
@@ -297,60 +295,57 @@ var Booking = function () {
                     required: "Service End Time is required.",
                 },
             },
-            invalidHandler: function (event, validator) { //display error alert on form submit   
+            invalidHandler: function(event, validator) { //display error alert on form submit   
 
             },
-            highlight: function (element) { // hightlight error inputs
+            highlight: function(element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
-            success: function (label) {
+            success: function(label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 if (element.is(':checkbox')) {
                     error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
                 } else if (element.is(':radio')) {
                     error.insertAfter(element.closest(".md-radio-list, .md-radio-inline, .radio-list,.radio-inline"));
-                } 
-                else if (element.attr("name") == "serviceTimeStartHour"){
+                } else if (element.attr("name") == "serviceTimeStartHour") {
                     error.insertAfter('#serviceStartRow');
-                }
-                else if (element.attr("name") == "serviceTimeEndHour"){
+                } else if (element.attr("name") == "serviceTimeEndHour") {
                     error.insertAfter('#serviceEndRow');
-                }
-                else {
+                } else {
                     error.insertAfter(element); // for other inputs, just perform default behavior
                 }
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 var formData = jQuery(form).serializeArray();
                 ajaxBooking(new FormData(form));
                 // ajaxBooking(formData);
             }
         });
-        jQuery.validator.addMethod("regx", function (value, element, regexpr) {
+        jQuery.validator.addMethod("regx", function(value, element, regexpr) {
             if (value != "") {
                 return regexpr.test(value);
             } else {
                 return true;
             }
         }, "Enter valid Phone number.");
-        jQuery.validator.addMethod("regxdate", function (value, element, regexpr) {
+        jQuery.validator.addMethod("regxdate", function(value, element, regexpr) {
             if (value != "") {
                 return regexpr.test(value);
             } else {
                 return true;
             }
         }, "Enter valid Date.");
-        $('#booking-form input').keypress(function (e) {
+        $('#booking-form input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('#booking-form').validate().form()) {
                     var formData = jQuery("#booking-form")[0];
                     ajaxBooking(new FormData(formData));
-//                    var formData = jQuery("#booking-form").serializeArray();
-//                    ajaxBooking(formData);
+                    //                    var formData = jQuery("#booking-form").serializeArray();
+                    //                    ajaxBooking(formData);
                 }
                 return false;
             }
@@ -359,33 +354,33 @@ var Booking = function () {
 
     return {
         //main function to initiate the module
-        init: function () {
+        init: function() {
             handleBooking();
         }
     };
 }();
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     Booking.init();
 });
 
-jQuery(function () {
+jQuery(function() {
 
     $("#servicedate").datepicker({
         showButtonPanel: true,
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -395,16 +390,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -414,16 +409,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -433,16 +428,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -452,36 +447,57 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
     });
+
+    $("#completedStorageDate").datepicker({
+        showButtonPanel: true,
+        dateFormat: 'dd-mm-yy',
+        defaultDate: null,
+        autoUpdateInput: false,
+        beforeShow: function(input) {
+            setTimeout(function() {
+                var buttonPane = $(input)
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
+                var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
+                btn.unbind("click")
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
+                btn.appendTo(buttonPane);
+            }, 1);
+        }
+    });
+    // }).datepicker("setDate", new Date());
 
     jQuery("#storageReminderDate").datepicker({
         showButtonPanel: true,
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = jQuery(input)
-                .datepicker("widget")
-                .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = jQuery('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                .bind("click", function () {
-                    jQuery.datepicker._clearDate(input);
-                });
+                    .bind("click", function() {
+                        jQuery.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -492,16 +508,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -509,52 +525,43 @@ jQuery(function () {
 });
 
 function ajaxBooking(formData) {
-    /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
+
+    if (jQuery('.additionalPickuptxt').length > 0) {
+        jQuery(".additionalPickuptxt").each(function() {
+            if (jQuery(this).find('.suburbpickup .addpickupsuburb').val() == '') {
+                jQuery(this).remove();
+            }
+        })
+    }
+    if (jQuery('.additionalDeliverytxt').length > 0) {
+        jQuery(".additionalDeliverytxt").each(function() {
+            if (jQuery(this).find('.suburbdelivery .adddeliverysuburb').val() == '') {
+                jQuery(this).remove();
+            }
+        })
+    }
+
+    var moveType = jQuery('#enquirymovetype').val();
+    if (['1', '2'].includes(moveType)) {
+        if (parseFloat($('#clienthourlyrate').val()) < parseFloat($('#travelfee').val())) {
+            alert('Hourly rate is less than travel fee.');
+        }
+    }
+
     var movers = $('#movers').val();
     var chr = $('#clienthourlyrate').val();
-//     if (movers == '4' && chr < '240') {
-//         toastr.warning('Normal price for 4 men is $240');
-// //        return false;
-//     }
-    /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
-    /**
-     * Edit enquiry data......................@DRCZ
-     */
     var removalist = jQuery("#removalist_data").val();
     var packer_data = jQuery('#packer_data').val();
     var clientdata = jQuery("#clientdata").val();
     var movetype = jQuery("#enquirymovetype option:selected").val();
-//    if (movetype == '1' || movetype == '2' || movetype == '3') {
-//        if (removalist == "") {
-//            jQuery('#removalist').find('span.error').parent("label").remove();
-//            jQuery('#removalist').addClass("has-error");
-//            jQuery(".remname").after("<span id=\"removalist-error\" class=\"help-block help-block-error\">Removalist is not exists in database.</span>");
-//            return false;
-//        }
-//    }
-//    if (movetype == '4' || movetype == '5') {
-//        if (packer_data == "") {
-//            jQuery('#packersdata').find('span.error').parent("label").remove();
-//            jQuery('#packersdata').addClass("has-error");
-//            jQuery(".packername").after("<span id=\"packersdata-error\" class=\"help-block help-block-error\">Packer is not exists in database.</span>");
-//            return false;
-//        }
-//    }
-//    if (clientdata == "") {
-//        jQuery('#client').find('span.error').parent("label").remove();
-//        jQuery('#client').addClass("has-error");
-//        //<span id="customerId-error" class="help-block help-block-error">Client name is required or not exists in database.</span>
-//        jQuery("#customerId").after("<span id=\"customerId-error\" class=\"help-block help-block-error\">Client name is required or not exists in database.</span>");
-//        return false;
-//    }
     $(".ajaxLoader").show();
     jQuery.ajax({
         type: 'POST',
-//        processData: false,
-//        contentType: false,
+        //        processData: false,
+        //        contentType: false,
         url: BASE_URL + "booking/editBookingData",
         data: jQuery("#booking-form").serializeArray(),
-        success: function (response) {
+        success: function(response) {
 
             $(".ajaxLoader").hide();
             var res = JSON.parse(response);
@@ -565,42 +572,41 @@ function ajaxBooking(formData) {
                 window.location = BASE_URL;
             } else {
                 if (res.success == 1) {
-
                     toastr.success('Data Updated successfully');
                     jQuery('#removalist').find('span.error').remove();
                     jQuery('#client').find('span.error').remove();
                     jQuery('#note-title').val('');
                     jQuery('#note-area').val('');
                     jQuery('#note-attachfile').val('');
-//                window.location = BASE_URL + "enquirieslist";
-//                jQuery("#enquiry-form").trigger('reset');
                 }
                 if (res.success == 2) {
                     toastr.success('Data Updated successfully');
                 }
-
             }
         }
-
     })
 
 }
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
+
+    if (jQuery('#enquirymovetype').val() == '6' && jQuery('#storageReminderDate').val() == '30-11--0001') {
+        $('#storageReminderDate').datepicker('setDate', 'now');
+    }
 
     jQuery(".additional-charges-packer-section").hide();
 
-    jQuery(".add_field_button_packers").click(function () {
+    jQuery(".add_field_button_packers").click(function() {
         jQuery(".additional-charges-packer-section").toggle(1000);
     });
 
-    jQuery('body').on('click', '.close-notes', function () {
+    jQuery('body').on('click', '.close-notes', function() {
         if (confirm("Are you sure want to delete note?")) {
             jQuery(this).closest('.activity-item').remove();
             var id = jQuery(this).data('id');
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + 'booking/deleteNotes/' + id,
-                success: function (response) {
+                success: function(response) {
                     var res = JSON.parse(response);
 
                     if (res.error) {
@@ -620,27 +626,27 @@ jQuery(document).ready(function () {
      * Suburb autocomplete.............................@DRCZ
      */
     jQuery(".suburb").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             $.ajax({
                 url: BASE_URL + "enquiries/getsuburbdata",
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     response(data);
                 }
             });
         },
         minLength: 3,
-        select: function (event, ui) {
+        select: function(event, ui) {
             if (window.console)
-                //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+            //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                 jQuery(this).attr("data-selected", "true");
         }
     });
 
 
     jQuery("#movingfromsuburb").autocomplete({
-        close: function (event, ui) {
+        close: function(event, ui) {
             var suburbstr = jQuery("#movingfromsuburb").val();
             var suburbarr = suburbstr.split(",");
             jQuery('#movingfrompostcode').val(suburbarr[1].trim());
@@ -651,7 +657,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery("#movingtosuburb").autocomplete({
-        close: function (event, ui) {
+        close: function(event, ui) {
             var suburbstr = jQuery("#movingtosuburb").val();
             var suburbarr = suburbstr.split(",");
             jQuery('#movingtopostcode').val(suburbarr[1].trim());
@@ -662,7 +668,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery("#en_storage_provider_suburb").autocomplete({
-        close: function (event, ui) {
+        close: function(event, ui) {
             var suburbstr = jQuery("#en_storage_provider_suburb").val();
             var suburbarr = suburbstr.split(",");
             jQuery('#en_storage_provider_postcode').val(suburbarr[1].trim());
@@ -672,25 +678,25 @@ jQuery(document).ready(function () {
         }
     });
 
-    jQuery('body').on("focus", ".addpickupsuburb", function () {
+    jQuery('body').on("focus", ".addpickupsuburb", function() {
         jQuery(this).autocomplete({
-            source: function (request, response) {
+            source: function(request, response) {
                 $.ajax({
                     url: BASE_URL + "enquiries/getsuburbdata",
                     dataType: "json",
                     data: request,
-                    success: function (data) {
+                    success: function(data) {
                         response(data);
                     }
                 });
             },
             minLength: 3,
-            select: function (event, ui) {
+            select: function(event, ui) {
                 if (window.console)
-                    // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+                // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                     jQuery(this).attr("data-selected", "true");
             },
-            close: function (event, ui) {
+            close: function(event, ui) {
 
                 var suburbstr = jQuery(this).val();
                 var suburbarr = suburbstr.split(",");
@@ -702,25 +708,25 @@ jQuery(document).ready(function () {
             }
         });
     });
-    jQuery('body').on("focus", ".adddeliverysuburb", function () {
+    jQuery('body').on("focus", ".adddeliverysuburb", function() {
         jQuery(this).autocomplete({
-            source: function (request, response) {
+            source: function(request, response) {
                 $.ajax({
                     url: BASE_URL + "enquiries/getsuburbdata",
                     dataType: "json",
                     data: request,
-                    success: function (data) {
+                    success: function(data) {
                         response(data);
                     }
                 });
             },
             minLength: 3,
-            select: function (event, ui) {
+            select: function(event, ui) {
                 if (window.console)
-                    // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+                // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                     jQuery(this).attr("data-selected", "true");
             },
-            close: function (event, ui) {
+            close: function(event, ui) {
 
                 var suburbstr = jQuery(this).val();
                 var suburbarr = suburbstr.split(",");
@@ -736,13 +742,13 @@ jQuery(document).ready(function () {
      * Suburb autocomplete.............................@DRCZ
      */
 
-    $(".deletebooking").click(function () {
+    $(".deletebooking").click(function() {
         if (confirm("Are you sure want to delete booking?")) {
             var id = $(this).data('id');
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + 'enquiries/deleteEnquiry/' + id,
-                success: function (response) {
+                success: function(response) {
                     var res = JSON.parse(response);
 
                     if (res.error) {
@@ -757,13 +763,13 @@ jQuery(document).ready(function () {
             })
         }
     })
-    $(".disQualify").click(function () {
+    $(".disQualify").click(function() {
         if (confirm("Are you sure want to disqualify booking?")) {
             var id = $(this).data('id');
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + 'enquiries/disQualifyBooking/' + id,
-                success: function (response) {
+                success: function(response) {
                     var res = JSON.parse(response);
 
                     if (res.error) {
@@ -783,7 +789,7 @@ jQuery(document).ready(function () {
     /**
      * Removealist autocomplete....................@DRCZ
      */
-    jQuery("#removalist").blur(function () {
+    jQuery("#removalist").blur(function() {
         var removalist = jQuery("#removalist_data").val();
         if (removalist == "") {
             jQuery('#removealist1').find('span.error').parent("label").remove();
@@ -798,15 +804,15 @@ jQuery(document).ready(function () {
         //  jQuery("#removalist_data").val('');
     });
     jQuery("#removalist").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             var enqstate = jQuery("#movingfromstate").val();
             $.ajax({
                 url: BASE_URL + "enquiries/getcontactid/" + enqstate,
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     if (data.items.length > 0) {
-                        response($.map(data.items, function (item) {
+                        response($.map(data.items, function(item) {
                             return {
                                 label: item.name,
                                 value: item.id
@@ -814,24 +820,24 @@ jQuery(document).ready(function () {
                         }));
                     } else {
                         jQuery("#removalist_data").val('');
-                        response([{label: 'No results found.', value: -1}]);
+                        response([{ label: 'No results found.', value: -1 }]);
                     }
 
-//                    response(data);
+                    //                    response(data);
                 }
             });
         },
         minLength: 2,
-        select: function (event, ui) {
+        select: function(event, ui) {
             if (ui.item.value == "" || ui.item.value == -1) {
                 jQuery(this).val('');
                 jQuery("#removalist_data").val('');
                 return false;
             }
-//            if (window.console)
-//                this.value = ui.item.label;
-//            jQuery(this).next("input").val(ui.item.value);
-//            jQuery('#removalist_data').val(ui.item.value);
+            //            if (window.console)
+            //                this.value = ui.item.label;
+            //            jQuery(this).next("input").val(ui.item.value);
+            //            jQuery('#removalist_data').val(ui.item.value);
 
             var removalistIDs = ui.item.value;
             jQuery('#removalist').val('');
@@ -846,12 +852,12 @@ jQuery(document).ready(function () {
 
 
     });
-    jQuery("body").on("click", ".rm-removalist", function () {
+    jQuery("body").on("click", ".rm-removalist", function() {
         if (confirm("Are you sure want to remove removalist?")) {
             var packerIDs = jQuery('#removalist_data').val().trim();
             var packerIDarray = packerIDs.split(",");
             var packerToRemove = jQuery(this).parent("li").data("id");
-            var y = jQuery.grep(packerIDarray, function (value) {
+            var y = jQuery.grep(packerIDarray, function(value) {
                 return value != packerToRemove;
             });
             jQuery('#packer_data').val('');
@@ -862,7 +868,7 @@ jQuery(document).ready(function () {
     /**
      * Client autocomplete....................@DRCZ
      */
-    jQuery("#customerId").blur(function () {
+    jQuery("#customerId").blur(function() {
         var clientId = jQuery("#clientdata").val();
         if (clientId == "") {
             jQuery('#client').find('span.error').parent("label").remove();
@@ -877,21 +883,21 @@ jQuery(document).ready(function () {
         //   jQuery("#clientdata").val('');
 
     });
-    jQuery.ui.autocomplete.prototype._renderItem = function (ul, item) {
+    jQuery.ui.autocomplete.prototype._renderItem = function(ul, item) {
         return $("<li>")
-//                .attr("data-value", item.value)
-                .append(item.label)
-                .appendTo(ul);
+            //                .attr("data-value", item.value)
+            .append(item.label)
+            .appendTo(ul);
     };
     jQuery("#customerId").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             $.ajax({
                 url: BASE_URL + "booking/getCustomerid",
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     if (data.items.length > 0) {
-                        response($.map(data.items, function (item) {
+                        response($.map(data.items, function(item) {
                             return {
                                 label: item.name,
                                 value: item.id,
@@ -901,15 +907,15 @@ jQuery(document).ready(function () {
                         }));
                     } else {
                         jQuery("#clientdata").val('');
-                        response([{label: 'No results found.', value: -1}]);
+                        response([{ label: 'No results found.', value: -1 }]);
                     }
 
-//                    response(data);
+                    //                    response(data);
                 }
             });
         },
         minLength: 2,
-        select: function (event, ui) {
+        select: function(event, ui) {
             // if (ui.item.value == "" || ui.item.value == -1) {
             if (ui.item.value == "") {
                 jQuery(this).val('');
@@ -917,7 +923,7 @@ jQuery(document).ready(function () {
                 return false;
             }
             if (window.console)
-                //   console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+            //   console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                 this.value = ui.item.label;
             this.value = ui.item.label.replace("<br/>", " ");
             this.value = this.value.replace("<br/>", " ");
@@ -935,7 +941,7 @@ jQuery(document).ready(function () {
     /**
      * Packers autocomplete....................@DRCZ
      */
-    jQuery("#packersdata").blur(function () {
+    jQuery("#packersdata").blur(function() {
         var packer_data = jQuery('#packer_data').val();
         if (packer_data == "") {
             jQuery('#packers').find('span.error').parent("label").remove();
@@ -950,14 +956,14 @@ jQuery(document).ready(function () {
         //   jQuery("#clientdata").val('');
 
     });
-    jQuery.ui.autocomplete.prototype._renderItem = function (ul, item) {
+    jQuery.ui.autocomplete.prototype._renderItem = function(ul, item) {
         return $("<li>")
-//                .attr("data-value", item.value)
-                .append(item.label)
-                .appendTo(ul);
+            //                .attr("data-value", item.value)
+            .append(item.label)
+            .appendTo(ul);
     };
     jQuery("#packersdata").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             var movetype = jQuery("#enquirymovetype option:selected").val();
 
             if (movetype == "4" || movetype == "7") {
@@ -970,9 +976,9 @@ jQuery(document).ready(function () {
                 url: BASE_URL + "booking/getpackerid/" + enqstate,
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     if (data.items.length > 0) {
-                        response($.map(data.items, function (item) {
+                        response($.map(data.items, function(item) {
                             return {
                                 label: item.name,
                                 value: item.id
@@ -981,18 +987,18 @@ jQuery(document).ready(function () {
                     } else {
                         // jQuery("#packer_data").val('');
                         jQuery("#packersdata").val('');
-                        response([{label: 'No results found.', value: -1}]);
+                        response([{ label: 'No results found.', value: -1 }]);
                     }
-//                    response(data);
+                    //                    response(data);
                 }
             });
         },
         minLength: 2,
-        select: function (event, ui) {
-//            if (ui.item.value == "" || ui.item.value == -1) {
-//                jQuery(this).val('');
-//                return false;
-//            }
+        select: function(event, ui) {
+            //            if (ui.item.value == "" || ui.item.value == -1) {
+            //                jQuery(this).val('');
+            //                return false;
+            //            }
             if (ui.item.value == "" || ui.item.value == -1) {
                 jQuery(this).val('');
                 jQuery("#packersdata").val('');
@@ -1007,32 +1013,24 @@ jQuery(document).ready(function () {
                 packerIDs += "," + jQuery('#packer_data').val();
                 jQuery('#packer_data').val(packerIDs);
                 jQuery(".packer-listed").append("<li class='packer" + ui.item.value + "' data-id='" + ui.item.value + "'>" + ui.item.label + "<span class='fa fa-times rm-packer'></span></li>");
-                var packerHoursBooked= parseFloat(jQuery("#hoursbooked").val()).toFixed(2);
-                jQuery("#packer_hours").append('<div class="form-group packer-div-'+ ui.item.value +'"><label class="control-label col-md-6 packer-name-label">'+ ui.item.label +'</label><div class="col-md-6"><input type="hidden" class="packer-name" name="packer-name[]" value="'+ ui.item.value +'"><input type="text" class="form-control packer-name-text" name="packer-hours[]" value="'+ packerHoursBooked +'"></div></div>');
-                jQuery("#packer_hours_non_billable").append('<div class="form-group non-billable-packer-div-'+ ui.item.value +'"><label class="control-label col-md-6 packer-name-label">'+ ui.item.label +'</label><div class="col-md-6"><input type="hidden" name="non-billable-packer-name[]" value="'+ ui.item.value +'"><input type="text" class="form-control non-billable-packer-name-text" name="non-billable-packer-hours[]" value="0.00"></div></div>');
+                var packerHoursBooked = parseFloat(jQuery("#hoursbooked").val()).toFixed(2);
+                jQuery("#packer_hours").append('<div class="form-group packer-div-' + ui.item.value + '"><label class="control-label col-md-6 packer-name-label">' + ui.item.label + '</label><div class="col-md-6"><input type="hidden" class="packer-name" name="packer-name[]" value="' + ui.item.value + '"><input type="text" class="form-control packer-name-text" name="packer-hours[]" value="' + packerHoursBooked + '"></div></div>');
+                jQuery("#packer_hours_non_billable").append('<div class="form-group non-billable-packer-div-' + ui.item.value + '"><label class="control-label col-md-6 packer-name-label">' + ui.item.label + '</label><div class="col-md-6"><input type="hidden" name="non-billable-packer-name[]" value="' + ui.item.value + '"><input type="text" class="form-control non-billable-packer-name-text" name="non-billable-packer-hours[]" value="0.00"></div></div>');
             }
             jQuery(this).val("");
             event.preventDefault();
 
-
-            /*if (window.console)
-             //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
-             this.value = ui.item.label;
-             jQuery(this).next("input").val(ui.item.value);
-             jQuery('#packer_data').val(ui.item.value);
-             event.preventDefault();*/
-            // jQuery(this).attr("data-selected", "true");
         }
     });
 
-    jQuery("body").on("click", ".rm-packer", function () {
+    jQuery("body").on("click", ".rm-packer", function() {
         if (confirm("Are you sure want to remove packer?")) {
             var packerIDs = jQuery('#packer_data').val().trim();
             var packerIDarray = packerIDs.split(",");
             var packerToRemove = jQuery(this).parent("li").data("id");
-            jQuery(".packer-div-"+packerToRemove).remove();
-            jQuery(".non-billable-packer-div-"+packerToRemove).remove();
-            var y = jQuery.grep(packerIDarray, function (value) {
+            jQuery(".packer-div-" + packerToRemove).remove();
+            jQuery(".non-billable-packer-div-" + packerToRemove).remove();
+            var y = jQuery.grep(packerIDarray, function(value) {
                 return value != packerToRemove;
             });
             jQuery('#packer_data').val(y.join(','));
@@ -1042,16 +1040,8 @@ jQuery(document).ready(function () {
         }
     });
 
-    /*$("#hamMargin").focus(function () {
-     var sellprice = $('#totalsellprice').val();
-     var costprice = $('#costprice').val();
-     var ham = parseFloat(sellprice) - parseFloat(costprice);
-     var price = ham.toFixed(2);
-     $('#hamMargin').val(price);
-     });*/
-
     /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
-    $("#clienthourlyrate").blur(function () {
+    $("#clienthourlyrate").blur(function() {
         var movers = $('#movers').val();
         var chr = $('#clienthourlyrate').val();
         // if (movers == '4' && chr < '240') {
@@ -1060,7 +1050,7 @@ jQuery(document).ready(function () {
     });
     /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
 
-    $('#totalsellprice').blur(function () {
+    $('#totalsellprice').blur(function() {
         var sellprice = $('#totalsellprice').val();
         var costprice = $('#costprice').val();
         if (costprice != "" && sellprice != "") {
@@ -1071,7 +1061,7 @@ jQuery(document).ready(function () {
             $('#hamMargin').val("");
         }
     });
-    $('#costprice').blur(function () {
+    $('#costprice').blur(function() {
         var sellprice = $('#totalsellprice').val();
         var costprice = $('#costprice').val();
         if (costprice != "" && sellprice != "") {
@@ -1082,7 +1072,7 @@ jQuery(document).ready(function () {
             $('#hamMargin').val("");
         }
     });
-    $('#travelfee').blur(function () {
+    $('#travelfee').blur(function() {
         var travelfee = $('#travelfee').val();
         if (travelfee != "") {
             var travel = parseFloat(travelfee);
@@ -1092,7 +1082,7 @@ jQuery(document).ready(function () {
             $('#travelfee').val("");
         }
     });
-    $('#depositamt').blur(function () {
+    $('#depositamt').blur(function() {
         var depositamt = $('#depositamt').val();
         if (depositamt != "") {
             var damt = parseFloat(depositamt);
@@ -1102,7 +1092,7 @@ jQuery(document).ready(function () {
             $('#depositamt').val("");
         }
     });
-    $('#clienthourlyrate').blur(function () {
+    $('#clienthourlyrate').blur(function() {
         var clientrate = $('#clienthourlyrate').val();
         if (clientrate != "") {
             var clirate = parseFloat(clientrate);
@@ -1112,7 +1102,7 @@ jQuery(document).ready(function () {
             $('#clienthourlyrate').val("");
         }
     });
-    $('#additionalChargesinput').blur(function () {
+    $('#additionalChargesinput').blur(function() {
         var addicharge = $('#additionalChargesinput').val();
         if (addicharge != "") {
             var ad = parseFloat(addicharge);
@@ -1122,7 +1112,7 @@ jQuery(document).ready(function () {
             $('#additionalChargesinput').val("");
         }
     });
-    $('#totalsellprice').blur(function () {
+    $('#totalsellprice').blur(function() {
         var totalprice = $('#totalsellprice').val();
         if (totalprice != "") {
             var tp = parseFloat(totalprice);
@@ -1132,7 +1122,7 @@ jQuery(document).ready(function () {
             $('#totalsellprice').val("");
         }
     });
-    $('#costprice').blur(function () {
+    $('#costprice').blur(function() {
         var costprice = $('#costprice').val();
         if (costprice != "") {
             var cstprice = parseFloat(costprice);
@@ -1142,7 +1132,7 @@ jQuery(document).ready(function () {
             $('#costprice').val("");
         }
     });
-    $('#hamMargin').blur(function () {
+    $('#hamMargin').blur(function() {
         var hammargin = $('#hamMargin').val();
         if (hammargin != "") {
             var ham = parseFloat(hammargin);
@@ -1152,17 +1142,8 @@ jQuery(document).ready(function () {
             $('#hamMargin').val("");
         }
     });
-    $('#hoursbooked').blur(function () {
-        var hrbooked = $('#hoursbooked').val();
-        if (hrbooked != "") {
-            var hrb = parseFloat(hrbooked);
-            var hrbook = hrb.toFixed(2);
-            $('#hoursbooked').val(hrbook);
-        } else {
-            $('#hoursbooked').val("");
-        }
-    });
-    $('#sellprice').change(function () {
+
+    $('#sellprice').change(function() {
         var sellprice = $('#sellprice').val();
         var initialHoursBooked = $("#hoursbooked").val();
         var noOfLadiesBooked = $("#bookedladies").val();
@@ -1177,59 +1158,21 @@ jQuery(document).ready(function () {
         }
     });
 
-    /* Auto calculation of sellprice for Packing/Unpacking.......@DRCZ */
-// $("#sellprice").blur(function () {
-//        
-//        var hrbook = $('#hoursbooked').val();
-//        var ladies = $('#bookedladies').val();
-//        if (hrbook != "" && ladies != "") {
-//            var totalsell = (hrbook * ladies * 50)+'.00';
-//            $('#sellprice').val(totalsell);
-//        } else {
-//            $('#sellprice').val("");
-//        }
-//    });
-    $("#hoursbooked").change(function () {
+    $("#hoursbooked").change(function() {
 
         var hrbook = $('#hoursbooked').val();
-        var ladies = $('#bookedladies').val();
-        // if (hrbook != "" && ladies != "") {
-        //     var totalsell = (hrbook * ladies * 60) + '.00';
-        //     var additionalCharges = parseFloat($(".additional-charges-packer").val());
-        //     if (!isNaN(additionalCharges)) {
-        //         totalsell = parseFloat(totalsell);
-        //         totalsell += additionalCharges;
-        //         totalsell = totalsell.toFixed(2);
-        //     }
-        //     $('#sellprice').val(totalsell);
-        //     jQuery('#totalsellprice').val(totalsell);
-        //     jQuery("#costprice").val((parseFloat(hrbook) * parseFloat(ladies) * (parseFloat(32.85))).toFixed(2));
-        //     jQuery("#costprice").trigger('blur');
-        // } else {
-        //     $('#sellprice').val("");
-        // }
-        // console.log(hrbook);
-        jQuery(".packer-name-text").val(hrbook);
-    });
-    $("#bookedladies").change(function () {
+        if (hrbook != "") {
+            var hrb = parseFloat(hrbook);
+            var hrbook = hrb.toFixed(2);
+            $('#hoursbooked').val(hrbook);
+        } else {
+            $('#hoursbooked').val("");
+        }
 
-        // var hrbook = $('#hoursbooked').val();
-        // var ladies = $('#bookedladies').val();
-        // if (hrbook != "" && ladies != "") {
-        //     var totalsell = (hrbook * ladies * 60) + '.00';
-        //     var additionalCharges = parseFloat($(".additional-charges-packer").val());
-        //     if (!isNaN(additionalCharges)) {
-        //         totalsell = parseFloat(totalsell);
-        //         totalsell += additionalCharges;
-        //         totalsell = totalsell.toFixed(2);
-        //     }
-        //     $('#sellprice').val(totalsell);
-        //     jQuery('#totalsellprice').val(totalsell);
-        //     jQuery("#costprice").val((parseFloat(hrbook) * parseFloat(ladies) * (parseFloat(32.85))).toFixed(2));
-        //     jQuery("#costprice").trigger('blur');
-        // } else {
-        //     $('#sellprice').val("");
-        // }
+        var packingTimePeriod = jQuery('#packing-interval-time').val();
+        if (hrbook != packingTimePeriod) {
+            toastr.error("Service time hours doesn't match with \'Initial hours booked\'");
+        }
     });
 
     /**
@@ -1237,38 +1180,13 @@ jQuery(document).ready(function () {
      * DRCDHS
      * 3rd Dec.,2018
      */
-    $(".additional-charges-packer").blur(function () {
+    $(".additional-charges-packer").blur(function() {
         $("#hoursbooked").trigger("blur");
     });
 
-    // jQuery('#hoursbooked').on('change', function () {
-    //     var HouresValue = jQuery('#hoursbooked').val();
-    //     if (HouresValue == "4" || HouresValue == "4.00") {
-    //         jQuery('.servicetime').val("9am-1pm");
-    //     } else if (HouresValue == "5" || HouresValue == "5.00") {
-    //         jQuery('.servicetime').val("9am-2pm");
-    //     } else if (HouresValue == "6" || HouresValue == "6.00") {
-    //         jQuery('.servicetime').val("9am-3pm");
-    //     } else {
-    //         jQuery('.servicetime').val("");
-    //     }
-    // });
-
-    
-//    $("#sellprice").click(function () {
-//        
-//        var hrbook = $('#hoursbooked').val();
-//        var ladies = $('#bookedladies').val();
-//        if (hrbook != "" && ladies != "") {
-//            var totalsell = (hrbook * ladies * 50)+'.00';
-//            $('#sellprice').val(totalsell);
-//        } else {
-//            $('#sellprice').val("");
-//        }
-//    });
     /* Auto calculation of sellprice for Packing/Unpacking.......@DRCZ */
 
-    $("#namedone, .input-close").click(function () {
+    $("#namedone, .input-close").click(function() {
         var fnames = $('#enfname').val();
         var fname = fnames.replace(/\s+/g, '');
         var lnames = $('#enlname').val();
@@ -1282,7 +1200,7 @@ jQuery(document).ready(function () {
         } else {
             $('#enname').val('');
             jQuery(this).closest('.input-modal').show();
-            jQuery('.input-modal').find('.inmodal-error').show().addClass('eshadow').delay('1000').queue(function () {
+            jQuery('.input-modal').find('.inmodal-error').show().addClass('eshadow').delay('1000').queue(function() {
                 $(this).removeClass('eshadow').dequeue();
             });
 
@@ -1291,35 +1209,38 @@ jQuery(document).ready(function () {
 
     });
 
-// 24-04-19 new price rule start
+    // 24-04-19 new price rule start
 
-jQuery(document).ready(function () {
-    var data= $("#enquirymovetype").val();
-    changeEnquiryMoveType(data);
-
-    $("#enquirymovetype").change(function () {
-        var data= $("#enquirymovetype").val();
+    jQuery(document).ready(function() {
+        var data = $("#enquirymovetype").val();
         changeEnquiryMoveType(data);
+
+        $("#enquirymovetype").change(function() {
+            var data = $("#enquirymovetype").val();
+            changeEnquiryMoveType(data);
+            if (data == '6' && jQuery('#storageReminderDate').val() == '30-11--0001') {
+                $('#storageReminderDate').datepicker('setDate', 'now');
+            }
+        });
+
+        jQuery('select[name="en_no_of_movers1"],#enquirymovetype,#servicedate,#trucks-select,#movingfromstate,#movingtostate,#hoursbooked,#bookedladies').on('change', function() {
+            setValues();
+        });
+
+
+        $("#movers").focusout(function() {
+            if ($("#servicedate").val() == "") {
+                // alert("Please fill Service date");
+                $("#servicedate").focus();
+                return false;
+            }
+            setValues('customMovers');
+        });
+
     });
 
-    jQuery('select[name="en_no_of_movers1"],#enquirymovetype,#servicedate,#trucks-select,#movingfromstate,#movingtostate,#hoursbooked,#bookedladies').on('change', function() {
-        setValues();
-    });
-
-
-    $("#movers").focusout(function(){
-        if($("#servicedate").val() ==""){
-            alert("Please fill Service date");
-            $("#servicedate").focus();
-            return false;
-        }
-        setValues('customMovers');
-    });
-    
-});
-
-function changeEnquiryMoveType(data){
-     if (data == "1" || data == "2") {
+    function changeEnquiryMoveType(data) {
+        if (data == "1" || data == "2") {
             $("#storagedate").addClass('fhide');
             $("#deliveryDate").addClass('fhide');
             $("#deliveryDate").children().prop('disabled', true);
@@ -1403,8 +1324,6 @@ function changeEnquiryMoveType(data){
             jQuery("#clientFeedback").removeClass('fhide');
             jQuery("#jobsheet-log").removeClass('fhide');
             jQuery("#jobsheet-div").removeClass('fhide');
-            //11-09-19
-            // $('#serviceEndTimeDiv').addClass('fhide');
             //23-09-19
             jQuery('#hosServiceTimeContainer').removeClass('fhide');
             jQuery('#packerServiceTimeContainer').addClass('fhide');
@@ -1485,8 +1404,6 @@ function changeEnquiryMoveType(data){
             jQuery("#clientFeedback").removeClass('fhide');
             jQuery("#jobsheet-log").removeClass('fhide');
             jQuery("#jobsheet-div").removeClass('fhide');
-            //11-09-19
-            // $('#serviceEndTimeDiv').addClass('fhide');
             //23-09-19
             jQuery('#hosServiceTimeContainer').removeClass('fhide');
             jQuery('#packerServiceTimeContainer').addClass('fhide');
@@ -1552,24 +1469,18 @@ function changeEnquiryMoveType(data){
             $("#packingPriceInfo").removeClass('fhide');
             $("#depositReceive").removeClass('fhide');
             $("#depositPaidby").removeClass('fhide');
-            //19-08-19
             $(".activitylog").removeClass('fhide');
             $(".hours-completed").removeClass("fhide");
             jQuery("#storageDiv").addClass('fhide');
             jQuery('#depositReceived').parent().closest('div.portlet').removeClass('fhide');
             jQuery("#storageAgreementDiv").addClass('fhide');
-            //20-08-19
             jQuery(".created-from-div").removeClass('fhide');
             jQuery("#storage-provider-address").addClass('fhide');
             jQuery("#storage-provider-info").addClass('fhide');
             jQuery("#clientFeedback").removeClass('fhide');
             jQuery("#jobsheet-log").removeClass('fhide');
             jQuery("#jobsheet-div").removeClass('fhide');
-            //05-09-19
             jQuery(".add_field_button_packers").addClass("fhide");
-            //11-09-19
-            // $('#serviceEndTimeDiv').removeClass('fhide');
-            //23-09-19
             jQuery('#hosServiceTimeContainer').addClass('fhide');
             jQuery('#packerServiceTimeContainer').removeClass('fhide');
         } else if (data == "5" || data == "8") {
@@ -1634,24 +1545,18 @@ function changeEnquiryMoveType(data){
             $("#depositReceive").removeClass('fhide');
             $("#depositPaidby").removeClass('fhide');
             $("#packingCompanyPaid").removeClass('fhide');
-            //19-08-19
             $(".activitylog").removeClass('fhide');
             $(".hours-completed").removeClass("fhide");
             jQuery("#storageDiv").addClass('fhide');
             jQuery('#depositReceived').parent().closest('div.portlet').removeClass('fhide');
             jQuery("#storageAgreementDiv").addClass('fhide');
-            //20-08-19
             jQuery(".created-from-div").removeClass('fhide');
             jQuery("#storage-provider-address").addClass('fhide');
             jQuery("#storage-provider-info").addClass('fhide');
             jQuery("#clientFeedback").removeClass('fhide');
             jQuery("#jobsheet-log").removeClass('fhide');
             jQuery("#jobsheet-div").removeClass('fhide');
-            //05-09-19
             jQuery(".add_field_button_packers").addClass("fhide");
-            //11-09-19
-            // $('#serviceEndTimeDiv').removeClass('fhide');
-            //23-09-19
             jQuery('#hosServiceTimeContainer').addClass('fhide');
             jQuery('#packerServiceTimeContainer').removeClass('fhide');
         } else if (data == "6") {
@@ -1711,17 +1616,15 @@ function changeEnquiryMoveType(data){
 
             $(".activitylog").addClass('fhide');
             $(".hours-completed").addClass("fhide");
-            //19-08-19 start
             jQuery('#depositReceived').parent().closest('div.portlet').addClass('fhide');
             jQuery("#noOfModules").addClass('fhide');
             jQuery("#cubicMetersByStorage").addClass('fhide');
             jQuery("#movingTolbl").addClass('fhide');
             jQuery("#movingTotxt").addClass('fhide');
-            jQuery("#storageDiv").removeClass('fhide');        
+            jQuery("#storageDiv").removeClass('fhide');
             // jQuery("#packerUnpackerlbl").removeClass('fhide');
             // jQuery("#movingFromlbl").addClass('fhide');
             jQuery("#storageAgreementDiv").removeClass('fhide');
-            //20-08-19 
             $("#referralDetails").addClass('fhide');
             jQuery(".created-from-div").addClass('fhide');
             jQuery("#storage-provider-address").removeClass('fhide');
@@ -1729,9 +1632,6 @@ function changeEnquiryMoveType(data){
             jQuery("#clientFeedback").addClass('fhide');
             jQuery("#jobsheet-log").addClass('fhide');
             jQuery("#jobsheet-div").addClass('fhide');
-            //11-09-19
-            // $('#serviceEndTimeDiv').addClass('fhide');
-            //23-09-19
             jQuery('#hosServiceTimeContainer').removeClass('fhide');
             jQuery('#packerServiceTimeContainer').addClass('fhide');
         } else {
@@ -1770,108 +1670,105 @@ function changeEnquiryMoveType(data){
             $("#packingPriceInfo").removeClass('fhide');
             $("#homeOffice").removeClass('fhide');
         }
-}
-
-function setValues($customMovers=""){
-
-    if(jQuery("select[name='en_no_of_movers1']").val() != 'other' && jQuery("#servicedate").val() =="" && jQuery("#enquirymovetype").val() != '6'){
-        jQuery("#servicedate").focus();
-        // alert("Please fill Service Date");
-        return false;
     }
 
-    var moveType=jQuery("#enquirymovetype").val();
-    var inputDate = toDate(jQuery("#servicedate").val());
-    var numberOfMovers=jQuery("select[name='en_no_of_movers1']").val();
-    var todaysDate = new Date();
-    var movingFromState= jQuery("#movingfromstate").val();
-    if(moveType == '5'){
-        movingFromState= jQuery("#movingtostate").val();
-    }
+    function setValues($customMovers = "") {
 
-    var dateFormat='';
-
-    if(jQuery("#movers").css("display")=="inline-block"){
-       numberOfMovers=jQuery("#movers").val();
-    }
-    var numberOfTrucks = jQuery("#trucks-select").val();
-    if(jQuery("#trucks").css("display")!="none"){
-       numberOfTrucks=jQuery("#trucks").val();
-    }
-
-    var today = new Date();
-    var dateFormat = GetDateFormat(inputDate);
-    jQuery.ajax({
-    type: 'POST',
-    url: BASE_URL + "pricelist/getRules",
-    data: { moveType : moveType, datepicker : dateFormat, noOfTrucks : numberOfTrucks,noOfMovers:numberOfMovers,state:movingFromState },
-    success: function (response) {
-        var res = JSON.parse(response);
-        if(res == null){
-            if(moveType == '1' || moveType == '2'){
-                jQuery("#travelfee").val('');
-                jQuery("#clienthourlyrate").val('');
-            }
-            else if(moveType == '4' || moveType == '5'){
-                jQuery("#sellprice").val('');
-            }
+        if (jQuery("select[name='en_no_of_movers1']").val() != 'other' && jQuery("#servicedate").val() == "" && jQuery("#enquirymovetype").val() != '6') {
+            jQuery("#servicedate").focus();
+            // alert("Please fill Service Date");
+            return false;
         }
-        else{
-            if(res[0].movetype == '1' || res[0].movetype =='2'){
-                jQuery("#travelfee").val(parseInt(res[0].travel_fee).toFixed(2));
-                jQuery("#clienthourlyrate").val(parseInt(res[0].client_hour_rate).toFixed(2));
-                if(res[0].rule_type == '3'){
-                    jQuery("#travelfee, input[name=en_client_hourly_rate]").addClass('holiday-highlighter');
-                }
-                else{
-                    jQuery("#travelfee, input[name=en_client_hourly_rate]").removeClass('holiday-highlighter');
-                }
-            }
-            else if(res[0].movetype == '4' || res[0].movetype =='5'){
-                var hoursbooked = jQuery("#hoursbooked").val();
-                var bookedLadies = jQuery("#bookedladies").val();
-                var sellTotal = (parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2);
-                if(hoursbooked !='' && bookedLadies != ''){
-                    // jQuery("#sellprice").val((parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2));
-                    // jQuery("#totalsellprice").val((parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2));
-                    jQuery("#sellprice, #totalsellprice").val(sellTotal);
-                    var totalNonBillableHours=0;
-                    jQuery(".non-billable-packer-name-text").each(function() {
-                        if(jQuery(this).val() != ''){
-                            totalNonBillableHours+= parseFloat(jQuery(this).val());
+
+        var moveType = jQuery("#enquirymovetype").val();
+        var inputDate = toDate(jQuery("#servicedate").val());
+        var numberOfMovers = jQuery("select[name='en_no_of_movers1']").val();
+        var todaysDate = new Date();
+        var movingFromState = jQuery("#movingfromstate").val();
+        if (moveType == '5') {
+            movingFromState = jQuery("#movingtostate").val();
+        }
+
+        var dateFormat = '';
+
+        if (jQuery("#movers").css("display") == "inline-block") {
+            numberOfMovers = jQuery("#movers").val();
+        }
+        var numberOfTrucks = jQuery("#trucks-select").val();
+        if (jQuery("#trucks").css("display") != "none") {
+            numberOfTrucks = jQuery("#trucks").val();
+        }
+
+        var today = new Date();
+        var dateFormat = GetDateFormat(inputDate);
+        jQuery.ajax({
+            type: 'POST',
+            url: BASE_URL + "pricelist/getRules",
+            data: { moveType: moveType, datepicker: dateFormat, noOfTrucks: numberOfTrucks, noOfMovers: numberOfMovers, state: movingFromState },
+            success: function(response) {
+                var res = JSON.parse(response);
+                if (res == null) {
+                    if (moveType == '1' || moveType == '2') {
+                        jQuery("#travelfee").val('');
+                        jQuery("#clienthourlyrate").val('');
+                    } else if (moveType == '4' || moveType == '5') {
+                        jQuery("#sellprice").val('');
+                    }
+                } else {
+                    if (res[0].movetype == '1' || res[0].movetype == '2') {
+                        jQuery("#travelfee").val(parseInt(res[0].travel_fee).toFixed(2));
+                        jQuery("#clienthourlyrate").val(parseInt(res[0].client_hour_rate).toFixed(2));
+                        if (res[0].rule_type == '3') {
+                            jQuery("#travelfee, input[name=en_client_hourly_rate]").addClass('holiday-highlighter');
+                        } else {
+                            jQuery("#travelfee, input[name=en_client_hourly_rate]").removeClass('holiday-highlighter');
                         }
-                    });
-                    jQuery("#costprice").val(((parseFloat(hoursbooked) * parseFloat(bookedLadies) * (parseFloat(res[0].packer_cost_price))) + parseFloat(totalNonBillableHours) * (parseFloat(res[0].packer_cost_price)) ).toFixed(2));
-                    jQuery("#costprice").trigger('blur'); 
+                    } else if (res[0].movetype == '4' || res[0].movetype == '5') {
+                        var hoursbooked = jQuery("#hoursbooked").val();
+                        var bookedLadies = jQuery("#bookedladies").val();
+                        var sellTotal = (parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2);
+                        if (hoursbooked != '' && bookedLadies != '') {
+                            // jQuery("#sellprice").val((parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2));
+                            // jQuery("#totalsellprice").val((parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2));
+                            jQuery("#sellprice, #totalsellprice").val(sellTotal);
+                            var totalNonBillableHours = 0;
+                            jQuery(".non-billable-packer-name-text").each(function() {
+                                if (jQuery(this).val() != '') {
+                                    totalNonBillableHours += parseFloat(jQuery(this).val());
+                                }
+                            });
+                            jQuery("#costprice").val(((parseFloat(hoursbooked) * parseFloat(bookedLadies) * (parseFloat(res[0].packer_cost_price))) + parseFloat(totalNonBillableHours) * (parseFloat(res[0].packer_cost_price))).toFixed(2));
+                            jQuery("#costprice").trigger('blur');
+                        }
+                    }
                 }
             }
-        }        
+        });
+
     }
-    });
- 
-}
 
-function GetDateFormat(date) {
-   var month = (date.getMonth() + 1).toString();
-   month = month.length > 1 ? month : '0' + month;
-   var day = date.getDate().toString();
-   day = day.length > 1 ? day : '0' + day;
-   return day + '-' + month+ '-' + date.getFullYear();
-}
+    function GetDateFormat(date) {
+        var month = (date.getMonth() + 1).toString();
+        month = month.length > 1 ? month : '0' + month;
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        return day + '-' + month + '-' + date.getFullYear();
+    }
 
-function setFees($travelfee,$clienthourlyrate){
-    $("#travelfee").val($travelfee);
-    $("#clienthourlyrate").val($clienthourlyrate);  
-}
-function toDate(dateStr) {
-  var parts = dateStr.split("-")
-  return new Date(parts[2], parts[1] - 1, parts[0])
-}
+    function setFees($travelfee, $clienthourlyrate) {
+        $("#travelfee").val($travelfee);
+        $("#clienthourlyrate").val($clienthourlyrate);
+    }
 
-// new price rule end
+    function toDate(dateStr) {
+        var parts = dateStr.split("-")
+        return new Date(parts[2], parts[1] - 1, parts[0])
+    }
+
+    // new price rule end
 
 
-    $("#enquirymovetype").on('change', function () {
+    $("#enquirymovetype").on('change', function() {
         return true;
         var data = $(this, ":selected").val();
 
@@ -1951,7 +1848,7 @@ function toDate(dateStr) {
     });
 
     //edit Jobsheet mail............@DRCZ
-    jQuery(".edit-jobsheet-mail").click(function () {
+    jQuery(".edit-jobsheet-mail").click(function() {
         var id = jQuery(this).data('id');
         var movetype = jQuery('#enquirymovetype').val();
         var servicedate = jQuery('.servicedate').val();
@@ -1993,7 +1890,7 @@ function toDate(dateStr) {
                 toastr.error("Removalist should not be blank for send email");
                 return false;
             } else {
-            	sendWarningMail(id, ewayref, eftRecievedOn);
+                // sendWarningMail(id, ewayref, eftRecievedOn);
                 window.open(BASE_URL + "booking/editJobsheetMail/" + id + '/4', "_blank", "edit-jobsheet-mail");
                 return false;
             }
@@ -2012,7 +1909,7 @@ function toDate(dateStr) {
                 toastr.error("Packers should not be blank for send email");
                 return false;
             } else {
-            	sendWarningMail(id, ewayref, eftRecievedOn);
+                // sendWarningMail(id, ewayref, eftRecievedOn);
                 window.open(BASE_URL + "booking/editJobsheetMail/" + id + '/4', "_blank", "edit-jobsheet-mail");
                 return false;
             }
@@ -2031,13 +1928,13 @@ function toDate(dateStr) {
                 toastr.error("Packers should not be blank for send email");
                 return false;
             } else {
-            	sendWarningMail(id, ewayref, eftRecievedOn);
+                // sendWarningMail(id, ewayref, eftRecievedOn);
                 window.open(BASE_URL + "booking/editJobsheetMail/" + id + '/4', "_blank", "edit-jobsheet-mail");
                 return false;
             }
         }
     });
-    jQuery(".edit-removalist-jobsheet-mail").click(function () {
+    jQuery(".edit-removalist-jobsheet-mail").click(function() {
         var id = jQuery(this).data('id');
         var movetype = jQuery('#enquirymovetype').val();
         var servicedate = jQuery('.servicedate').val();
@@ -2115,7 +2012,7 @@ function toDate(dateStr) {
         }
     });
     //edit Booking confirmation mail............@DRCZ
-    jQuery(".edit-bookingconfirm-mail").click(function () {
+    jQuery(".edit-bookingconfirm-mail").click(function() {
         var id = jQuery(this).data('id');
         var movetype = jQuery('#enquirymovetype').val();
         var servicedate = jQuery('.servicedate').val();
@@ -2143,6 +2040,10 @@ function toDate(dateStr) {
         var ewayref = jQuery('#ewayref').val();
         var eftRecievedOn = $('#eftreceivedon').val();
 
+        if (clientrate < 100 && ['1', '2'].includes(movetype)) {
+            alert("Client Rate less than $100.");
+        }
+
         if (movetype == "1" || movetype == "2") {
             if (client == "" || email == "" || depositamt == "" || movers == "" || trucks == "" || travelfees == "" || clientrate == "" || fromstate == "" || tostate == "") {
                 toastr.error('Please fill required field.');
@@ -2157,7 +2058,7 @@ function toDate(dateStr) {
                 toastr.error("Removalist should not be blank for send email");
                 return false;
             } else {
-				sendWarningMail(id, ewayref, eftRecievedOn);
+                // sendWarningMail(id, ewayref, eftRecievedOn);
                 window.open(BASE_URL + "booking/editBookingConfirmationMail/" + id + '/5', "_blank", "edit-bookingconfirm-mail");
                 return false;
             }
@@ -2176,7 +2077,7 @@ function toDate(dateStr) {
                 toastr.error("Packers should not be blank for send email");
                 return false;
             } else {
-            	sendWarningMail(id, ewayref, eftRecievedOn);
+                // sendWarningMail(id, ewayref, eftRecievedOn);
                 window.open(BASE_URL + "booking/editBookingConfirmationMail/" + id + '/5', "_blank", "edit-bookingconfirm-mail");
                 return false;
             }
@@ -2195,14 +2096,14 @@ function toDate(dateStr) {
                 toastr.error("Packers should not be blank for send email");
                 return false;
             } else {
-            	sendWarningMail(id, ewayref, eftRecievedOn);
+                // sendWarningMail(id, ewayref, eftRecievedOn);
                 window.open(BASE_URL + "booking/editBookingConfirmationMail/" + id + '/5', "_blank", "edit-bookingconfirm-mail");
                 return false;
             }
         }
     });
     //edit Booking confirmation mail............@DRCZ
-    jQuery(".edit-sendfeedback-mail").click(function () {
+    jQuery(".edit-sendfeedback-mail").click(function() {
         var client = jQuery('.client').val();
         if (client != "") {
             var id = jQuery(this).data('id');
@@ -2214,7 +2115,7 @@ function toDate(dateStr) {
         }
     });
     //edit Booking confirmation mail............@DRCZ
-    jQuery(".edit-sendreminder-mail").click(function () {
+    jQuery(".edit-sendreminder-mail").click(function() {
         var id = jQuery(this).data('id');
         var movetype = jQuery('#enquirymovetype').val();
         var servicedate = jQuery('.servicedate').val();
@@ -2293,7 +2194,7 @@ function toDate(dateStr) {
         }
     });
     /*No Answer Feedback edit.......@DRCZ 17-5-2018*/
-    jQuery(".edit-no-answer-feedback").click(function () {
+    jQuery(".edit-no-answer-feedback").click(function() {
 
         var client = jQuery('.client').val();
         if (client != "") {
@@ -2314,12 +2215,12 @@ function toDate(dateStr) {
         type: 'POST',
         url: BASE_URL + 'booking/getJobLog',
         data: datastr,
-        success: function (data) {
-            data=data.trim();
+        success: function(data) {
+            data = data.trim();
             var res = jQuery.parseJSON(data);
             var html = "";
-            $.each(res, function (i, v) {
-                html += "<div class=\"joblog-item\"><p>" + v.mod_payment + "- #" + v.trans_no + " (" + v.amount + ")<span class=\"joblog-date\">"+v.trans_date+"</span></p><span class=\"joblog-status\"><a href='"+BASE_URL+"jobsheet/open/"+v.id+"' target='_blank'>Job Sheet</a></span></div>";
+            $.each(res, function(i, v) {
+                html += "<div class=\"joblog-item\"><p>" + v.mod_payment + "- #" + v.trans_no + " (" + v.amount + ")<span class=\"joblog-date\">" + v.trans_date + "</span></p><span class=\"joblog-status\"><a href='" + BASE_URL + "jobsheet/open/" + v.id + "' target='_blank'>Job Sheet</a></span></div>";
             })
             if (html == "") {
                 html = "No log found.";
@@ -2331,7 +2232,7 @@ function toDate(dateStr) {
 })
 
 
-jQuery(".send-job-sheet").click(function () {
+jQuery(".send-job-sheet").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     // var servicetime = parseInt(jQuery('.servicetime').val());
@@ -2346,7 +2247,7 @@ jQuery(".send-job-sheet").click(function () {
     var movers = jQuery('.text-mover').val();
     var trucks = jQuery('#trucks').val();
     // var trucks = jQuery('.trucks option:selected').val();
-//    alert(trucks);
+    //    alert(trucks);
     var travelfees = jQuery('.travelfees').val();
     var clientrate = jQuery('.chr').val();
     var fromstate = jQuery('.movingfromstate option:selected').val();
@@ -2360,7 +2261,7 @@ jQuery(".send-job-sheet").click(function () {
     var eftRecievedOn = $('#eftreceivedon').val();
     var id = jQuery(this).data("id");
     var datastr = "emailAction=JobSheet&id=" + id;
-    
+
     if (movetype == "1" || movetype == "2") {
         if (client == "" || email == "" || depositamt == "" || movers == "" || trucks == "" || travelfees == "" || clientrate == "" || fromstate == "" || tostate == "") {
             toastr.error('Please fill required field.');
@@ -2375,13 +2276,13 @@ jQuery(".send-job-sheet").click(function () {
             toastr.error("Removalist should not be blank for send email");
             return false;
         } else {
-        	sendWarningMail(id, ewayref, eftRecievedOn);
+            // sendWarningMail(id, ewayref, eftRecievedOn);
             $(".ajaxLoader").show();
             jQuery.ajax({
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2411,7 +2312,7 @@ jQuery(".send-job-sheet").click(function () {
             toastr.error("Packers should not be blank for send email");
             return false;
         } else {
-        	sendWarningMail(id, ewayref, eftRecievedOn);
+            // sendWarningMail(id, ewayref, eftRecievedOn);
             $(".ajaxLoader").show();
             var id = jQuery(this).data("id");
             var datastr = "emailAction=JobSheet&id=" + id;
@@ -2419,7 +2320,7 @@ jQuery(".send-job-sheet").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2449,7 +2350,7 @@ jQuery(".send-job-sheet").click(function () {
             toastr.error("Packers should not be blank for send email");
             return false;
         } else {
-        	sendWarningMail(id, ewayref, eftRecievedOn);
+            // sendWarningMail(id, ewayref, eftRecievedOn);
             $(".ajaxLoader").show();
             var id = jQuery(this).data("id");
             var datastr = "emailAction=JobSheet&id=" + id;
@@ -2457,7 +2358,7 @@ jQuery(".send-job-sheet").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2475,21 +2376,21 @@ jQuery(".send-job-sheet").click(function () {
     }
 });
 
-function sendWarningMail($id, $ewayref, $eftRecievedOn){
-	if($ewayref == '' && $eftRecievedOn == ''){
+function sendWarningMail($id, $ewayref, $eftRecievedOn) {
+    if ($ewayref == '' && $eftRecievedOn == '') {
         alert("There is no eway reference number or EFT payment date - has this customer paid?");
         jQuery.ajax({
             type: 'POST',
             data: "emailAction=WarningJobsheet&id=" + $id,
             url: BASE_URL + "email/send",
-            success: function (response) {
-                
+            success: function(response) {
+
             }
         });
     }
 }
 
-jQuery(".send-removalist-job-sheet").click(function () {
+jQuery(".send-removalist-job-sheet").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     var servicetime = parseInt(jQuery('.servicetime').val());
@@ -2531,7 +2432,7 @@ jQuery(".send-removalist-job-sheet").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2568,7 +2469,7 @@ jQuery(".send-removalist-job-sheet").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2605,7 +2506,7 @@ jQuery(".send-removalist-job-sheet").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2623,7 +2524,7 @@ jQuery(".send-removalist-job-sheet").click(function () {
     }
 });
 
-jQuery(".send-booking-confirmation").click(function () {
+jQuery(".send-booking-confirmation").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     // var servicetime = parseInt(jQuery('.servicetime').val());
@@ -2652,6 +2553,10 @@ jQuery(".send-booking-confirmation").click(function () {
     var id = jQuery(this).data("id");
     var datastr = "emailAction=BookingConfirmation&id=" + id;
 
+    if (clientrate < 100 && ['1', '2'].includes(movetype)) {
+        alert("Client Rate less than $100.");
+    }
+
     if (movetype == "1" || movetype == "2") {
         if (client == "" || email == "" || depositamt == "" || movers == "" || trucks == "" || travelfees == "" || clientrate == "" || fromstate == "" || tostate == "") {
             toastr.error('Please fill required field.');
@@ -2667,14 +2572,14 @@ jQuery(".send-booking-confirmation").click(function () {
             return false;
         } else {
 
-			sendWarningMail(id, ewayref, eftRecievedOn);
+            // sendWarningMail(id, ewayref, eftRecievedOn);
             $(".ajaxLoader").show();
-            
+
             jQuery.ajax({
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2704,7 +2609,7 @@ jQuery(".send-booking-confirmation").click(function () {
             toastr.error("Packers should not be blank for send email");
             return false;
         } else {
-        	sendWarningMail(id, ewayref, eftRecievedOn);
+            // sendWarningMail(id, ewayref, eftRecievedOn);
             $(".ajaxLoader").show();
             var id = jQuery(this).data("id");
             var datastr = "emailAction=BookingConfirmation&id=" + id;
@@ -2712,7 +2617,7 @@ jQuery(".send-booking-confirmation").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2742,7 +2647,7 @@ jQuery(".send-booking-confirmation").click(function () {
             toastr.error("Packers should not be blank for send email");
             return false;
         } else {
-        	sendWarningMail(id, ewayref, eftRecievedOn);
+            // sendWarningMail(id, ewayref, eftRecievedOn);
             $(".ajaxLoader").show();
             var id = jQuery(this).data("id");
             var datastr = "emailAction=BookingConfirmation&id=" + id;
@@ -2750,7 +2655,7 @@ jQuery(".send-booking-confirmation").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2768,7 +2673,7 @@ jQuery(".send-booking-confirmation").click(function () {
     }
 })
 
-jQuery(".send-feedback").click(function () {
+jQuery(".send-feedback").click(function() {
     var client = jQuery('.client').val();
     if (client != "") {
         if (confirm('Are you sure want to send "Request Review" email?')) {
@@ -2780,7 +2685,7 @@ jQuery(".send-feedback").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2801,7 +2706,7 @@ jQuery(".send-feedback").click(function () {
     }
 
 });
-jQuery(".send-reminder").click(function () {
+jQuery(".send-reminder").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     // var servicetime = parseInt(jQuery('.servicetime').val());
@@ -2845,7 +2750,7 @@ jQuery(".send-reminder").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2882,7 +2787,7 @@ jQuery(".send-reminder").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2919,7 +2824,7 @@ jQuery(".send-reminder").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2937,7 +2842,7 @@ jQuery(".send-reminder").click(function () {
     }
 });
 /*Not Answer Feedback email.....@DRCZ 17-5-2018*/
-jQuery(".no-answer-feedback").click(function () {
+jQuery(".no-answer-feedback").click(function() {
     var client = jQuery('.client').val();
     if (client != "") {
         if (confirm('Are you sure want to send "No Answer Feedback" email?')) {
@@ -2949,7 +2854,7 @@ jQuery(".no-answer-feedback").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -2972,7 +2877,7 @@ jQuery(".no-answer-feedback").click(function () {
 
 
 /* Send feedback reminder */
-jQuery(".send-feedback-reminder").click(function () {
+jQuery(".send-feedback-reminder").click(function() {
     var client = jQuery('.client').val();
     if (client != "") {
         if (confirm('Are you sure want to send "Feedback Reminder" email?')) {
@@ -2984,7 +2889,7 @@ jQuery(".send-feedback-reminder").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     // GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -3013,7 +2918,7 @@ function GetEmailLogOnAjax(id) {
         type: 'POST',
         data: datastr,
         url: BASE_URL + "Booking/EmailActivitiesLogAjax",
-        success: function (response) {
+        success: function(response) {
             jQuery('.admin-notes .mt-actions').html('');
             jQuery('.admin-notes .mt-actions').append(response);
         }
@@ -3024,7 +2929,7 @@ function GetEmailLogOnAjax(id) {
 /**
  * Duplicate booking................
  */
-jQuery("body").on("click", "#duplicateBookingform", function () {
+jQuery("body").on("click", "#duplicateBookingform", function() {
 
     if (confirm("Are you sure to duplicate booking ?")) {
         var id = jQuery(this).data("id");
@@ -3033,7 +2938,7 @@ jQuery("body").on("click", "#duplicateBookingform", function () {
             type: 'POST',
             url: BASE_URL + "booking/getBookingdataforDuplicate/" + id,
             // data: {ids: enquirysIds},
-            success: function (response) {
+            success: function(response) {
                 var res = JSON.parse(response);
                 // console.log(res.id);
                 var enid = res.id;
@@ -3042,8 +2947,8 @@ jQuery("body").on("click", "#duplicateBookingform", function () {
                 } else {
                     toastr.success('Booking is saved.');
                     window.location = BASE_URL + "booking/viewBooking/" + enid;
-//                        var table = $('#enquirylist').DataTable();
-//                        table.ajax.reload();
+                    //                        var table = $('#enquirylist').DataTable();
+                    //                        table.ajax.reload();
                 }
             }
         })
@@ -3052,9 +2957,9 @@ jQuery("body").on("click", "#duplicateBookingform", function () {
 
 //Add New Contact.............................
 
-var Contact = function () {
+var Contact = function() {
 
-    var handleContact = function () {
+    var handleContact = function() {
 
         var contactForm = $('#contact-form');
         var error1 = $('.alert-danger', contactForm);
@@ -3107,18 +3012,18 @@ var Contact = function () {
                     required: "State is required."
                 }
             },
-            invalidHandler: function (event, validator) { //display error alert on form submit   
+            invalidHandler: function(event, validator) { //display error alert on form submit   
 
             },
-            highlight: function (element) { // hightlight error inputs
+            highlight: function(element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
-            success: function (label) {
+            success: function(label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 if (element.is(':checkbox')) {
                     error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
                 } else if (element.is(':radio')) {
@@ -3127,13 +3032,13 @@ var Contact = function () {
                     error.insertAfter(element); // for other inputs, just perform default behavior
                 }
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 var formData = jQuery("#contact-form").serializeArray();
                 ajaxContact(formData);
             }
         });
 
-        $('#contact-form input').keypress(function (e) {
+        $('#contact-form input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('#contact-form').validate().form()) {
                     var formData = jQuery("#contact-form").serializeArray();
@@ -3146,48 +3051,48 @@ var Contact = function () {
 
     return {
         //main function to initiate the module
-        init: function () {
+        init: function() {
             handleContact();
         }
     };
 }();
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     Contact.init();
 
 
-        //  packer hours script start
-    
-    $moveTypeP=jQuery('#enquirymovetype').val();
-    if($moveTypeP == '4' || $moveTypeP == '5'){
-        if((jQuery(".packer-listed li").length != jQuery("#packer_hours .form-group").length) || jQuery(".packer-listed li").length != jQuery("#packer_hours_non_billable .form-group").length ){
-            $hours = jQuery('#hoursbooked').val();
-            $packerEnquiryId=jQuery('input[name=enquiry_id]').val();
-            var packerArr = [];
-            jQuery( "#packer_hours .packer-name" ).each(function( index ) {
-              packerArr.push(jQuery( this ).val());
-            });
-            var allPackerId=[];
-            var packerId='';
+    //  packer hours script start
 
-            jQuery( ".packer-listed li" ).each(function( index ) {
-                $pId= jQuery( this ).attr('data-id');
+    $moveTypeP = jQuery('#enquirymovetype').val();
+    if ($moveTypeP == '4' || $moveTypeP == '5') {
+        if ((jQuery(".packer-listed li").length != jQuery("#packer_hours .form-group").length) || jQuery(".packer-listed li").length != jQuery("#packer_hours_non_billable .form-group").length) {
+            $hours = jQuery('#hoursbooked').val();
+            $packerEnquiryId = jQuery('input[name=enquiry_id]').val();
+            var packerArr = [];
+            jQuery("#packer_hours .packer-name").each(function(index) {
+                packerArr.push(jQuery(this).val());
+            });
+            var allPackerId = [];
+            var packerId = '';
+
+            jQuery(".packer-listed li").each(function(index) {
+                $pId = jQuery(this).attr('data-id');
                 allPackerId.push($pId);
-                $pName=jQuery( this ).text();
-                if(jQuery.inArray($pId, packerArr) === -1){
-                    packerId+=$pId+',';
-                    jQuery("#packer_hours").append('<div class="form-group packer-div-'+ $pId +'"><label class="control-label col-md-6 packer-name-label">'+ $pName +'</label><div class="col-md-6"><input type="hidden" class="packer-name" name="packer-name[]" value="'+ $pId +'"><input type="text" class="form-control packer-name-text" name="packer-hours[]" value="'+ $hours +'"></div></div>');
+                $pName = jQuery(this).text();
+                if (jQuery.inArray($pId, packerArr) === -1) {
+                    packerId += $pId + ',';
+                    jQuery("#packer_hours").append('<div class="form-group packer-div-' + $pId + '"><label class="control-label col-md-6 packer-name-label">' + $pName + '</label><div class="col-md-6"><input type="hidden" class="packer-name" name="packer-name[]" value="' + $pId + '"><input type="text" class="form-control packer-name-text" name="packer-hours[]" value="' + $hours + '"></div></div>');
                 }
             });
 
-            jQuery.each(packerArr, function( index, value ) {
-                if(jQuery.inArray(value, allPackerId) === -1){
-                    jQuery('.packer-div-'+value).remove();
-                     jQuery.ajax({
+            jQuery.each(packerArr, function(index, value) {
+                if (jQuery.inArray(value, allPackerId) === -1) {
+                    jQuery('.packer-div-' + value).remove();
+                    jQuery.ajax({
                         type: 'POST',
                         url: BASE_URL + "booking/remove_packer_hours",
-                        data: { 'packerId': value,'packerEnquiryId':$packerEnquiryId },
-                        success: function (response) {
+                        data: { 'packerId': value, 'packerEnquiryId': $packerEnquiryId },
+                        success: function(response) {
                             var res = JSON.parse(response);
                         }
                     });
@@ -3195,12 +3100,12 @@ jQuery(document).ready(function () {
             });
 
             jQuery.ajax({
-            type: 'POST',
-            url: BASE_URL + "booking/add_packer_hours",
-            data: { 'packerIds': packerId,'hours' : $hours,'packerEnquiryId':$packerEnquiryId },
-            success: function (response) {
-                var res = JSON.parse(response);
-            }
+                type: 'POST',
+                url: BASE_URL + "booking/add_packer_hours",
+                data: { 'packerIds': packerId, 'hours': $hours, 'packerEnquiryId': $packerEnquiryId },
+                success: function(response) {
+                    var res = JSON.parse(response);
+                }
             });
         }
     }
@@ -3209,37 +3114,36 @@ jQuery(document).ready(function () {
 
 
     //25-07-19 cost price start
-    if(costPriceUpdatedFlag == '0'){
+    if (costPriceUpdatedFlag == '0') {
         $moveType = jQuery("#enquirymovetype").val();
-        if($moveType == '4' || $moveType == '5'){
-            
-            var totalHours=0;
+        if ($moveType == '4' || $moveType == '5') {
+
+            var totalHours = 0;
             jQuery(".packer-name-text").each(function() {
-                totalHours+= parseFloat(jQuery(this).val());
+                totalHours += parseFloat(jQuery(this).val());
             });
 
-            var moveType= jQuery("#enquirymovetype").val();
-            var movingFromState ='';
-            if(moveType == '4'){
-                movingFromState=jQuery("#movingfromstate").val();
-            }
-            else if(moveType == '5'){
-                movingFromState=jQuery("#movingtostate").val();
+            var moveType = jQuery("#enquirymovetype").val();
+            var movingFromState = '';
+            if (moveType == '4') {
+                movingFromState = jQuery("#movingfromstate").val();
+            } else if (moveType == '5') {
+                movingFromState = jQuery("#movingtostate").val();
             }
             var dateFormat = jQuery('#servicedate').val();
 
             jQuery.ajax({
                 type: 'POST',
                 url: BASE_URL + "pricelist/getRules",
-                data: { moveType : moveType, datepicker : dateFormat,state:movingFromState },
-                success: function (response) {
+                data: { moveType: moveType, datepicker: dateFormat, state: movingFromState },
+                success: function(response) {
                     var res = JSON.parse(response);
                     jQuery("#totalsellprice").val(jQuery("#sellprice").val());
-                    var totalHours=0;
+                    var totalHours = 0;
                     jQuery(".packer-name-text").each(function() {
-                        totalHours+= parseFloat(jQuery(this).val());
+                        totalHours += parseFloat(jQuery(this).val());
                     });
-                    $totalCostPrice=jQuery('#hoursbooked').val() * jQuery('#bookedladies').val() * res[0].packer_cost_price;
+                    $totalCostPrice = jQuery('#hoursbooked').val() * jQuery('#bookedladies').val() * res[0].packer_cost_price;
                     jQuery("#costprice").val(($totalCostPrice).toFixed(2)).trigger('blur');
                     jQuery(".non-billable-packer-name-text").trigger('blur');
 
@@ -3255,81 +3159,17 @@ jQuery(document).ready(function () {
 
     //storage - 09-08-19 start
     jQuery('input[name=en_quotedcost_price]').on('change', function(e) {
-    var storageCost=jQuery('input[name=en_quotedcost_price]').val(); 
-    jQuery(this).val(parseFloat(storageCost).toFixed(2));
-    if(jQuery('input[name=en_quotedsell_price]').val() != ''){
-        var storageSell=jQuery('input[name=en_quotedsell_price]').val();
-        jQuery('input[name=en_hireamover_margin]').val((storageSell - storageCost).toFixed(2));
-    }
+        var storageCost = jQuery('input[name=en_quotedcost_price]').val();
+        jQuery(this).val(parseFloat(storageCost).toFixed(2));
+        if (jQuery('input[name=en_quotedsell_price]').val() != '') {
+            var storageSell = jQuery('input[name=en_quotedsell_price]').val();
+            jQuery('input[name=en_hireamover_margin]').val((storageSell - storageCost).toFixed(2));
+        }
 
     });
     //storage - 09-08-19 end
-    
-    //08-07-19 initial sell price start
 
-    // if(jQuery("#totalsellprice").val() == ""){
-    //     $moveType = jQuery("#enquirymovetype").val();
-    //     if($moveType == '4' || $moveType == '5'){
-    //         jQuery("#totalsellprice").val(jQuery("#sellprice").val());
-    //         // jQuery("#bookedladies").trigger('blur');
-    //         var totalHours=0;
-    //         jQuery(".packer-name-text").each(function() {
-    //             totalHours+= parseFloat(jQuery(this).val());
-    //         });
-    //         if(totalHours == 0){
-    //             $totalCostPrice=jQuery('#hoursbooked').val() * jQuery('#bookedladies').val() * 32.85;
-    //             jQuery("#costprice").val(($totalCostPrice).toFixed(2)).trigger('blur');
-    //         }
-    //     }
-    // }
-
-    //08-07-19 initial sell price end
-
-    // jQuery('body').on('change, blur','.packer-name-text', function(e) {
-    //     var totalHours=0;
-    //     jQuery(".packer-name-text").each(function() {
-    //         totalHours+= parseFloat(jQuery(this).val());
-    //     });
-
-    //     var moveType= jQuery("#enquirymovetype").val();
-    //     var movingFromState ='';
-    //     if(moveType == '4'){
-    //         movingFromState=jQuery("#movingfromstate").val();
-    //     }
-    //     else if(moveType == '5'){
-    //         movingFromState=jQuery("#movingtostate").val();
-    //     }
-    //     var dateFormat = jQuery('#servicedate').val();
-
-    //     jQuery.ajax({
-    //         type: 'POST',
-    //         url: BASE_URL + "pricelist/getRules",
-    //         data: { moveType : moveType, datepicker : dateFormat,state:movingFromState },
-    //         success: function (response) {
-    //             var res = JSON.parse(response);
-    //             jQuery("#totalsellprice").val((totalHours*res[0].per_person_packing_rate).toFixed(2));
-    //             jQuery("#costprice").val((totalHours*res[0].packer_cost_price).toFixed(2));
-    //             jQuery("#hamMargin").val((jQuery("#totalsellprice").val() - jQuery("#costprice").val()).toFixed(2)) ; 
-    //         }
-    //     });
-
-    //     // jQuery("#costprice").val((totalHours*32.85).toFixed(2));
-    //     // jQuery("#totalsellprice").val((totalHours*60).toFixed(2));
-    //     // jQuery("#hamMargin").val((jQuery("#totalsellprice").val() - jQuery("#costprice").val()).toFixed(2)) ;
-    // });
-
-    // var totalHours=0;
-    // jQuery(".packer-name-text").each(function() {
-    //     totalHours+= parseFloat(jQuery(this).val());
-    // });
-    // if(totalHours > 0){
-    //     // jQuery('.packer-name-text').trigger('blur');
-    //     // jQuery('.packer-name-text:eq(0)').trigger('blur');
-    // }
-    
 });
-
-
 
 function ajaxContact(formData) {
 
@@ -3337,7 +3177,7 @@ function ajaxContact(formData) {
         type: 'POST',
         url: BASE_URL + "contacts/add_contact",
         data: formData,
-        success: function (response) {
+        success: function(response) {
             var res = JSON.parse(response);
             //  console.log(res);
             if (res.error) {
@@ -3347,9 +3187,9 @@ function ajaxContact(formData) {
                 window.location = BASE_URL;
             } else {
                 toastr.success('Contact has been inserted succefully');
-//                jQuery(".alert-success").show();
+                //                jQuery(".alert-success").show();
                 jQuery("#contact-form").trigger('reset');
-                setTimeout(function () {
+                setTimeout(function() {
                     jQuery("#new-people").modal("hide");
                 }, 2000);
             }
@@ -3359,185 +3199,190 @@ function ajaxContact(formData) {
 
 //04-09-19 start
 
-jQuery( document ).ready(function() {
-    jQuery("#en_storage_provider").change(function(){
+jQuery(document).ready(function() {
+    jQuery("#en_storage_provider").change(function() {
         var storageProvider = jQuery(this).val();
         var storageMovingFromState = jQuery('#movingfromstate').val();
-        if(["","Super Easy Storage"].includes(storageProvider)){
+        if (["", "Super Easy Storage", "Brilliance Removals"].includes(storageProvider)) {
             jQuery("input[name=en_storage_provider_street],#en_storage_provider_postcode,#en_storage_provider_suburb").val('');
             jQuery("#en_storage_provider_state").val(jQuery("#en_storage_provider_state option:first").val());
-        }
-        else if(storageProvider == "Storage Plus"){
-            if(storageMovingFromState == 'VIC'){
-                changeStorageAddress('167-169 Cremorne Street','3121','Richmond','VIC'); 
+        } else if (storageProvider == "Storage Plus") {
+            if (storageMovingFromState == 'VIC') {
+                changeStorageAddress('167-169 Cremorne Street', '3121', 'Richmond', 'VIC');
+            } else {
+                changeStorageAddress('87-103 Epsom Rd', '2018', 'Rosebery', 'NSW');
             }
-            else{
-                changeStorageAddress('87-103 Epsom Rd','2018','Rosebery','NSW'); 
-            }
-        }
-        else if(storageProvider = "Holloways Storage"){
-            changeStorageAddress('12-28 Arncliffe Street','2205','Wolli Creek','NSW'); 
+        } else if (storageProvider = "Holloways Storage") {
+            changeStorageAddress('12-28 Arncliffe Street', '2205', 'Wolli Creek', 'NSW');
         }
 
     });
 
     //10-09-19 service time start
-    jQuery('#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute').select2({ width: 'auto'});
+    jQuery('#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute').select2({ width: 'auto' });
 
-    jQuery("#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute").change(function(){
+    jQuery("#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute").change(function() {
         var moveType = jQuery('#enquirymovetype').val();
-        var startHour=jQuery('#serviceTimeStartHour').val();
-        var startMinute=jQuery('#serviceTimeStartMinute').val();
-        var endHour=jQuery('#serviceTimeEndHour').val();
-        var endMinute=jQuery('#serviceTimeEndMinute').val();
+        var startHour = jQuery('#serviceTimeStartHour').val();
+        var startMinute = jQuery('#serviceTimeStartMinute').val();
+        var endHour = jQuery('#serviceTimeEndHour').val();
+        var endMinute = jQuery('#serviceTimeEndMinute').val();
         var serviceFullTime = '';
-        var seperatedHourStart='';
-        var seperatedHourEnd='';
+        var seperatedHourStart = '';
+        var seperatedHourEnd = '';
         var startFormat = '';
         var endFormat = '';
 
-        if(jQuery(this).attr('id') == 'serviceTimeStartHour'){
-            var endHourArr = ['9pm','8pm','7pm','6pm','5pm','4pm','3pm','2pm','1pm','12pm','11am','10am','9am','8am','7am','6am'];
-            jQuery.each(endHourArr, function (i, item) {
-                if(jQuery("#serviceTimeEndHour option[value='"+ item +"']").length > 0){
+        if (jQuery(this).attr('id') == 'serviceTimeStartHour') {
+            var endHourArr = ['9pm', '8pm', '7pm', '6pm', '5pm', '4pm', '3pm', '2pm', '1pm', '12pm', '11am', '10am', '9am', '8am', '7am', '6am'];
+            jQuery.each(endHourArr, function(i, item) {
+                if (jQuery("#serviceTimeEndHour option[value='" + item + "']").length > 0) {
                     // console.log("present");
-                }
-                else{
+                } else {
                     // console.log("not present");
-                    jQuery('#serviceTimeEndHour').prepend(jQuery('<option>', { 
+                    jQuery('#serviceTimeEndHour').prepend(jQuery('<option>', {
                         value: item,
-                        text : item 
+                        text: item
                     }));
                 }
             });
 
             var selectedVal = jQuery(this).val();
-            jQuery("#serviceTimeStartHour option").each(function()
-            {
+            jQuery("#serviceTimeStartHour option").each(function() {
                 var thisVal = jQuery(this).val();
 
 
-                if(thisVal == ''){
+                if (thisVal == '') {
                     $('#serviceTimeEndHour option')
-                    .filter(function() {
-                        return !this.value || $.trim(this.value).length == 0 || $.trim(this.text).length == 0;
-                    })
-                    .remove();    
-                }
-                else{
+                        .filter(function() {
+                            return !this.value || $.trim(this.value).length == 0 || $.trim(this.text).length == 0;
+                        })
+                        .remove();
+                } else {
                     jQuery("#serviceTimeEndHour  option[value=" + thisVal + "]").remove();
-                    if(selectedVal == jQuery(this).val()){
+                    if (selectedVal == jQuery(this).val()) {
                         return false;
-                    }    
+                    }
                 }
             });
             jQuery('#serviceTimeEndHour').val(jQuery('#serviceTimeEndHour').val());
         }
-        endHour=jQuery('#serviceTimeEndHour').val();
-        
-        if(startHour.indexOf('am') != -1){
+        endHour = jQuery('#serviceTimeEndHour').val();
+
+        if (startHour.indexOf('am') != -1) {
             seperatedHourStart = startHour.substr(0, startHour.indexOf('am'));
             startFormat = 'am';
-        }
-        else{
+        } else {
             seperatedHourStart = startHour.substr(0, startHour.indexOf('pm'));
             startFormat = 'pm';
-            seperatedHourStart = parseInt(seperatedHourStart)+parseInt(12);
+            seperatedHourStart = parseInt(seperatedHourStart) + parseInt(12);
         }
 
-        if(endHour.indexOf('am') != -1){
+        if (endHour.indexOf('am') != -1) {
             seperatedHourEnd = endHour.substr(0, endHour.indexOf('am'));
             endFormat = 'am';
-        }
-        else{
+        } else {
             seperatedHourEnd = endHour.substr(0, endHour.indexOf('pm'));
             endFormat = 'pm';
-            seperatedHourEnd = parseInt(seperatedHourEnd)+parseInt(12);
-        }
-        
-        var startFullTime =seperatedHourStart;
-        var endFullTime =seperatedHourEnd;
-
-        if(startMinute != '00'){
-            startFullTime = seperatedHourStart + ':'+startMinute;
-        }
-        if(endMinute != '00'){
-            endFullTime = seperatedHourEnd + ':'+endMinute;
+            seperatedHourEnd = parseInt(seperatedHourEnd) + parseInt(12);
         }
 
-        if(['1','2','6'].includes(moveType)){
-            tempStartMinute = (startMinute) == '00' ? '' : (':'+ startMinute);
-            serviceFullTime = ((seperatedHourStart) > 12 ? parseInt(seperatedHourStart) - parseInt(12) : seperatedHourStart ) +  tempStartMinute + startFormat;
+        var startFullTime = seperatedHourStart;
+        var endFullTime = seperatedHourEnd;
+
+        if (startMinute != '00') {
+            startFullTime = seperatedHourStart + ':' + startMinute;
         }
-        else if(moveType== '4' ||  moveType == '5'){
+        if (endMinute != '00') {
+            endFullTime = seperatedHourEnd + ':' + endMinute;
+        }
+
+        if (['1', '2', '6'].includes(moveType)) {
+            tempStartMinute = (startMinute) == '00' ? '' : (':' + startMinute);
+            serviceFullTime = ((seperatedHourStart) > 12 ? parseInt(seperatedHourStart) - parseInt(12) : seperatedHourStart) + tempStartMinute + startFormat;
+        } else if (moveType == '4' || moveType == '5') {
             var tempStartHour = seperatedHourStart;
             var tempEndHour = seperatedHourEnd;
-            if(seperatedHourStart == 24 || seperatedHourStart == 12){
+            if (seperatedHourStart == 24 || seperatedHourStart == 12) {
                 seperatedHourStart = seperatedHourStart - 12;
             }
-            if(seperatedHourEnd == 24){
+            if (seperatedHourEnd == 24) {
                 seperatedHourEnd = seperatedHourEnd - 12;
             }
 
             serviceFullTime = ((seperatedHourStart) > 12 ? parseInt(seperatedHourStart) - parseInt(12) : seperatedHourStart) + ':' + startMinute + startFormat + '-' + (seperatedHourEnd > 12 ? parseInt(seperatedHourEnd) - parseInt(12) : seperatedHourEnd) + ':' + endMinute + endFormat;
 
-            var packingStartFullTime='';
+            var packingStartFullTime = '';
             var packingEndFullTime = '';
-            if(startMinute == '00'){
+            if (startMinute == '00') {
                 packingStartFullTime = seperatedHourStart + ':00';
+            } else {
+                packingStartFullTime = seperatedHourStart + ':' + startMinute;
             }
-            else{
-                packingStartFullTime = seperatedHourStart + ':'+startMinute;
-            }
-            if(endMinute == '00'){
+            if (endMinute == '00') {
                 packingEndFullTime = seperatedHourEnd + ':00';
-            }
-            else{
-                packingEndFullTime = seperatedHourEnd + ':'+endMinute;
+            } else {
+                packingEndFullTime = seperatedHourEnd + ':' + endMinute;
             }
 
             var d = new Date();
-            var todayDate = (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
+            var todayDate = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
             var dtStart = new Date(todayDate + ' ' + packingStartFullTime);
             var dtEnd = new Date(todayDate + ' ' + packingEndFullTime);
             var timeDiff = Math.abs(dtStart - dtEnd);
             var hh = Math.floor(timeDiff / 1000 / 60 / 60);
             timeDiff -= hh * 1000 * 60 * 60;
             var mm = Math.floor(timeDiff / 1000 / 60);
-            var hours = hh * 60;          
+            var hours = hh * 60;
             var tmin = parseFloat(hours) + parseFloat(mm);
             var remaining = tmin;
             var hrs = Math.floor(remaining / 60);
             var min = remaining % 60;
             var formattedMin = '00';
-            if(min == '00'){
+            if (min == '00') {
                 formattedMin = '.00';
-            }
-            else if(min == '15'){
+            } else if (min == '15') {
                 formattedMin = '.25';
-            }
-            else if(min == '30'){
+            } else if (min == '30') {
                 formattedMin = '.50';
-            }
-            else if(min == '45'){
+            } else if (min == '45') {
                 formattedMin = '.75';
             }
-            if(!isNaN(hrs +formattedMin)){
-                jQuery("#hoursbooked").val(hrs +formattedMin).trigger('change');
+            if (!isNaN(hrs + formattedMin)) {
+                jQuery('#packing-interval-time').val(hrs + formattedMin);
+                jQuery("#hoursbooked").val(hrs + formattedMin).trigger('change');
                 // console.log(hrs +formattedMin);
             }
         }
+        serviceFullTime = serviceFullTime.replace(new RegExp(':00', 'g'), '');
         jQuery('#serviceFullTime').val(serviceFullTime);
         // console.log(serviceFullTime);
     });
     //10-09-19 service time end
 
+    if ($("#enquirymovetype").val() == '6' && $('#bookingstatus').val() == '3') {
+        $('#completedStorageDateDiv').removeClass('hide');
+    } else {
+        $('#completedStorageDateDiv').addClass('hide');
+    }
+
+    $('#bookingstatus').change(function() {
+        if ($("#enquirymovetype").val() == '6' && $('#bookingstatus').val() == '3') {
+            if ($('#completedStorageDate').val() == '' || $('#completedStorageDate').val() == '30-11--0001') {
+                $('#completedStorageDate').datepicker("setDate", new Date());
+            }
+            $('#completedStorageDateDiv').removeClass('hide');
+        } else {
+            $('#completedStorageDateDiv').addClass('hide');
+        }
+    });
+
 });
 
- //04-09-19 end
+//04-09-19 end
 
- //10-09-19 start
-function changeStorageAddress($street, $postcode, $suburb, $state){
+//10-09-19 start
+function changeStorageAddress($street, $postcode, $suburb, $state) {
     jQuery("input[name=en_storage_provider_street]").val($street);
     jQuery("#en_storage_provider_postcode").val($postcode);
     jQuery("#en_storage_provider_suburb").val($suburb);
@@ -3552,27 +3397,31 @@ jQuery('#movingfromstate').on('change', function() {
 
 // 16-09-19 non-billable start
 
-jQuery('body').on('change, blur','.non-billable-packer-name-text', function(e) {
-    var totalNonBillableHours=0;
+jQuery('body').on('change, blur', '.non-billable-packer-name-text, .packer-name-text', function(e) {
+
+    var billableTotalHours = 0;
+    jQuery(".packer-name-text").each(function() {
+        billableTotalHours += parseFloat(jQuery(this).val());
+    });
+
+    var totalNonBillableHours = 0;
     jQuery(".non-billable-packer-name-text").each(function() {
-        if(jQuery(this).val() != ''){
-            totalNonBillableHours+= parseFloat(jQuery(this).val());
+        if (jQuery(this).val() != '') {
+            totalNonBillableHours += parseFloat(jQuery(this).val());
         }
     });
-    if(jQuery(this).val() == ''){
+    if (jQuery(this).val() == '') {
         jQuery(this).val('0.00');
-    }
-    else{
+    } else {
         jQuery(this).val(parseFloat(jQuery(this).val()).toFixed(2));
     }
 
-    var moveType= jQuery("#enquirymovetype").val();
-    var movingFromState ='';
-    if(moveType == '4'){
-        movingFromState=jQuery("#movingfromstate").val();
-    }
-    else if(moveType == '5'){
-        movingFromState=jQuery("#movingtostate").val();
+    var moveType = jQuery("#enquirymovetype").val();
+    var movingFromState = '';
+    if (moveType == '4') {
+        movingFromState = jQuery("#movingfromstate").val();
+    } else if (moveType == '5') {
+        movingFromState = jQuery("#movingtostate").val();
     }
     var dateFormat = jQuery('#servicedate').val();
     var hoursBooked = jQuery('#hoursbooked').val();
@@ -3581,12 +3430,13 @@ jQuery('body').on('change, blur','.non-billable-packer-name-text', function(e) {
     jQuery.ajax({
         type: 'POST',
         url: BASE_URL + "pricelist/getRules",
-        data: { moveType : moveType, datepicker : dateFormat,state:movingFromState },
-        success: function (response) {
+        data: { moveType: moveType, datepicker: dateFormat, state: movingFromState },
+        success: function(response) {
             var res = JSON.parse(response);
-            var totalHours = (hoursBooked * noOfLadies) + totalNonBillableHours;
+            var totalHours = totalNonBillableHours + billableTotalHours;
             jQuery('#costprice').val((parseFloat(totalHours) * parseFloat(res[0].packer_cost_price)).toFixed(2));
-            jQuery("#costprice").trigger('blur'); 
+            jQuery('#totalsellprice').val((parseFloat(billableTotalHours) * parseFloat(res[0].per_person_packing_rate)).toFixed(2));
+            jQuery("#costprice").trigger('blur');
         }
     });
 });
@@ -3594,6 +3444,6 @@ jQuery('body').on('change, blur','.non-billable-packer-name-text', function(e) {
 
 // 16-09-19 non-billable end
 
-jQuery("body").on("click blur", "#servicet", function(event){
+jQuery("body").on("click blur", "#servicet", function(event) {
     jQuery('#serviceFullTime').val(jQuery(this).val());
 });

@@ -33,6 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row peoles-nav-border people-wrapper">
                     <div class="col-md-1 col-xs-12 col-sm-2 people-left">
                         <h4 class="peoples-page-title"><i class="fa fa-users" style="display: unset"></i>&nbsp;Enquiry</h4>
+
                     </div>    
                     <div class="mititle-btn mid-center"><button type="submit" class="btn green form-submit btn-desk">Save</button></div>
                 </div>
@@ -109,7 +110,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <input type="text" class="servicedate" data-field="date" readonly name="en_servicedate1">                                                
                                             </div>
                                         </div>
-                                        
                                         <input type="hidden" id="serviceFullTime" name="serviceFullTime" class="form-control" /> 
                                         <div id="hosServiceTimeContainer">
                                             <div class="form-group" id="serviceTime">
@@ -188,7 +188,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group" id="deliveryDate">
                                             <label class="col-md-4 control-label">Delivery date</label>
                                             <div class="col-md-8">
@@ -238,12 +237,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <input type="text" class="form-control phone" name="en_phone"></div>
                                         </div>
 
-                                        <div class="form-group" id="email">
-                                            <label class="control-label col-md-4">Email<span class="required">*</span></label>
-                                            <span class="error"></span>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control email" name="en_email"></div>
-                                        </div>
+                                        
                                         <div id="storageProvider">
                                             <div class="form-group" id="storageProvider">
                                                 <label class="control-label col-md-4">Storage provider</label>
@@ -264,7 +258,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <input type="text" class="form-control" name="en_storage_phno"></div>
                                             </div>
                                         </div>
-                                        <div class="form-group" id="removealist1">
+                                        <div class="form-group" id="email">
+                                            <label class="control-label col-md-2" style="padding: 5px 0 0 16px;">Email<span class="required">*</span></label>
+                                            <span class="error"></span>
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control email" style="padding: 0px 6px;font-size: 13px;" name="en_email"></div>
+                                        </div>
+                                        <div class="form-group" id="removealist1" style="margin-top:45px;">
                                             <label class="control-label col-md-4">Removalist</label>
                                             <span class="error"></span>
                                             <div class="col-md-8">
@@ -308,9 +308,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </ul>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
-                                        <div class="portlet">
+                                        <div class="portlet xs-internal-notes">
                                         <div class="portlet-title">
                                             <div class="caption">                                
                                                 <span class="caption-subject font-dark sbold uppercase">Internal Notes</span>
@@ -772,8 +773,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <input type="text" class="form-control text-trucks" id="trucks" name="en_no_of_trucks" style="display: none" value="1">                                                
                                                 </div>
                                             </div>
+                                            <div class="form-group" id="clientHourlyRate">
+                                                <label class="control-label col-md-6">Client Hourly Rate<span class="required">*</span></label>
+                                                <span class="error"></span>
+                                                <div class="col-md-6">
+                                                    <div class="input-icon input-icon">
+                                                        <i class="fa fa-usd"></i>
+                                                        <input type="text" class="form-control " id="clienthourlyrate" name="en_client_hourly_rate">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group" id="travelFeeSell">
-                                                <label class="control-label col-md-6">Travel Fee<span class="required">*</span></label>
+                                                <label class="control-label col-md-6">Callout Fee<span class="required">*</span></label>
                                                 <span class="error"></span>
                                                 <div class="col-md-6">
                                                     <div class="input-icon input-icon">
@@ -793,16 +804,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
 
-                                            <div class="form-group" id="clientHourlyRate">
-                                                <label class="control-label col-md-6">Client Hourly Rate<span class="required">*</span></label>
-                                                <span class="error"></span>
-                                                <div class="col-md-6">
-                                                    <div class="input-icon input-icon">
-                                                        <i class="fa fa-usd"></i>
-                                                        <input type="text" class="form-control " id="clienthourlyrate" name="en_client_hourly_rate">
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                             <div class="form-group" id="additionalCharges">
                                                 <label class="control-label col-md-6">Additional Charges </label>
                                                 <span class="error"></span>
@@ -820,16 +822,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <input type="text" class="form-control phone" name="en_additional_item">
                                                 </div>
                                             </div>
-                                            <!--                                        <div class="form-group" id="additionalCharges">
-                                                                                        <label class="control-label col-md-6">Additional Charges (Cost)</label>
-                                                                                        <span class="error"></span>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="input-icon input-icon">
-                                                                                                <i class="fa fa-usd"></i>
-                                                                                                <input type="text" class="form-control" name="en_additional_charges_cost">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>-->
+                                            
                                         </div>
                                         <div id="packingUnpackingPrice">
                                             <div class="form-group" id="initialHoursbooked">
@@ -837,6 +830,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <span class="error"></span>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name="en_initial_hours_booked" id="hoursbooked">
+                                                    <input type="hidden" name="packing-interval-time" id="packing-interval-time">
                                                 </div>
                                             </div>
 
@@ -882,36 +876,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                         </div>
-<!--                                        <div class="form-group" id="totalSellPrice">
-                                            <label class="control-label col-md-6">Total Sell Price</label>
-                                            <span class="error"></span>
-                                            <div class="col-md-6">
-                                                <div class="input-icon input-icon">
-                                                    <i class="fa fa-usd"></i>
-                                                    <input type="text" id="totalsellprice" class="form-control" name="en_total_sellprice">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" id="totalCostPrice">
-                                            <label class="control-label col-md-6">Total Cost Price</label>
-                                            <span class="error"></span>
-                                            <div class="col-md-6">
-                                                <div class="input-icon input-icon">
-                                                    <i class="fa fa-usd"></i>
-                                                    <input type="text" id="costprice" class="form-control" name="en_total_costprice">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" id="hireaMoverMargin">
-                                            <label class="control-label col-md-6">Hire a Mover Margin</label>
-                                            <span class="error"></span>
-                                            <div class="col-md-6">
-                                                <div class="input-icon input-icon">
-                                                    <i class="fa fa-usd"></i>
-                                                    <input type="text" id="hamMargin" class="form-control" name="en_hireamover_margin">
-                                                </div>
-                                            </div>
-                                        </div>-->
+
                                         <div class="form-group" id="amountDueNow">
                                             <label class="control-label col-md-6"> Amount Due Now</label>
                                             <span class="error"></span>
@@ -992,13 +957,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <!--                                                <div id="eftrBox"></div>-->
                                             </div>
                                         </div>
-                                        <!--<div class="form-group" id="packingCompanyPaid">
-                                            <label class="control-label col-md-6">Packing company paid</label>
-                                            <span class="error"></span>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control " name="en_packing_company_paid">
-                                            </div>
-                                        </div>-->
                                         <div class="form-group" id="anniversarydate">
                                             <label class="control-label col-md-6">Anniversary date for future payments</label>
                                             <div class="col-md-6">

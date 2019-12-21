@@ -1,6 +1,6 @@
-var Enquiry = function () {
+var Enquiry = function() {
 
-    var handleEnquiry = function () {
+    var handleEnquiry = function() {
 
         var enquiryForm = $('#enquiry-form');
         var error1 = $('.alert-danger', enquiryForm);
@@ -19,10 +19,10 @@ var Enquiry = function () {
                 en_lname: {
                     required: true
                 },
-//                en_phone: {
-//                    required: true,
-//                    regx: /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/,
-//                },
+                //                en_phone: {
+                //                    required: true,
+                //                    regx: /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/,
+                //                },
                 en_email: {
                     required: true,
                     email: true
@@ -125,7 +125,7 @@ var Enquiry = function () {
                     required: true
                 },
                 en_additional_item: {
-                    required: function (element) {
+                    required: function(element) {
 
                         var movetype = jQuery("#enquirymovetype option:selected").val();
 
@@ -133,14 +133,14 @@ var Enquiry = function () {
                             if ($('.additional-charges-packer').val() != '' && $('.additional-charges-packer').val() != "0.00") {
                                 return true;
                             } else {
-//                            element.closest('.form-group').removeClass('has-error');
+                                //                            element.closest('.form-group').removeClass('has-error');
                                 return false;
                             }
                         } else {
                             if ($('#additionalChargesinput').val() != '') {
                                 return true;
                             } else {
-//                            element.closest('.form-group').removeClass('has-error');
+                                //                            element.closest('.form-group').removeClass('has-error');
                                 return false;
                             }
                         }
@@ -157,10 +157,10 @@ var Enquiry = function () {
                 en_lname: {
                     required: "Last name is required."
                 },
-//                en_phone: {
-//                    required: "Phone number is required.",
-//                    number: "Enter only digits."
-//                },
+                //                en_phone: {
+                //                    required: "Phone number is required.",
+                //                    number: "Enter only digits."
+                //                },
                 en_email: {
                     required: "Email is required.",
                     email: "Email is not correct."
@@ -249,54 +249,51 @@ var Enquiry = function () {
                     required: "Service End Time is required.",
                 },
             },
-            invalidHandler: function (event, validator) { //display error alert on form submit   
+            invalidHandler: function(event, validator) { //display error alert on form submit   
 
             },
-            highlight: function (element) { // hightlight error inputs
+            highlight: function(element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
-            success: function (label) {
+            success: function(label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 if (element.is(':checkbox')) {
                     error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
                 } else if (element.is(':radio')) {
                     error.insertAfter(element.closest(".md-radio-list, .md-radio-inline, .radio-list,.radio-inline"));
-                } 
-                else if (element.attr("name") == "serviceTimeStartHour"){
+                } else if (element.attr("name") == "serviceTimeStartHour") {
                     error.insertAfter('#serviceStartRow');
-                }
-                else if (element.attr("name") == "serviceTimeEndHour"){
+                } else if (element.attr("name") == "serviceTimeEndHour") {
                     error.insertAfter('#serviceEndRow');
-                }
-                else {
+                } else {
                     error.insertAfter(element); // for other inputs, just perform default behavior
                 }
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 var formData = jQuery(form).serializeArray();
                 ajaxEnquiry(new FormData(form));
                 //ajaxEnquiry(formData);
             }
         });
-        jQuery.validator.addMethod("regx", function (value, element, regexpr) {
+        jQuery.validator.addMethod("regx", function(value, element, regexpr) {
             if (value != "") {
                 return regexpr.test(value);
             } else {
                 return true;
             }
         }, "Enter valid Phone number.");
-        jQuery.validator.addMethod("regxdate", function (value, element, regexpr) {
+        jQuery.validator.addMethod("regxdate", function(value, element, regexpr) {
             if (value != "") {
                 return regexpr.test(value);
             } else {
                 return true;
             }
         }, "Enter valid Date.");
-        $('#enquiry-form input').keypress(function (e) {
+        $('#enquiry-form input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('#enquiry-form').validate().form()) {
                     var formData = jQuery("#enquiry-form")[0];
@@ -310,31 +307,31 @@ var Enquiry = function () {
 
     return {
         //main function to initiate the module
-        init: function () {
+        init: function() {
             handleEnquiry();
         }
     };
 }();
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     Enquiry.init();
 });
-jQuery(function () {
+jQuery(function() {
     $("#servicedate").datepicker({
         showButtonPanel: true,
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -344,16 +341,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -363,16 +360,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -382,16 +379,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -401,16 +398,16 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -420,26 +417,39 @@ jQuery(function () {
 
 
 function ajaxEnquiry(formData) {
-    /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
+
+    if (jQuery('.additionalPickuptxt').length > 0) {
+        jQuery(".additionalPickuptxt").each(function() {
+            if (jQuery(this).find('.suburbpickup .addpickupsuburb').val() == '') {
+                jQuery(this).remove();
+            }
+        })
+    }
+    if (jQuery('.additionalDeliverytxt').length > 0) {
+        jQuery(".additionalDeliverytxt").each(function() {
+            if (jQuery(this).find('.suburbdelivery .adddeliverysuburb').val() == '') {
+                jQuery(this).remove();
+            }
+        })
+    }
+
+    var moveType = jQuery('#enquirymovetype').val();
+    if (['1', '2'].includes(moveType)) {
+        if (parseFloat($('#clienthourlyrate').val()) < parseFloat($('#travelfee').val())) {
+            alert('Hourly rate is less than travel fee.');
+        }
+    }
+
     var movers = $('#movers').val();
     var chr = $('#clienthourlyrate').val();
-    // if (movers == '4' && chr < '240') {
-    //     toastr.warning('Normal price for 4 men is $240');
-    //     return false;
-    // }
-    /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
     $(".ajaxLoader").show();
-    /**
-     * Edit enquiry data......................@DRCZ
-     */
-
     jQuery.ajax({
         type: 'POST',
-//        processData: false,
-//        contentType: false,
+        //        processData: false,
+        //        contentType: false,
         url: BASE_URL + "enquiries/editEnquiryData",
         data: jQuery("#enquiry-form").serializeArray(),
-        success: function (response) {
+        success: function(response) {
             $(".ajaxLoader").hide();
             var res = JSON.parse(response);
             if (res.error) {
@@ -448,29 +458,26 @@ function ajaxEnquiry(formData) {
             } else if (res.expired) {
                 window.location = BASE_URL;
             } else if (res.success) {
-                //     alert(res.success);
                 toastr.success('Data Updated successfully');
                 jQuery('#note-title').val('');
                 jQuery('#note-area').val('');
                 jQuery('#note-attachfile').val('');
-//                window.location = BASE_URL + "enquirieslist";
-//                jQuery("#enquiry-form").trigger('reset');
             }
         }
     })
 
 }
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
 
     jQuery(".additional-charges-packer-section").hide();
 
-    jQuery(".add_field_button_packers").click(function () {
+    jQuery(".add_field_button_packers").click(function() {
         jQuery(".additional-charges-packer-section").toggle(1000);
     });
 
 
     /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
-    $("#clienthourlyrate").blur(function () {
+    $("#clienthourlyrate").blur(function() {
         var movers = $('#movers').val();
         var chr = $('#clienthourlyrate').val();
         // if (movers == '4' && chr < '240') {
@@ -479,15 +486,7 @@ jQuery(document).ready(function () {
     });
     /*If we enter 4 removalists and put a hourly rate of less than $240, Put warning..............@DRCZ*/
 
-    /*$("#hamMargin").focus(function () {
-     var sellprice = $('#totalsellprice').val();
-     var costprice = $('#costprice').val();
-     var ham = parseFloat(sellprice) - parseFloat(costprice);
-     var price = ham.toFixed(2);
-     $('#hamMargin').val(price);
-     });*/
-
-    $('#totalsellprice').blur(function () {
+    $('#totalsellprice').blur(function() {
         var sellprice = $('#totalsellprice').val();
         var costprice = $('#costprice').val();
         if (costprice != "" && sellprice != "") {
@@ -498,7 +497,7 @@ jQuery(document).ready(function () {
             $('#hamMargin').val("");
         }
     });
-    $('#costprice').blur(function () {
+    $('#costprice').blur(function() {
         var sellprice = $('#totalsellprice').val();
         var costprice = $('#costprice').val();
         if (costprice != "" && sellprice != "") {
@@ -509,7 +508,7 @@ jQuery(document).ready(function () {
             $('#hamMargin').val("");
         }
     });
-    $('#travelfee').blur(function () {
+    $('#travelfee').blur(function() {
         var travelfee = $('#travelfee').val();
         if (travelfee != "") {
             var travel = parseFloat(travelfee);
@@ -519,7 +518,7 @@ jQuery(document).ready(function () {
             $('#travelfee').val("");
         }
     });
-    $('#depositamt').blur(function () {
+    $('#depositamt').blur(function() {
         var depositamt = $('#depositamt').val();
         if (depositamt != "") {
             var damt = parseFloat(depositamt);
@@ -529,7 +528,7 @@ jQuery(document).ready(function () {
             $('#depositamt').val("");
         }
     });
-    $('#clienthourlyrate').blur(function () {
+    $('#clienthourlyrate').blur(function() {
         var clientrate = $('#clienthourlyrate').val();
         if (clientrate != "") {
             var clirate = parseFloat(clientrate);
@@ -539,7 +538,7 @@ jQuery(document).ready(function () {
             $('#clienthourlyrate').val("");
         }
     });
-    $('#additionalChargesinput').blur(function () {
+    $('#additionalChargesinput').blur(function() {
         var addicharge = $('#additionalChargesinput').val();
         if (addicharge != "") {
             var ad = parseFloat(addicharge);
@@ -549,7 +548,7 @@ jQuery(document).ready(function () {
             $('#additionalChargesinput').val("");
         }
     });
-    $('#totalsellprice').blur(function () {
+    $('#totalsellprice').blur(function() {
         var totalprice = $('#totalsellprice').val();
         if (totalprice != "") {
             var tp = parseFloat(totalprice);
@@ -559,7 +558,7 @@ jQuery(document).ready(function () {
             $('#totalsellprice').val("");
         }
     });
-    $('#costprice').blur(function () {
+    $('#costprice').blur(function() {
         var costprice = $('#costprice').val();
         if (costprice != "") {
             var cstprice = parseFloat(costprice);
@@ -569,7 +568,7 @@ jQuery(document).ready(function () {
             $('#costprice').val("");
         }
     });
-    $('#hamMargin').blur(function () {
+    $('#hamMargin').blur(function() {
         var hammargin = $('#hamMargin').val();
         if (hammargin != "") {
             var ham = parseFloat(hammargin);
@@ -579,17 +578,8 @@ jQuery(document).ready(function () {
             $('#hamMargin').val("");
         }
     });
-    $('#hoursbooked').blur(function () {
-        var hrbooked = $('#hoursbooked').val();
-        if (hrbooked != "") {
-            var hrb = parseFloat(hrbooked);
-            var hrbook = hrb.toFixed(2);
-            $('#hoursbooked').val(hrbook);
-        } else {
-            $('#hoursbooked').val("");
-        }
-    });
-    $('#sellprice').blur(function () {
+
+    $('#sellprice').blur(function() {
         var sellprice = $('#sellprice').val();
         if (sellprice != "") {
             var sellP = parseFloat(sellprice);
@@ -606,86 +596,30 @@ jQuery(document).ready(function () {
      * 3rd Dec.,2018
      */
 
-    $(".additional-charges-packer").blur(function () {
+    $(".additional-charges-packer").blur(function() {
         $("#hoursbooked").trigger("blur");
     });
 
-    /* Auto calculation of sellprice for Packing/Unpacking.......@DRCZ */
-// $("#sellprice").blur(function () {
-//        
-//        var hrbook = $('#hoursbooked').val();
-//        var ladies = $('#bookedladies').val();
-//        if (hrbook != "" && ladies != "") {
-//            var totalsell = (hrbook * ladies * 50)+'.00';
-//            $('#sellprice').val(totalsell);
-//        } else {
-//            $('#sellprice').val("");
-//        }
-//    });
-    $("#hoursbooked").blur(function () {
+    $("#hoursbooked").blur(function() {
 
         var hrbook = $('#hoursbooked').val();
-        var ladies = $('#bookedladies').val();
-        if (hrbook != "" && ladies != "") {
-            //var totalsell = (hrbook * ladies * 60) + '.00';
-            var additionalCharges = parseFloat($(".additional-charges-packer").val());
-            if (!isNaN(additionalCharges)) {
-                // totalsell = parseFloat(totalsell);
-                // totalsell += additionalCharges;
-                // totalsell = totalsell.toFixed(2);
-            }
-            //$('#sellprice').val(totalsell);
+        if (hrbook != "") {
+            var hrb = parseFloat(hrbook);
+            var hrbook = hrb.toFixed(2);
+            $('#hoursbooked').val(hrbook);
         } else {
-            $('#sellprice').val("");
+            $('#hoursbooked').val("");
         }
-        jQuery(".packer-name-text").val(hrbook);
-    });
-    $("#bookedladies").blur(function () {
+        var packingTimePeriod = jQuery('#packing-interval-time').val();
+        if (hrbook != packingTimePeriod) {
+            toastr.error("Service time hours doesn't match with \'Initial hours booked\'");
+        }
 
-        var hrbook = $('#hoursbooked').val();
-        var ladies = $('#bookedladies').val();
-        if (hrbook != "" && ladies != "") {
-            var totalsell = (hrbook * ladies * 60) + '.00';
-            var additionalCharges = parseFloat($(".additional-charges-packer").val());
-            if (!isNaN(additionalCharges)) {
-                totalsell = parseFloat(totalsell);
-                totalsell += additionalCharges;
-                totalsell = totalsell.toFixed(2);
-            }
-            $('#sellprice').val(totalsell);
-        } else {
-            $('#sellprice').val("");
-        }
     });
 
-    // jQuery('#hoursbooked').on('change', function () {
-    //     var HouresValue = jQuery('#hoursbooked').val();
-    //     if (HouresValue == "4" || HouresValue == "4.00") {
-    //         jQuery('.servicetime').val("9am-1pm");
-    //     } else if (HouresValue == "5" || HouresValue == "5.00") {
-    //         jQuery('.servicetime').val("9am-2pm");
-    //     } else if (HouresValue == "6" || HouresValue == "6.00") {
-    //         jQuery('.servicetime').val("9am-3pm");
-    //     } else {
-    //         jQuery('.servicetime').val("");
-    //     }
-    // });
-
-    
-//    $("#sellprice").click(function () {
-//        
-//        var hrbook = $('#hoursbooked').val();
-//        var ladies = $('#bookedladies').val();
-//        if (hrbook != "" && ladies != "") {
-//            var totalsell = (hrbook * ladies * 50)+'.00';
-//            $('#sellprice').val(totalsell);
-//        } else {
-//            $('#sellprice').val("");
-//        }
-//    });
     /* Auto calculation of sellprice for Packing/Unpacking.......@DRCZ */
 
-    jQuery('body').on('click', '.close-notes', function () {
+    jQuery('body').on('click', '.close-notes', function() {
         if (confirm("Are you sure want to delete note?")) {
             jQuery(this).closest('.activity-item').remove();
             var id = jQuery(this).data("id");
@@ -693,7 +627,7 @@ jQuery(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + 'enquiries/deleteNotes/' + id,
-                success: function (response) {
+                success: function(response) {
                     var res = JSON.parse(response);
 
                     if (res.error) {
@@ -713,26 +647,26 @@ jQuery(document).ready(function () {
      * Suburb autocomplete.............................@DRCZ
      */
     jQuery(".suburb").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             $.ajax({
                 url: BASE_URL + "enquiries/getsuburbdata",
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     response(data);
                 }
             });
         },
         minLength: 3,
-        select: function (event, ui) {
+        select: function(event, ui) {
             if (window.console)
-                //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+            //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                 jQuery(this).attr("data-selected", "true");
         }
     });
 
     jQuery("#movingfromsuburb").autocomplete({
-        close: function (event, ui) {
+        close: function(event, ui) {
             var suburbstr = jQuery("#movingfromsuburb").val();
             var suburbarr = suburbstr.split(",");
             jQuery('#movingfrompostcode').val(suburbarr[1].trim());
@@ -743,7 +677,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery("#movingtosuburb").autocomplete({
-        close: function (event, ui) {
+        close: function(event, ui) {
             var suburbstr = jQuery("#movingtosuburb").val();
             var suburbarr = suburbstr.split(",");
             jQuery('#movingtopostcode').val(suburbarr[1].trim());
@@ -753,31 +687,31 @@ jQuery(document).ready(function () {
         }
     });
 
-    jQuery('body').on("focus", ".addpickupsuburb", function () {
+    jQuery('body').on("focus", ".addpickupsuburb", function() {
         jQuery(this).autocomplete({
-            source: function (request, response) {
+            source: function(request, response) {
                 $.ajax({
                     url: BASE_URL + "enquiries/getsuburbdata",
                     dataType: "json",
                     data: request,
-                    success: function (data) {
+                    success: function(data) {
                         response(data);
                     }
                 });
             },
             minLength: 3,
-            select: function (event, ui) {
+            select: function(event, ui) {
                 if (window.console)
-                    // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+                // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                     jQuery(this).attr("data-selected", "true");
             },
-            close: function (event, ui) {
+            close: function(event, ui) {
 
                 var suburbstr = jQuery(this).val();
                 var suburbarr = suburbstr.split(",");
-//                console.log(suburbarr);
-//                console.log(suburbarr[0]);
-//                console.log(suburbarr[1]);
+                //                console.log(suburbarr);
+                //                console.log(suburbarr[0]);
+                //                console.log(suburbarr[1]);
                 jQuery(this).closest('.additionalPickuptxt').find(".postcodepickup").find(".addpickuppostcode").val(suburbarr[1].trim());
                 jQuery(this).closest('.additionalPickuptxt').find(".suburbpickup").find(".addpickupsuburb").val(suburbarr[0].trim());
                 jQuery(this).closest('.additionalPickuptxt').find(".suburbpickup").find(".addpickupstate").val(suburbarr[2].trim());
@@ -786,25 +720,25 @@ jQuery(document).ready(function () {
             }
         });
     });
-    jQuery('body').on("focus", ".adddeliverysuburb", function () {
+    jQuery('body').on("focus", ".adddeliverysuburb", function() {
         jQuery(this).autocomplete({
-            source: function (request, response) {
+            source: function(request, response) {
                 $.ajax({
                     url: BASE_URL + "enquiries/getsuburbdata",
                     dataType: "json",
                     data: request,
-                    success: function (data) {
+                    success: function(data) {
                         response(data);
                     }
                 });
             },
             minLength: 3,
-            select: function (event, ui) {
+            select: function(event, ui) {
                 if (window.console)
-                    // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+                // console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
                     jQuery(this).attr("data-selected", "true");
             },
-            close: function (event, ui) {
+            close: function(event, ui) {
 
                 var suburbstr = jQuery(this).val();
                 var suburbarr = suburbstr.split(",");
@@ -821,7 +755,7 @@ jQuery(document).ready(function () {
     /**
      * Packers autocomplete....................@DRCZ
      */
-    jQuery("#packersdata").blur(function () {
+    jQuery("#packersdata").blur(function() {
         var packer_data = jQuery('#packer_data').val();
         if (packer_data == "") {
             jQuery('#packers').find('span.error').parent("label").remove();
@@ -836,14 +770,14 @@ jQuery(document).ready(function () {
         //   jQuery("#clientdata").val('');
 
     });
-    jQuery.ui.autocomplete.prototype._renderItem = function (ul, item) {
+    jQuery.ui.autocomplete.prototype._renderItem = function(ul, item) {
         return $("<li>")
-//                .attr("data-value", item.value)
-                .append(item.label)
-                .appendTo(ul);
+            //                .attr("data-value", item.value)
+            .append(item.label)
+            .appendTo(ul);
     };
     jQuery("#packersdata").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             var movetype = jQuery("#enquirymovetype option:selected").val();
 
             if (movetype == "4" || movetype == "7") {
@@ -856,9 +790,9 @@ jQuery(document).ready(function () {
                 url: BASE_URL + "enquiries/getpackerid/" + enqstate,
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     if (data.items.length > 0) {
-                        response($.map(data.items, function (item) {
+                        response($.map(data.items, function(item) {
                             return {
                                 label: item.name,
                                 value: item.id
@@ -867,18 +801,18 @@ jQuery(document).ready(function () {
                     } else {
                         // jQuery("#packer_data").val('');
                         jQuery("#packersdata").val('');
-                        response([{label: 'No results found.', value: -1}]);
+                        response([{ label: 'No results found.', value: -1 }]);
                     }
-//                    response(data);
+                    //                    response(data);
                 }
             });
         },
         minLength: 2,
-        select: function (event, ui) {
-//            if (ui.item.value == "" || ui.item.value == -1) {
-//                jQuery(this).val('');
-//                return false;
-//            }
+        select: function(event, ui) {
+            //            if (ui.item.value == "" || ui.item.value == -1) {
+            //                jQuery(this).val('');
+            //                return false;
+            //            }
             if (ui.item.value == "" || ui.item.value == -1) {
                 jQuery(this).val('');
                 // jQuery("#packer_data").val('');
@@ -893,106 +827,35 @@ jQuery(document).ready(function () {
                 packerIDs += "," + jQuery('#packer_data').val();
                 jQuery('#packer_data').val(packerIDs);
                 jQuery(".packer-listed").append("<li class='packer" + ui.item.value + "' data-id='" + ui.item.value + "'>" + ui.item.label + "<span class='fa fa-times rm-packer'></span></li>");
-                var packerHoursBooked= parseFloat(jQuery("#hoursbooked").val()).toFixed(2);
-                jQuery("#packer_hours").append('<div class="form-group packer-div-'+ ui.item.value +'"><label class="control-label col-md-6 packer-name-label">'+ ui.item.label +'</label><div class="col-md-6"><input type="hidden" name="packer-name[]" value="'+ ui.item.value +'"><input type="text" class="form-control packer-name-text" name="packer-hours[]" value="'+ packerHoursBooked +'"></div></div>');
-                jQuery("#packer_hours_non_billable").append('<div class="form-group non-billable-packer-div-'+ ui.item.value +'"><label class="control-label col-md-6 packer-name-label">'+ ui.item.label +'</label><div class="col-md-6"><input type="hidden" name="non-billable-packer-name[]" value="'+ ui.item.value +'"><input type="text" class="form-control non-billable-packer-name-text" name="non-billable-packer-hours[]" value="0.00"></div></div>');
+                var packerHoursBooked = parseFloat(jQuery("#hoursbooked").val()).toFixed(2);
+                jQuery("#packer_hours").append('<div class="form-group packer-div-' + ui.item.value + '"><label class="control-label col-md-6 packer-name-label">' + ui.item.label + '</label><div class="col-md-6"><input type="hidden" name="packer-name[]" value="' + ui.item.value + '"><input type="text" class="form-control packer-name-text" name="packer-hours[]" value="' + packerHoursBooked + '"></div></div>');
+                jQuery("#packer_hours_non_billable").append('<div class="form-group non-billable-packer-div-' + ui.item.value + '"><label class="control-label col-md-6 packer-name-label">' + ui.item.label + '</label><div class="col-md-6"><input type="hidden" name="non-billable-packer-name[]" value="' + ui.item.value + '"><input type="text" class="form-control non-billable-packer-name-text" name="non-billable-packer-hours[]" value="0.00"></div></div>');
             }
             jQuery(this).val("");
             event.preventDefault();
 
-
-            /*if (window.console)
-             //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
-             this.value = ui.item.label;
-             jQuery(this).next("input").val(ui.item.value);
-             jQuery('#packer_data').val(ui.item.value);
-             event.preventDefault();*/
-            // jQuery(this).attr("data-selected", "true");
         }
     });
 
-//    jQuery("#packersdata").autocomplete({
-//        source: function (request, response) {
-//
-//            var movetype = jQuery("#enquirymovetype option:selected").val();
-//
-//            if (movetype == "4") {
-//                var enqstate = jQuery("#movingfromstate").val();
-//            } else if (movetype == "5") {
-//                var enqstate = jQuery("#movingtostate").val();
-//            }
-//            $.ajax({
-//                url: BASE_URL + "enquiries/getpackerid/" + enqstate,
-//                dataType: "json",
-//                data: request,
-//                success: function (data) {
-//                    if (data.items.length > 0) {
-//                        response($.map(data.items, function (item) {
-//                            return {
-//                                label: item.name,
-//                                value: item.id
-//                            };
-//                        }));
-//                    } else {
-//                        response([{label: 'No results found.', value: -1}]);
-//                    }
-////                    response(data);
-//                }
-//            });
-//        },
-//        minLength: 2,
-//        select: function (event, ui) {
-//            //alert(ui.item.value);
-//
-//            if (ui.item.value == "" || ui.item.value == -1) {
-//                jQuery(this).val('');
-//                return false;
-//            }
-//
-//            if (jQuery("ul.packer-listed li").hasClass("packer" + ui.item.value)) {
-//
-//            } else {
-//                // alert("dfdf");
-//                var packerIDs = ui.item.value;
-//                // alert(packerIDs);
-//                packerIDs += "," + jQuery('#packer_data').val();
-//                jQuery('#packer_data').val(packerIDs);
-//                jQuery(".packer-listed").append("<li class='packer" + ui.item.value + "' data-id='" + ui.item.value + "'>" + ui.item.label + "<span class='fa fa-times rm-packer'></span></li>");
-//            }
-//            jQuery(this).val("");
-//            event.preventDefault();
-//
-//
-//            /*if (window.console)
-//             //  console.log(ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
-//             this.value = ui.item.label;
-//             jQuery(this).next("input").val(ui.item.value);
-//             jQuery('#packer_data').val(ui.item.value);
-//             event.preventDefault();*/
-//            // jQuery(this).attr("data-selected", "true");
-//        }
-//    });
-
-    jQuery("body").on("click", ".rm-packer", function () {
+    jQuery("body").on("click", ".rm-packer", function() {
         if (confirm("Are you sure want to remove packer?")) {
             var packerIDs = jQuery('#packer_data').val().trim();
             var packerIDarray = packerIDs.split(",");
             var packerToRemove = jQuery(this).parent("li").data("id");
-            jQuery(".packer-div-"+packerToRemove).remove();
-            jQuery(".non-billable-packer-div-"+packerToRemove).remove();
-            var y = jQuery.grep(packerIDarray, function (value) {
+            jQuery(".packer-div-" + packerToRemove).remove();
+            jQuery(".non-billable-packer-div-" + packerToRemove).remove();
+            var y = jQuery.grep(packerIDarray, function(value) {
                 return value != packerToRemove;
             });
             jQuery('#packer_data').val(y.join(','));
             jQuery(this).parent("li").remove();
-            
         }
     });
 
     /**
      * Removealist autocomplete....................@DRCZ
      */
-    jQuery("#removalist").blur(function () {
+    jQuery("#removalist").blur(function() {
         var removalist = jQuery("#removalist_data").val();
         if (removalist == "") {
             jQuery('#removealist1').find('span.error').parent("label").remove();
@@ -1007,15 +870,15 @@ jQuery(document).ready(function () {
         //  jQuery("#removalist_data").val('');
     });
     jQuery("#removalist").autocomplete({
-        source: function (request, response) {
+        source: function(request, response) {
             var enqstate = jQuery("#movingfromstate").val();
             $.ajax({
                 url: BASE_URL + "enquiries/getcontactid/" + enqstate,
                 dataType: "json",
                 data: request,
-                success: function (data) {
+                success: function(data) {
                     if (data.items.length > 0) {
-                        response($.map(data.items, function (item) {
+                        response($.map(data.items, function(item) {
                             return {
                                 label: item.name,
                                 value: item.id
@@ -1023,24 +886,24 @@ jQuery(document).ready(function () {
                         }));
                     } else {
                         jQuery("#removalist_data").val('');
-                        response([{label: 'No results found.', value: -1}]);
+                        response([{ label: 'No results found.', value: -1 }]);
                     }
 
-//                    response(data);
+                    //                    response(data);
                 }
             });
         },
         minLength: 2,
-        select: function (event, ui) {
+        select: function(event, ui) {
             if (ui.item.value == "" || ui.item.value == -1) {
                 jQuery(this).val('');
                 jQuery("#removalist_data").val('');
                 return false;
             }
-//            if (window.console)
-//                this.value = ui.item.label;
-//            jQuery(this).next("input").val(ui.item.value);
-//            jQuery('#removalist_data').val(ui.item.value);
+            //            if (window.console)
+            //                this.value = ui.item.label;
+            //            jQuery(this).next("input").val(ui.item.value);
+            //            jQuery('#removalist_data').val(ui.item.value);
 
             var removalistIDs = ui.item.value;
             jQuery('#removalist').val('');
@@ -1056,12 +919,12 @@ jQuery(document).ready(function () {
 
     });
 
-    jQuery("body").on("click", ".rm-removalist", function () {
+    jQuery("body").on("click", ".rm-removalist", function() {
         if (confirm("Are you sure want to remove removalist?")) {
             var packerIDs = jQuery('#removalist_data').val().trim();
             var packerIDarray = packerIDs.split(",");
             var packerToRemove = jQuery(this).parent("li").data("id");
-            var y = jQuery.grep(packerIDarray, function (value) {
+            var y = jQuery.grep(packerIDarray, function(value) {
                 return value != packerToRemove;
             });
             jQuery('#removalist_data').val(y.join(','));
@@ -1069,7 +932,7 @@ jQuery(document).ready(function () {
         }
     });
 
-    $("#namedone, .input-close").click(function () {
+    $("#namedone, .input-close").click(function() {
         var fnames = $('#enfname').val().trim();
         //var fname = fnames.replace(/\s+/g, '');        
         var fname = fnames.replace(/\s+/g, ' ');
@@ -1085,7 +948,7 @@ jQuery(document).ready(function () {
         } else {
             $('#enname').val('');
             jQuery(this).closest('.input-modal').show();
-            jQuery('.input-modal').find('.inmodal-error').show().addClass('eshadow').delay('1000').queue(function () {
+            jQuery('.input-modal').find('.inmodal-error').show().addClass('eshadow').delay('1000').queue(function() {
                 $(this).removeClass('eshadow').dequeue();
             });
 
@@ -1099,13 +962,13 @@ jQuery(document).ready(function () {
      * Delete enquiry..............@DRCZ
      */
 
-    $(".deleteenquiry").click(function () {
+    $(".deleteenquiry").click(function() {
         if (confirm("Are you sure want to delete enquiry?")) {
             var id = $(this).data('id');
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + 'enquiries/deleteEnquiry/' + id,
-                success: function (response) {
+                success: function(response) {
                     var res = JSON.parse(response);
 
                     if (res.error) {
@@ -1121,37 +984,16 @@ jQuery(document).ready(function () {
         }
     })
 
-// Qualify enquiry......@DRCZ
-
-// $(".isqualified").click(function () {
-//        if (confirm("Are you sure want qualify enquiry?")) {
-//            var id = $(this).data('id');
-//            $.ajax({
-//                type: 'POST',
-//                url: BASE_URL + 'enquiries/bookingData/' + id,
-//                success: function (response) {
-//                    var res = JSON.parse(response);
-//                    if (res.error) {
-//                        toastr.error('Something wrong.');
-//                    } else {
-//                        toastr.success('Enquiry has been qualified.');
-//                        window.location = BASE_URL + "enquirieslist";
-//                    }
-//                }
-//            })
-//        }
-//    })
-
 })
 
 // 24-04-19 new price rule  start
 
-jQuery(document).ready(function () {
-     var data= $("#enquirymovetype").val();
+jQuery(document).ready(function() {
+    var data = $("#enquirymovetype").val();
     changeEnquiryMoveType(data);
 
-    $("#enquirymovetype").change(function () {
-        var data= $("#enquirymovetype").val();
+    $("#enquirymovetype").change(function() {
+        var data = $("#enquirymovetype").val();
         changeEnquiryMoveType(data);
     });
 
@@ -1160,8 +1002,8 @@ jQuery(document).ready(function () {
     });
 
 
-    $("#movers").focusout(function(){
-        if($("#servicedate").val() ==""){
+    $("#movers").focusout(function() {
+        if ($("#servicedate").val() == "") {
             alert("Please fill Service date");
             $("#servicedate").focus();
             return false;
@@ -1171,8 +1013,8 @@ jQuery(document).ready(function () {
 
 });
 
-function changeEnquiryMoveType(data){
-     if (data == "1" || data == "2") {
+function changeEnquiryMoveType(data) {
+    if (data == "1" || data == "2") {
         $("#storagedate").addClass('fhide');
         $("#deliveryDate").addClass('fhide');
         $("#deliveryDate").children().prop('disabled', true);
@@ -1231,7 +1073,6 @@ function changeEnquiryMoveType(data){
         $(".additional-charges-packer").attr("disabled", "disabled");
         $(".additional-charges-item-packer").attr("disabled", "disabled");
         //11-09-19
-        // $('#serviceEndTimeDiv').addClass('fhide');
         $('#hoursCompletedDiv').addClass('fhide');
         //23-09-19
         jQuery('#hosServiceTimeContainer').removeClass('fhide');
@@ -1295,7 +1136,6 @@ function changeEnquiryMoveType(data){
         $(".additional-charges-packer").attr("disabled", "disabled");
         $(".additional-charges-item-packer").attr("disabled", "disabled");
         //11-09-19
-        // $('#serviceEndTimeDiv').addClass('fhide');
         $('#hoursCompletedDiv').addClass('fhide');
         //23-09-19
         jQuery('#hosServiceTimeContainer').removeClass('fhide');
@@ -1359,7 +1199,6 @@ function changeEnquiryMoveType(data){
         //05-09-19
         $(".add_field_button_packers").addClass("fhide");
         //11-09-19
-        // $('#serviceEndTimeDiv').removeClass('fhide');
         $('#hoursCompletedDiv').removeClass('fhide');
         //23-09-19
         jQuery('#hosServiceTimeContainer').addClass('fhide');
@@ -1423,7 +1262,6 @@ function changeEnquiryMoveType(data){
         //05-09-19
         $(".add_field_button_packers").addClass("fhide");
         //11-09-19
-        // $('#serviceEndTimeDiv').removeClass('fhide');
         $('#hoursCompletedDiv').removeClass('fhide');
         //23-09-19
         jQuery('#hosServiceTimeContainer').addClass('fhide');
@@ -1479,7 +1317,6 @@ function changeEnquiryMoveType(data){
         $(".additional-charges-packer").attr("disabled", "disabled");
         $(".additional-charges-item-packer").attr("disabled", "disabled");
         //11-09-19
-        // $('#serviceEndTimeDiv').addClass('fhide');
         $('#hoursCompletedDiv').addClass('fhide');
         //23-09-19
         jQuery('#hosServiceTimeContainer').removeClass('fhide');
@@ -1523,127 +1360,90 @@ function changeEnquiryMoveType(data){
     }
 }
 
-function setValues($customMovers=""){
+function setValues($customMovers = "") {
 
-    if(jQuery("select[name='en_no_of_movers1']").val() != 'other' && jQuery("#servicedate").val() ==""){
+    if (jQuery("select[name='en_no_of_movers1']").val() != 'other' && jQuery("#servicedate").val() == "") {
         jQuery("#servicedate").focus();
         // alert("Please fill Service Date");
         return false;
     }
 
-    var moveType=jQuery("#enquirymovetype").val();
+    var moveType = jQuery("#enquirymovetype").val();
     var inputDate = toDate(jQuery("#servicedate").val());
-    var numberOfMovers=jQuery("select[name='en_no_of_movers1']").val();
+    var numberOfMovers = jQuery("select[name='en_no_of_movers1']").val();
     var todaysDate = new Date();
-    var movingFromState= jQuery("#movingfromstate").val();
-    if(moveType == '5'){
-        movingFromState= jQuery("#movingtostate").val();
+    var movingFromState = jQuery("#movingfromstate").val();
+    if (moveType == '5') {
+        movingFromState = jQuery("#movingtostate").val();
     }
-    var dateFormat='';
+    var dateFormat = '';
 
-    if(jQuery("#movers").css("display")=="inline-block"){
-       numberOfMovers=jQuery("#movers").val();
+    if (jQuery("#movers").css("display") == "inline-block") {
+        numberOfMovers = jQuery("#movers").val();
     }
     var numberOfTrucks = jQuery("#trucks-select").val();
-    if(jQuery("#trucks").css("display")!="none"){
-       numberOfTrucks=jQuery("#trucks").val();
+    if (jQuery("#trucks").css("display") != "none") {
+        numberOfTrucks = jQuery("#trucks").val();
     }
 
     var today = new Date();
     var dateFormat = GetDateFormat(inputDate);
     jQuery.ajax({
-    type: 'POST',
-    url: BASE_URL + "pricelist/getRules",
-    data: { moveType : moveType, datepicker : dateFormat, noOfTrucks : numberOfTrucks,noOfMovers:numberOfMovers,state:movingFromState },
-    success: function (response) {
-        var res = JSON.parse(response);
-        if(res == null){
-            if(moveType == '1' || moveType == '2'){
-                jQuery("#travelfee").val('');
-                jQuery("#clienthourlyrate").val('');
-            }
-            else if(moveType == '4' || moveType == '5'){
-                jQuery("#sellprice").val('');
+        type: 'POST',
+        url: BASE_URL + "pricelist/getRules",
+        data: { moveType: moveType, datepicker: dateFormat, noOfTrucks: numberOfTrucks, noOfMovers: numberOfMovers, state: movingFromState },
+        success: function(response) {
+            var res = JSON.parse(response);
+            if (res == null) {
+                if (moveType == '1' || moveType == '2') {
+                    jQuery("#travelfee").val('');
+                    jQuery("#clienthourlyrate").val('');
+                } else if (moveType == '4' || moveType == '5') {
+                    jQuery("#sellprice").val('');
+                }
+            } else {
+                if (res[0].movetype == '1' || res[0].movetype == '2') {
+                    jQuery("#travelfee").val(parseInt(res[0].travel_fee).toFixed(2));
+                    jQuery("#clienthourlyrate").val(parseInt(res[0].client_hour_rate).toFixed(2));
+                    if (res[0].rule_type == '3') {
+                        jQuery("#travelfee, input[name=en_client_hourly_rate]").addClass('holiday-highlighter');
+                    } else {
+                        jQuery("#travelfee, input[name=en_client_hourly_rate]").removeClass('holiday-highlighter');
+                    }
+                } else if (res[0].movetype == '4' || res[0].movetype == '5') {
+                    var hoursbooked = jQuery("#hoursbooked").val();
+                    var bookedLadies = jQuery("#bookedladies").val();
+                    if (hoursbooked != '' && bookedLadies != '') {
+                        jQuery("#sellprice").val((parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2));
+                    }
+                    if (res[0].rule_type == '5') {
+                        jQuery("#sellprice").addClass('holiday-highlighter');
+                    } else {
+                        jQuery("#sellprice").removeClass('holiday-highlighter');
+                    }
+                }
             }
         }
-        else{
-            if(res[0].movetype == '1' || res[0].movetype =='2'){
-                jQuery("#travelfee").val(parseInt(res[0].travel_fee).toFixed(2));
-                jQuery("#clienthourlyrate").val(parseInt(res[0].client_hour_rate).toFixed(2));
-                if(res[0].rule_type == '3'){
-                    jQuery("#travelfee, input[name=en_client_hourly_rate]").addClass('holiday-highlighter');
-                }
-                else{
-                    jQuery("#travelfee, input[name=en_client_hourly_rate]").removeClass('holiday-highlighter');
-                }
-            }
-            else if(res[0].movetype == '4' || res[0].movetype =='5'){
-                var hoursbooked = jQuery("#hoursbooked").val();
-                var bookedLadies = jQuery("#bookedladies").val();
-                if(hoursbooked !='' && bookedLadies != ''){
-                    jQuery("#sellprice").val((parseFloat(res[0].per_person_packing_rate) * parseFloat(hoursbooked) * parseFloat(bookedLadies)).toFixed(2));
-                }
-                if(res[0].rule_type == '5'){
-                    jQuery("#sellprice").addClass('holiday-highlighter');
-                }
-                else{
-                    jQuery("#sellprice").removeClass('holiday-highlighter');
-                }
-            }
-        }        
-    }
     });
-    // if(moveType == '2' || inputDate.getDay() == 0 || inputDate.getDay() == 5 || inputDate.getDay() == 6  || todaysDate.toDateString() == inputDate.toDateString()){
-    //     if(numberOfTrucks == 1 && numberOfMovers == 2)
-    //         setFees("70.00","140.00");
-    //     else if(numberOfTrucks == 1 && numberOfMovers == 3)
-    //         setFees("90.00","180.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 3)
-    //         setFees("100.00","200.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 4)
-    //         setFees("135.00","270.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 5)
-    //         setFees("160.00","320.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 6)
-    //         setFees("180.00","360.00");
-    //     else{
-    //         setFees("","");
-    //     }
-    // }
-    // else{
-    //     if(numberOfTrucks == 1 && numberOfMovers == 2)
-    //         setFees("65.00","130.00");
-    //     else if(numberOfTrucks == 1 && numberOfMovers == 3)
-    //         setFees("85.00","170.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 3)
-    //         setFees("95.00","190.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 4)
-    //         setFees("125.00","250.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 5)
-    //         setFees("150.00","300.00");
-    //     else if(numberOfTrucks == 2 && numberOfMovers == 6)
-    //         setFees("170.00","340.00");
-    //     else{
-    //         setFees("","");
-    //     }
-    // }
+
 }
 
 function GetDateFormat(date) {
-   var month = (date.getMonth() + 1).toString();
-   month = month.length > 1 ? month : '0' + month;
-   var day = date.getDate().toString();
-   day = day.length > 1 ? day : '0' + day;
-   return day + '-' + month+ '-' + date.getFullYear();
+    var month = (date.getMonth() + 1).toString();
+    month = month.length > 1 ? month : '0' + month;
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    return day + '-' + month + '-' + date.getFullYear();
 }
 
-function setFees($travelfee,$clienthourlyrate){
+function setFees($travelfee, $clienthourlyrate) {
     $("#travelfee").val($travelfee);
-    $("#clienthourlyrate").val($clienthourlyrate);  
+    $("#clienthourlyrate").val($clienthourlyrate);
 }
+
 function toDate(dateStr) {
-  var parts = dateStr.split("-")
-  return new Date(parts[2], parts[1] - 1, parts[0])
+    var parts = dateStr.split("-")
+    return new Date(parts[2], parts[1] - 1, parts[0])
 }
 
 // new price rule  end
@@ -1651,7 +1451,7 @@ function toDate(dateStr) {
 
 
 //console.log(isDuplicate);
-$("#enquirymovetype").on('change', function () {
+$("#enquirymovetype").on('change', function() {
     if (isDuplicate == false) {
         return true;
     }
@@ -1735,7 +1535,7 @@ $("#enquirymovetype").on('change', function () {
 
 
 //sendquotemail
-jQuery(".send-quote-mail").click(function () {
+jQuery(".send-quote-mail").click(function() {
 
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
@@ -1756,22 +1556,25 @@ jQuery(".send-quote-mail").click(function () {
     var ladiesbook = jQuery('.ladiesbook').val();
     var inisellprice = jQuery('.inisellprice').val();
 
+    if (clientrate < 100 && ['1', '2'].includes(movetype)) {
+        alert("Client Rate less than $100.");
+    }
+
     //duplicate email sent warning
-    var result = checkDuplicateMail(jQuery(this).data("id"),movetype,'Quote');
-    if(result == "0"){
+    var result = checkDuplicateMail(jQuery(this).data("id"), movetype, 'Quote');
+    if (result == "0") {
         return false;
     }
-    
-    // console.log(result);
-    // console.log("proceeded");
-    // return;
 
     if (movetype == "1" || movetype == "2") {
-        if (servicedate == "" || name == "" || email == "" || depositamt == "" || trucks == "" || movers == ""  || travelfees == "" || clientrate == "" || fromstate == "" || tostate == "") {
+        if (servicedate == "" || name == "" || email == "" || depositamt == "" || trucks == "" || movers == "" || travelfees == "" || clientrate == "" || fromstate == "" || tostate == "") {
             toastr.error('Please fill required field.');
             return false;
         } else if (servicetime == "" || isNaN(servicetime)) {
             toastr.error("Servicetime field is either blank or No Preference that time you can not send email.");
+            return false;
+        } else if (parseInt($('input[name=en_no_of_trucks]').val()) < 1) {
+            toastr.error('No. of trucks selected is 0. Is this correct?');
             return false;
         } else {
             $(".ajaxLoader").show();
@@ -1781,7 +1584,7 @@ jQuery(".send-quote-mail").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -1812,7 +1615,7 @@ jQuery(".send-quote-mail").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -1843,7 +1646,7 @@ jQuery(".send-quote-mail").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -1860,7 +1663,7 @@ jQuery(".send-quote-mail").click(function () {
         }
     }
 });
-jQuery(".send-follow-quote-mail").click(function () {
+jQuery(".send-follow-quote-mail").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     // var servicetime = parseInt(jQuery('.servicetime').val());
@@ -1880,8 +1683,8 @@ jQuery(".send-follow-quote-mail").click(function () {
     var ladiesbook = jQuery('.ladiesbook').val();
     var inisellprice = jQuery('.inisellprice').val();
 
-    var result = checkDuplicateMail(jQuery(this).data("id"),movetype,'Followup');
-    if(result == "0"){
+    var result = checkDuplicateMail(jQuery(this).data("id"), movetype, 'Followup');
+    if (result == "0") {
         return false;
     }
 
@@ -1900,7 +1703,7 @@ jQuery(".send-follow-quote-mail").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -1931,7 +1734,7 @@ jQuery(".send-follow-quote-mail").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -1962,7 +1765,7 @@ jQuery(".send-follow-quote-mail").click(function () {
                 type: 'POST',
                 data: datastr,
                 url: BASE_URL + "email/send",
-                success: function (response) {
+                success: function(response) {
                     $(".ajaxLoader").hide();
                     GetEmailLogOnAjax(id);
                     var res = JSON.parse(response);
@@ -1981,7 +1784,7 @@ jQuery(".send-follow-quote-mail").click(function () {
 });
 
 //edit quote email
-jQuery(".edit-quote-mail").click(function () {
+jQuery(".edit-quote-mail").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     // var servicetime = parseInt(jQuery('.servicetime').val());
@@ -2002,12 +1805,19 @@ jQuery(".edit-quote-mail").click(function () {
     var inisellprice = jQuery('.inisellprice').val();
     var id = jQuery(this).data('id');
 
+    if (clientrate < 100 && ['1', '2'].includes(movetype)) {
+        alert("Client Rate less than $100.");
+    }
+
     if (movetype == "1" || movetype == "2") {
         if (servicedate == "" || name == "" || email == "" || depositamt == "" || trucks == "" || movers == "" || travelfees == "" || clientrate == "" || fromstate == "" || tostate == "") {
             toastr.error('Please fill required field.');
             return false;
         } else if (servicetime == "" || isNaN(servicetime)) {
             toastr.error("Servicetime field is either blank or No Preference that time you can not send email.");
+            return false;
+        } else if (parseInt($('input[name=en_no_of_trucks]').val()) < 1) {
+            toastr.error('No. of trucks selected is 0. Is this correct?');
             return false;
         } else {
             window.open(BASE_URL + "enquiries/editQuoteMail/" + id + '/1', "_blank", "edit-quote-email");
@@ -2039,7 +1849,7 @@ jQuery(".edit-quote-mail").click(function () {
         }
     }
 });
-jQuery(".edit-follow-quote-mail").click(function () {
+jQuery(".edit-follow-quote-mail").click(function() {
     var movetype = jQuery('#enquirymovetype').val();
     var servicedate = jQuery('.servicedate').val();
     // var servicetime = parseInt(jQuery('.servicetime').val());
@@ -2097,12 +1907,72 @@ jQuery(".edit-follow-quote-mail").click(function () {
         }
     }
 });
+
+// Send Quote SM
+jQuery(".send-quote-sms, .edit-quote-sms").click(function() {
+    if (parseInt($('input[name=en_no_of_trucks]').val()) < 1 && (jQuery('#enquirymovetype').val() == '1' || jQuery('#enquirymovetype').val() == '2')) {
+        toastr.error('No. of trucks selected is 0. Is this correct?');
+        return false;
+    }
+    var clickedClass = jQuery(this).attr('class');
+    var id = jQuery(this).data("id");
+    jQuery.ajax({
+        type: 'POST',
+        url: BASE_URL + "enquiries/isSmsSent",
+        data: { 'enquiryId': id },
+        success: function(response) {
+            var res = JSON.parse(response);
+            $sentRes = res.code;
+            if (clickedClass.indexOf('send-quote-sms') != -1) {
+                if (res.code == 1) {
+                    if (confirm('Sms already sent. Do you want to sent it again?')) {
+                        console.log("sms sent");
+                    } else {
+                        return false;
+                    }
+                }
+                sentSms(id);
+            } else {
+                editSms(id);
+            }
+        }
+    })
+
+
+});
+
+function editSms($id) {
+    window.open(BASE_URL + "enquiries/editSendMail/" + $id, "_blank", "edit-quote-email");
+    return false;
+}
+
+// check if sms is sent
+
+function sentSms($id) {
+    $(".ajaxLoader").show();
+    jQuery.ajax({
+        type: 'GET',
+        url: BASE_URL + "enquiries/sendEnquirySMS/" + $id,
+        dataType: "json",
+        success: function(response) {
+            $(".ajaxLoader").hide();
+            console.warn(response);
+            if (response.error) {
+                toastr.error('SMS has not been sent.');
+            } else if (response.success) {
+                toastr.success('SMS has been sent.');
+            } else if (response.expired) {
+                window.location = BASE_URL;
+            }
+        }
+    })
+}
 
 /**
  * is qualified............@DRCZ
  */
 
-jQuery(".isqualified").click(function () {
+jQuery(".isqualified").click(function() {
 
     if (confirm("Are you sure want to qualify enquiry?")) {
         var id = jQuery(this).data("id");
@@ -2110,7 +1980,7 @@ jQuery(".isqualified").click(function () {
         jQuery.ajax({
             type: 'POST',
             url: BASE_URL + "enquiries/bookingData/" + id,
-            success: function (response) {
+            success: function(response) {
                 $(".ajaxLoader").hide();
                 var res = JSON.parse(response);
                 if (res.error) {
@@ -2128,7 +1998,7 @@ jQuery(".isqualified").click(function () {
 });
 
 // Disqualify......@DRCZ
-jQuery(".disqualified").click(function () {
+jQuery(".disqualified").click(function() {
 
     if (confirm("Are you sure want to deactivate enquiry?")) {
         var id = jQuery(this).data("id");
@@ -2136,7 +2006,7 @@ jQuery(".disqualified").click(function () {
         jQuery.ajax({
             type: 'POST',
             url: BASE_URL + "enquiries/bookingData/" + id,
-            success: function (response) {
+            success: function(response) {
                 $(".ajaxLoader").hide();
                 var res = JSON.parse(response);
                 if (res.error) {
@@ -2159,7 +2029,7 @@ function GetEmailLogOnAjax(id) {
         type: 'POST',
         data: datastr,
         url: BASE_URL + "Enquiries/EmailActivitiesLogAjax",
-        success: function (response) {
+        success: function(response) {
             jQuery('.admin-notes .mt-actions').html('');
             jQuery('.admin-notes .mt-actions').append(response);
         }
@@ -2170,7 +2040,7 @@ function GetEmailLogOnAjax(id) {
 /**
  * Duplicate enquiry................
  */
-jQuery("body").on("click", "#duplicateEnqform", function () {
+jQuery("body").on("click", "#duplicateEnqform", function() {
 
     if (confirm("Are you sure want to duplicate enquiry ?")) {
         var id = jQuery(this).data("id");
@@ -2179,7 +2049,7 @@ jQuery("body").on("click", "#duplicateEnqform", function () {
             type: 'POST',
             url: BASE_URL + "enquiries/getEnquirydataforDuplicate/" + id,
             // data: {ids: enquirysIds},
-            success: function (response) {
+            success: function(response) {
                 var res = JSON.parse(response);
                 // console.log(res.id);
                 var enid = res.id;
@@ -2190,8 +2060,8 @@ jQuery("body").on("click", "#duplicateEnqform", function () {
                 } else {
                     toastr.success('Enquiry is saved.');
                     window.location = BASE_URL + "enquiries/viewEnquiries/" + enid + "/d";
-//                        var table = $('#enquirylist').DataTable();
-//                        table.ajax.reload();
+                    //                        var table = $('#enquirylist').DataTable();
+                    //                        table.ajax.reload();
                 }
             }
         })
@@ -2200,9 +2070,9 @@ jQuery("body").on("click", "#duplicateEnqform", function () {
 
 //Add New Contact.............................
 
-var Contact = function () {
+var Contact = function() {
 
-    var handleContact = function () {
+    var handleContact = function() {
 
         var contactForm = $('#contact-form');
         var error1 = $('.alert-danger', contactForm);
@@ -2255,18 +2125,18 @@ var Contact = function () {
                     required: "State is required."
                 }
             },
-            invalidHandler: function (event, validator) { //display error alert on form submit   
+            invalidHandler: function(event, validator) { //display error alert on form submit   
 
             },
-            highlight: function (element) { // hightlight error inputs
+            highlight: function(element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
-            success: function (label) {
+            success: function(label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 if (element.is(':checkbox')) {
                     error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
                 } else if (element.is(':radio')) {
@@ -2275,13 +2145,13 @@ var Contact = function () {
                     error.insertAfter(element); // for other inputs, just perform default behavior
                 }
             },
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 var formData = jQuery("#contact-form").serializeArray();
                 ajaxContact(formData);
             }
         });
 
-        $('#contact-form input').keypress(function (e) {
+        $('#contact-form input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('#contact-form').validate().form()) {
                     var formData = jQuery("#contact-form").serializeArray();
@@ -2294,188 +2164,178 @@ var Contact = function () {
 
     return {
         //main function to initiate the module
-        init: function () {
+        init: function() {
             handleContact();
         }
     };
 }();
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     Contact.init();
 
     //storage - 09-08-19 start
     jQuery('input[name=en_quotedcost_price]').on('change', function(e) {
-    var storageCost=jQuery('input[name=en_quotedcost_price]').val(); 
-    jQuery(this).val(parseFloat(storageCost).toFixed(2));
-    if(jQuery('input[name=en_quotedsell_price]').val() != ''){
-        var storageSell=jQuery('input[name=en_quotedsell_price]').val();
-        jQuery('input[name=en_hireamover_margin]').val((storageSell - storageCost).toFixed(2));
-    }
+        var storageCost = jQuery('input[name=en_quotedcost_price]').val();
+        jQuery(this).val(parseFloat(storageCost).toFixed(2));
+        if (jQuery('input[name=en_quotedsell_price]').val() != '') {
+            var storageSell = jQuery('input[name=en_quotedsell_price]').val();
+            jQuery('input[name=en_hireamover_margin]').val((storageSell - storageCost).toFixed(2));
+        }
 
     });
     //storage - 09-08-19 end
 
     //10-09-19 service time start
-    jQuery('#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute').select2({ width: 'auto'});
+    jQuery('#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute').select2({ width: 'auto' });
 
-    jQuery("#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute").change(function(){
+    jQuery("#serviceTimeStartHour, #serviceTimeStartMinute, #serviceTimeEndHour, #serviceTimeEndMinute").change(function() {
         var moveType = jQuery('#enquirymovetype').val();
-        var startHour=jQuery('#serviceTimeStartHour').val();
-        var startMinute=jQuery('#serviceTimeStartMinute').val();
-        var endHour=jQuery('#serviceTimeEndHour').val();
-        var endMinute=jQuery('#serviceTimeEndMinute').val();
+        var startHour = jQuery('#serviceTimeStartHour').val();
+        var startMinute = jQuery('#serviceTimeStartMinute').val();
+        var endHour = jQuery('#serviceTimeEndHour').val();
+        var endMinute = jQuery('#serviceTimeEndMinute').val();
         var serviceFullTime = '';
-        var seperatedHourStart='';
-        var seperatedHourEnd='';
+        var seperatedHourStart = '';
+        var seperatedHourEnd = '';
         var startFormat = '';
         var endFormat = '';
 
-        if(jQuery(this).attr('id') == 'serviceTimeStartHour'){
-            var endHourArr = ['9pm','8pm','7pm','6pm','5pm','4pm','3pm','2pm','1pm','12pm','11am','10am','9am','8am','7am','6am'];
-            jQuery.each(endHourArr, function (i, item) {
-                if(jQuery("#serviceTimeEndHour option[value='"+ item +"']").length > 0){
+        if (jQuery(this).attr('id') == 'serviceTimeStartHour') {
+            var endHourArr = ['9pm', '8pm', '7pm', '6pm', '5pm', '4pm', '3pm', '2pm', '1pm', '12pm', '11am', '10am', '9am', '8am', '7am', '6am'];
+            jQuery.each(endHourArr, function(i, item) {
+                if (jQuery("#serviceTimeEndHour option[value='" + item + "']").length > 0) {
                     // console.log("present");
-                }
-                else{
+                } else {
                     // console.log("not present");
-                    jQuery('#serviceTimeEndHour').prepend(jQuery('<option>', { 
+                    jQuery('#serviceTimeEndHour').prepend(jQuery('<option>', {
                         value: item,
-                        text : item 
+                        text: item
                     }));
                 }
             });
 
             var selectedVal = jQuery(this).val();
-            jQuery("#serviceTimeStartHour option").each(function()
-            {
+            jQuery("#serviceTimeStartHour option").each(function() {
                 var thisVal = jQuery(this).val();
 
 
-                if(thisVal == ''){
+                if (thisVal == '') {
                     $('#serviceTimeEndHour option')
-                    .filter(function() {
-                        return !this.value || $.trim(this.value).length == 0 || $.trim(this.text).length == 0;
-                    })
-                    .remove();    
-                }
-                else{
+                        .filter(function() {
+                            return !this.value || $.trim(this.value).length == 0 || $.trim(this.text).length == 0;
+                        })
+                        .remove();
+                } else {
                     jQuery("#serviceTimeEndHour  option[value=" + thisVal + "]").remove();
-                    if(selectedVal == jQuery(this).val()){
+                    if (selectedVal == jQuery(this).val()) {
                         return false;
-                    }    
+                    }
                 }
             });
             jQuery('#serviceTimeEndHour').val(jQuery('#serviceTimeEndHour').val());
         }
-        endHour=jQuery('#serviceTimeEndHour').val();
+        endHour = jQuery('#serviceTimeEndHour').val();
 
-        if(startHour.indexOf('am') != -1){
+        if (startHour.indexOf('am') != -1) {
             seperatedHourStart = startHour.substr(0, startHour.indexOf('am'));
             startFormat = 'am';
-        }
-        else{
+        } else {
             seperatedHourStart = startHour.substr(0, startHour.indexOf('pm'));
             startFormat = 'pm';
-            seperatedHourStart = parseInt(seperatedHourStart)+parseInt(12);
+            seperatedHourStart = parseInt(seperatedHourStart) + parseInt(12);
         }
 
-        if(endHour.indexOf('am') != -1){
+        if (endHour.indexOf('am') != -1) {
             seperatedHourEnd = endHour.substr(0, endHour.indexOf('am'));
             endFormat = 'am';
-        }
-        else{
+        } else {
             seperatedHourEnd = endHour.substr(0, endHour.indexOf('pm'));
             endFormat = 'pm';
-            seperatedHourEnd = parseInt(seperatedHourEnd)+parseInt(12);
-        }
-        
-        var startFullTime =seperatedHourStart;
-        var endFullTime =seperatedHourEnd;
-
-        if(startMinute != '00'){
-            startFullTime = seperatedHourStart + ':'+startMinute;
-        }
-        if(endMinute != '00'){
-            endFullTime = seperatedHourEnd + ':'+endMinute;
+            seperatedHourEnd = parseInt(seperatedHourEnd) + parseInt(12);
         }
 
-        if(['1','2','6'].includes(moveType)){
-            tempStartMinute = (startMinute) == '00' ? '' : (':'+ startMinute);
-            serviceFullTime = ((seperatedHourStart) > 12 ? parseInt(seperatedHourStart) - parseInt(12) : seperatedHourStart ) +  tempStartMinute + startFormat;
+        var startFullTime = seperatedHourStart;
+        var endFullTime = seperatedHourEnd;
+
+        if (startMinute != '00') {
+            startFullTime = seperatedHourStart + ':' + startMinute;
         }
-        else if(moveType== '4' ||  moveType == '5'){
+        if (endMinute != '00') {
+            endFullTime = seperatedHourEnd + ':' + endMinute;
+        }
+
+        if (['1', '2', '6'].includes(moveType)) {
+            tempStartMinute = (startMinute) == '00' ? '' : (':' + startMinute);
+            serviceFullTime = ((seperatedHourStart) > 12 ? parseInt(seperatedHourStart) - parseInt(12) : seperatedHourStart) + tempStartMinute + startFormat;
+        } else if (moveType == '4' || moveType == '5') {
             var tempStartHour = seperatedHourStart;
             var tempEndHour = seperatedHourEnd;
-            if(seperatedHourStart == 24 || seperatedHourStart == 12){
+            if (seperatedHourStart == 24 || seperatedHourStart == 12) {
                 seperatedHourStart = seperatedHourStart - 12;
             }
-            if(seperatedHourEnd == 24){
+            if (seperatedHourEnd == 24) {
                 seperatedHourEnd = seperatedHourEnd - 12;
             }
 
             serviceFullTime = ((seperatedHourStart) > 12 ? parseInt(seperatedHourStart) - parseInt(12) : seperatedHourStart) + ':' + startMinute + startFormat + '-' + (seperatedHourEnd > 12 ? parseInt(seperatedHourEnd) - parseInt(12) : seperatedHourEnd) + ':' + endMinute + endFormat;
 
-            var packingStartFullTime='';
+            var packingStartFullTime = '';
             var packingEndFullTime = '';
-            if(startMinute == '00'){
+            if (startMinute == '00') {
                 packingStartFullTime = seperatedHourStart + ':00';
+            } else {
+                packingStartFullTime = seperatedHourStart + ':' + startMinute;
             }
-            else{
-                packingStartFullTime = seperatedHourStart + ':'+startMinute;
-            }
-            if(endMinute == '00'){
+            if (endMinute == '00') {
                 packingEndFullTime = seperatedHourEnd + ':00';
-            }
-            else{
-                packingEndFullTime = seperatedHourEnd + ':'+endMinute;
+            } else {
+                packingEndFullTime = seperatedHourEnd + ':' + endMinute;
             }
 
             var d = new Date();
-            var todayDate = (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
+            var todayDate = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
             var dtStart = new Date(todayDate + ' ' + packingStartFullTime);
             var dtEnd = new Date(todayDate + ' ' + packingEndFullTime);
             var timeDiff = Math.abs(dtStart - dtEnd);
             var hh = Math.floor(timeDiff / 1000 / 60 / 60);
             timeDiff -= hh * 1000 * 60 * 60;
             var mm = Math.floor(timeDiff / 1000 / 60);
-            var hours = hh * 60;          
+            var hours = hh * 60;
             var tmin = parseFloat(hours) + parseFloat(mm);
             var remaining = tmin;
             var hrs = Math.floor(remaining / 60);
             var min = remaining % 60;
             var formattedMin = '00';
-            if(min == '00'){
+            if (min == '00') {
                 formattedMin = '.00';
-            }
-            else if(min == '15'){
+            } else if (min == '15') {
                 formattedMin = '.25';
-            }
-            else if(min == '30'){
+            } else if (min == '30') {
                 formattedMin = '.50';
-            }
-            else if(min == '45'){
+            } else if (min == '45') {
                 formattedMin = '.75';
             }
-            if(!isNaN(hrs +formattedMin)){
-                jQuery("#hoursbooked").val(hrs +formattedMin).trigger('change');
+            if (!isNaN(hrs + formattedMin)) {
+                jQuery('#packing-interval-time').val(hrs + formattedMin);
+                jQuery("#hoursbooked").val(hrs + formattedMin).trigger('change');
                 // console.log(hrs +formattedMin);
             }
         }
+        serviceFullTime = serviceFullTime.replace(new RegExp(':00', 'g'), '');
         jQuery('#serviceFullTime').val(serviceFullTime);
         // console.log(serviceFullTime);
     });
     //10-09-19 service time end
 
-    jQuery('body').on('change, blur','.non-billable-packer-name-text', function(e) {
-        if(jQuery(this).val() == ''){
+    jQuery('body').on('change, blur', '.non-billable-packer-name-text', function(e) {
+        if (jQuery(this).val() == '') {
             jQuery(this).val('0.00');
-        }
-        else{
+        } else {
             jQuery(this).val(parseFloat(jQuery(this).val()).toFixed(2));
         }
     });
 
-    jQuery("body").on("click blur", "#servicet", function(event){
+    jQuery("body").on("click blur", "#servicet", function(event) {
         jQuery('#serviceFullTime').val(jQuery(this).val());
     });
 
@@ -2489,7 +2349,7 @@ function ajaxContact(formData) {
         type: 'POST',
         url: BASE_URL + "contacts/add_contact",
         data: formData,
-        success: function (response) {
+        success: function(response) {
             var res = JSON.parse(response);
             if (res.error) {
                 jQuery(".alert-danger").show();
@@ -2498,9 +2358,9 @@ function ajaxContact(formData) {
                 window.location = BASE_URL;
             } else {
                 toastr.success('Contact has been inserted succefully');
-//                jQuery(".alert-success").show();
+                //                jQuery(".alert-success").show();
                 jQuery("#contact-form").trigger('reset');
-                setTimeout(function () {
+                setTimeout(function() {
                     jQuery("#new-people").modal("hide");
                 }, 2000);
             }
@@ -2508,23 +2368,22 @@ function ajaxContact(formData) {
     })
 }
 
-function checkDuplicateMail($id,$moveType,$templateType){
+function checkDuplicateMail($id, $moveType, $templateType) {
     var confirmationVar = "";
     jQuery.ajax({
         type: 'POST',
         async: false,
         url: BASE_URL + "email/getEmailMasterId",
-        data: {'enquiry_id':$id, 'moveType' : $moveType,'templateType':$templateType },
-        success: function (data) {
+        data: { 'enquiry_id': $id, 'moveType': $moveType, 'templateType': $templateType },
+        success: function(data) {
             data = JSON.parse(data);
-            if(data.code == "1"){
+            if (data.code == "1") {
                 if (confirm(data.msg)) {
-                    confirmationVar="1";
+                    confirmationVar = "1";
                 } else {
-                    confirmationVar="0";
+                    confirmationVar = "0";
                 }
-            }
-            else{
+            } else {
                 console.log("");
             }
         }

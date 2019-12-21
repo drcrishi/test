@@ -107,6 +107,7 @@ class Contacts extends CI_Controller {
                     'contact_middlename' => ucwords($this->input->post("contact_middlename", true)),
                     'contact_lname' => ucwords($this->input->post("contact_lname", true)),
                     'contact_email' => $this->input->post("contact_email", true),
+                    'contact_email_2' => $this->input->post("contact_email2", true),
                     'company_name' => $this->input->post("company_name", true),
                     'contact_phno' => $this->input->post("contact_phno", true),
                     'contact_state' => $this->input->post("contact_state", true)
@@ -232,6 +233,10 @@ class Contacts extends CI_Controller {
                     <span class="required">*</span>
                 </label>
             </div>
+            <div class="form-group form-md-line-input">
+                <input type="text" class="form-control txtemail email" autocomplete="cc-blank" autocorrect="false" autofill="false" name="contact_email2" placeholder="Enter your second email" value="<?php echo $contactdata[0]['contact_email_2'] ?>">
+                <label class="formLbl" for="form_control_1">Email 2</label>
+            </div>
               <div class="form-group form-md-line-input" id="contactt-password">
                 <label class="formLbl" for="form_control_1">Change Password?
                 </label>
@@ -290,6 +295,7 @@ class Contacts extends CI_Controller {
             'contact_middlename' => ucwords($this->input->post("contact_middlename", true)),
             'contact_lname' => ucwords($this->input->post("contact_lname", true)),
             'contact_email' => $this->input->post("contact_email", true),
+            'contact_email_2' => $this->input->post("contact_email2", true),
             'company_name' => $this->input->post("company_name", true),
             'contact_phno' => $this->input->post("contact_phno", true),
             'contact_state' => $this->input->post("contact_state", true)

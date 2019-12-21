@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Booking extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
-     */
     public function __construct() {
         parent::__construct();
         if (!isLogin()) {
@@ -188,7 +173,8 @@ class Booking extends CI_Controller {
         if (!empty($data['clientname'])) {
             $this->data['title'] = "Booking - " . $data['clientname']['contact_fname'] . " " . $data['clientname']['contact_lname'];
         }
-        // prd($data);
+//        print_r($data);
+//        die;
         $this->load->view("template/header", $this->data);
         $this->load->view("template/css", $data);
         $this->load->view("template/js", $data);
@@ -291,6 +277,7 @@ class Booking extends CI_Controller {
                 $additionaldelivery = json_encode($additionaldelivery1);
 
                 $storageReminderDate='';
+                $storageAgreementFlag = 1;
                 if($this->input->post("en_movetype") == 6){
                     $storageReminderDate = $this->input->post('storageReminderDate',true);   
                     if($storageReminderDate == ''){
@@ -306,17 +293,23 @@ class Booking extends CI_Controller {
                     else{
                         $storageNotifyDate=date('Y-m-d', strtotime($this->input->post("storageReminderDate", true).'+1 month'));
                     }
-
+                    if($this->input->post('storageAgreementRecieved') == '2'){
+                        $storageAgreementFlag='0';
+                    }
                 }
                 else{
                     $storageNotifyDate='0000-00-00';
                 }
+
+                $sTime = $this->input->post("serviceFullTime", true);
+                $sTime = str_replace(":00", "", $sTime);
+
                 $data = array(
                     'booking_status' => $this->input->post("booking_status", true),
                     'en_movetype' => $this->input->post("en_movetype", true),
                     'en_home_office' => $this->input->post("en_home_office", true),
                     'en_servicedate' => date('Y-m-d', strtotime($this->input->post("en_servicedate", true))),
-                    'en_servicetime' => $this->input->post("serviceFullTime", true),
+                    'en_servicetime' => $sTime,
                     'en_deliverydate' => date('Y-m-d', strtotime($this->input->post("en_deliverydate", true))),
                     'en_deliverytime' => $this->input->post("en_deliverytime", true),
                     'en_storagedate' => date('Y-m-d', strtotime($this->input->post("en_storagedate", true))),
@@ -399,6 +392,7 @@ class Booking extends CI_Controller {
                     'en_storage_reminder_date'=>$storageReminderDate,
                     'en_storage_notify_date'=>$storageNotifyDate,
                     'photo_id_received'=>$this->input->post('photoIdReceived',true),
+                    'storage_agreement_flag'=>$storageAgreementFlag,
                 );
                 if ($this->input->post("en_servicedate", true) == "")
                     unset($data['en_servicedate']);
@@ -415,9 +409,6 @@ class Booking extends CI_Controller {
 
                 $this->upload->do_upload('notes_attachedfile');
 
-//        echo "<pre>";
-//        print_r($this->upload->data());
-//        die;
                 $notesdata = array(
                     'notes_description' => $this->input->post("notes_description", true),
                     'notes_attachedfile' => $this->upload->data("file_name"),
@@ -427,6 +418,25 @@ class Booking extends CI_Controller {
 
                 $uniqueId = $this->booking_model->addBookingdata($data);
                 /* Add firstname and lastname when add booking data directly...........@DRCZ */
+                // if($this->input->post("en_movetype") == '1' || $this->input->post("en_movetype") == '2'){
+                //     $clientHourlyrate = $this->input->post("en_client_hourly_rate");
+                //     $travelFee = $this->input->post("en_travelfee");
+                //     if($clientHourlyrate < $travelFee ){
+                //         $emaildata[] = array(
+                //             'email_from' => 'info@hireamover.com.au',
+                //             'email_to' => 'info@hireamover.com.au',
+                //             // 'email_to' => 'rishise@drcinfotech.com',
+                //             'email_bcc' => '',
+                //             'email_cc' => '',
+                //             'email_subject' => 'Hourly rate is less than travel fee' ,
+                //             'email_editor' => "Please check the pricing to ensure this booking is correct as the hourly rate is less 
+                //             than the call out fee and normally this is not the case. 
+                //             <a href=" . base_url('/booking/viewBooking/' . $uniqueId) . ">" . ucwords($this->input->post("contact_data")) . "</a>",
+                //         );
+                //         sendEmail($emaildata, 'feedbackreminder');
+                //     }
+                // }
+
                 $this->load->model("contact_model");
                 $contactdata = $this->contact_model->getClientByUUID($uniqueId);
 
@@ -471,11 +481,6 @@ class Booking extends CI_Controller {
     }
 
     public function editBookingData() {
-        //  echo "hiiii";
-
-        /* echo "<pre";
-          print_r($_POST);
-          die; */
         $this->load->model("booking_model");
         $enquiryId = $this->input->post("enquiry_id");
         $enquiryUUIDId = $this->input->post("en_unique_id");
@@ -535,26 +540,31 @@ class Booking extends CI_Controller {
                 $storageReminderDate = date('Y-m-d', strtotime($this->input->post('storageReminderDate',true)));
             }
 
-            $currentNotifyDate = getStorageNotifyDate($enquiryId);
-            if($currentNotifyDate['en_storage_notify_date'] == '0000-00-00'){
-                $tempStorageDate = $this->input->post('en_storagedate');
-                $tempDate= date('d',strtotime($tempStorageDate));
-                $currentMonth=date('m');
-                $currentYear=date('Y');
-                $fullDate= $currentYear.'-'.$currentMonth.'-'.$tempDate;
-                $storageNotifyDate=date('Y-m-d',strtotime($fullDate.'+1 month'));
-            }
-            else if(strtotime($currentNotifyDate['en_storage_notify_date']) < strtotime(date('Y-m-d'))){
-                $tempStorageDate = $currentNotifyDate['en_storage_notify_date'];
-                $tempDate= date('d',strtotime($tempStorageDate));
+            if(strtotime($storageReminderDate) < strtotime(date('Y-m-d'))){
+                $tempDate= date('d',strtotime($storageReminderDate));
                 $currentMonth=date('m');
                 $currentYear=date('Y');
                 $fullDate= $currentYear.'-'.$currentMonth.'-'.$tempDate;
                 $storageNotifyDate=date('Y-m-d',strtotime($fullDate.'+1 month'));
             }
             else{
-                $storageNotifyDate=$currentNotifyDate['en_storage_notify_date'];
+                $storageNotifyDate =$storageReminderDate;
             }
+        }
+
+        $sTime = $this->input->post("serviceFullTime", true);
+        $sTime = str_replace(":00", "", $sTime);
+
+        $this->load->model('enquiry_model');
+        $bData = $this->enquiry_model->getEnquiryDataByUUID($enquiryUUIDId);
+        if (in_array($bData[0]['en_movetype'], array('1','2')) && $bData[0]['contact_id'] != '' && 
+        $this->input->post("contact_id") != $bData[0]['contact_id']){
+            $this->booking_model->getContactEmail($enquiryId,$this->input->post("contact_id"));
+        }
+
+        $storageCompletedDate = '';
+        if($this->input->post("en_movetype") == '6' && $this->input->post("booking_status") == '3'){
+            $storageCompletedDate = date('Y-m-d', strtotime($this->input->post("completedStorageDate", true)));
         }
 
         $data = array(
@@ -562,7 +572,7 @@ class Booking extends CI_Controller {
             'en_movetype' => $this->input->post("en_movetype", true),
             'en_home_office' => $this->input->post("en_home_office", true),
             'en_servicedate' => date('Y-m-d', strtotime($this->input->post("en_servicedate", true))),
-            'en_servicetime' => $this->input->post("serviceFullTime", true),
+            'en_servicetime' => $sTime,
             'en_deliverydate' => date('Y-m-d', strtotime($this->input->post("en_deliverydate", true))),
             'en_deliverytime' => $this->input->post("en_deliverytime", true),
             'en_storagedate' => date('Y-m-d', strtotime($this->input->post("en_storagedate", true))),
@@ -574,7 +584,7 @@ class Booking extends CI_Controller {
             'en_storage_phno' => $this->input->post("en_storage_phno", true),
             'contact_id' => $this->input->post("contact_id", true),
             'en_packer_selection' => $this->input->post("en_packer_selection", true),
-            'en_note' => $this->input->post("en_note", true),
+            'en_note' => html_entity_decode($this->input->post("en_note", true)),
             'en_movingfrom_street' => $this->input->post("en_movingfrom_street", true),
             'en_movingfrom_postcode' => $this->input->post("en_movingfrom_postcode", true),
             'en_movingfrom_suburb' => $this->input->post("en_movingfrom_suburb", true),
@@ -644,6 +654,7 @@ class Booking extends CI_Controller {
             'en_storage_reminder_date'=>$storageReminderDate,
             'en_storage_notify_date'=>$storageNotifyDate,
             'photo_id_received'=>$this->input->post('photoIdReceived',true),
+            'storage_completed_date'=>$storageCompletedDate,
         );
         if ($this->input->post("en_servicedate", true) == "")
             $data['en_servicedate'] = NULL;
@@ -674,14 +685,9 @@ class Booking extends CI_Controller {
         $this->load->model("enquiry_model");
         $enqdata = $this->enquiry_model->getEnquiryDataByUUID($enquiryUUIDId);
 
-//        echo "db"."<pre>";   
-       // pr($data);prd($enqdata);
-
         $diffarray1 = array_diff_assoc($data, $enqdata[0]);
         $diffarray = array_filter($diffarray1);
-       // echo "diff"."<pre>";
-       // print_r($diffarray);
-       // die;
+
         if ($data['en_movetype'] == "1" || $data['en_movetype'] == "2") {
             $diffData = array(
                 'booking_status' => "Booking status",
@@ -965,10 +971,24 @@ class Booking extends CI_Controller {
             'enquiry_status' => $diffKey,
             'is_from' => 1,
         );
-//    echo "<pre>";
-//    print_r($enquiryLogData);
-//    die;
-//enquiry update log end...........................@DRCZ
+        // if($this->input->post("en_movetype") == '1' || $this->input->post("en_movetype") == '2'){
+        //     $clientHourlyrate = $this->input->post("en_client_hourly_rate");
+        //     $travelFee = $this->input->post("en_travelfee");
+        //     if($clientHourlyrate < $travelFee ){
+        //         $emaildata[] = array(
+        //             'email_from' => 'info@hireamover.com.au',
+        //             'email_to' => 'info@hireamover.com.au',
+        //             // 'email_to' => 'rishise@drcinfotech.com',
+        //             'email_bcc' => '',
+        //             'email_cc' => '',
+        //             'email_subject' => 'Hourly rate is less than travel fee' ,
+        //             'email_editor' => "Please check the pricing to ensure this booking is correct as the hourly rate is less 
+        //             than the call out fee and normally this is not the case. 
+        //             <a href=" . base_url('/booking/viewBooking/' . $enquiryUUIDId) . ">" . ucwords($this->input->post("contact_data")) . "</a>",
+        //         );
+        //         sendEmail($emaildata, 'feedbackreminder');
+        //     }
+        // }
 
         $client_companyName = array(
             'company_name' => $this->input->post("company_name"),
@@ -1250,7 +1270,7 @@ class Booking extends CI_Controller {
             $data['form_data'][0]['email_editor'] = str_replace("{{uuid}}", $data['enquiry_data'][0]["en_unique_id"], $data['form_data'][0]['email_editor']);
             $data['form_data'][0]['email_editor'] = str_replace("{{noofmover}}", $data['enquiry_data'][0]["en_no_of_movers"], $data['form_data'][0]['email_editor']);
             $data['form_data'][0]['email_editor'] = str_replace("{{nooftruck}}", $data['enquiry_data'][0]["en_no_of_trucks"], $data['form_data'][0]['email_editor']);
-            $data['form_data'][0]['email_editor'] = str_replace("{{jobsheetnotes}}", $data['enquiry_data'][0]["en_note"], $data['form_data'][0]['email_editor']);
+            $data['form_data'][0]['email_editor'] = nl2br(str_replace("{{jobsheetnotes}}", $data['enquiry_data'][0]["en_note"], $data['form_data'][0]['email_editor']));
             $data['form_data'][0]['email_editor'] = str_replace("{{hourlyrate}}", (int) $data['enquiry_data'][0]["en_client_hourly_rate"], $data['form_data'][0]['email_editor']);
             $data['form_data'][0]['email_editor'] = str_replace("{{initialsellprice}}", (int) $data['enquiry_data'][0]["en_initial_sellprice"], $data['form_data'][0]['email_editor']);
             $data['form_data'][0]['email_editor'] = str_replace("{{noofladiesbooked}}", $data['enquiry_data'][0]["en_ladies_booked"], $data['form_data'][0]['email_editor']);
@@ -1827,71 +1847,6 @@ class Booking extends CI_Controller {
         }
     }
 
-    // public function test(){
-    //     $this->load->model('Booking_model');
-    //     $res= $this->Booking_model->getpackerNameListWithValues('50813');
-    //     echo "<pre>";
-    //     print_r($res);die;
-    // }
-
-    //  18-07-19 start
-    // public function script(){
-
-    //     $packerArr = array();
-    //     $singlePackerDetail=array();
-    //     $res=$this->db->select('contact_id as packer_id,enquiry_id as packer_enquiry_id,en_initial_hours_booked as packer_total_hours')
-    //     ->where('(en_movetype = 4 or en_movetype = 5)')
-    //     ->where('contact_id!= ""')
-    //     ->where('is_deleted','0')
-    //     // ->limit(50, 0)
-    //     ->order_by('packer_enquiry_id','desc')
-    //     ->get('enquiry')->result_array();
-    //     foreach ($res as $row) {
-    //         $eachPacker=explode(',',$row['packer_id']);
-    //         array_pop($eachPacker);
-    //         $counter=0;
-    //         foreach ($eachPacker as $packer) {
-    //             $singlePackerDetail[$counter]['packer_id']=$packer;
-    //             $singlePackerDetail[$counter]['packer_enquiry_id']=$row['packer_enquiry_id'];
-    //             $singlePackerDetail[$counter]['packer_total_hours']=$row['packer_total_hours'];
-
-    //             if(!$this->checkExists($singlePackerDetail[$counter]) && $this->checkIsPacker($singlePackerDetail[$counter]['packer_id'])){
-    //                 array_push($packerArr, $singlePackerDetail[$counter]);
-    //             }
-    //             $counter++;
-    //         }
-    //     }
-    //     pr($packerArr);
-    //     $this->db->insert_batch('packer_hours',$packerArr);
-    // }
-
-    // public function checkExists($record){
-    //     array_pop($record);
-    //     $res=$this->db->select('packer_hour_id')
-    //     ->where($record)
-    //     ->get('packer_hours')->result_array();
-    //     if(empty($res)){
-    //         return false;
-    //     }
-    //     else{
-    //         return true;
-    //     }
-    // }
-
-    // public function checkIsPacker($id){
-    //     $res=$this->db->where('contact_reltype','2')
-    //     ->where('contact_id',$id)
-    //     ->get('contact')->result_array();
-    //     if(!empty($res)){
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
-
-    //  18-07-19 end
-
     public function add_packer_hours(){
         $this->load->model('booking_model','model');
         $this->model->add_packer_hours();
@@ -1903,6 +1858,5 @@ class Booking extends CI_Controller {
         $this->booking_model->remove_packer_hours();
         echo json_encode(array('msg'=>'success'));
     }
-
 
 }

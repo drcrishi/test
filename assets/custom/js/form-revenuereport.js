@@ -1,6 +1,6 @@
-var Revenuereport = function () {
+var Revenuereport = function() {
 
-    var handleRevenue = function () {
+    var handleRevenue = function() {
 
         var revenueForm = $('#revenue-report');
         var error1 = $('.alert-danger', revenueForm);
@@ -16,7 +16,7 @@ var Revenuereport = function () {
                 servicedateto: {
                     required: true
                 }
-                
+
             },
             messages: {
                 servicedatefrom: {
@@ -25,20 +25,20 @@ var Revenuereport = function () {
                 servicedateto: {
                     required: "To date is required."
                 }
-                
-            },
-            invalidHandler: function (event, validator) { //display error alert on form submit   
 
             },
-            highlight: function (element) { // hightlight error inputs
-                $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+            invalidHandler: function(event, validator) { //display error alert on form submit   
+
             },
-            success: function (label) {
+            highlight: function(element) { // hightlight error inputs
+                $(element)
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+            },
+            success: function(label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 if (element.is(':checkbox')) {
                     error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
                 } else if (element.is(':radio')) {
@@ -47,13 +47,13 @@ var Revenuereport = function () {
                     error.insertAfter(element); // for other inputs, just perform default behavior
                 }
             },
-            submitHandler: function (form) {				
+            submitHandler: function(form) {
                 var formData = jQuery("#revenue-report").serializeArray();
                 ajaxRevenuereport(formData);
             }
         });
-      
-        $('#revenue-report input').keypress(function (e) {
+
+        $('#revenue-report input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('#revenue-report').validate().form()) {
                     var formData = jQuery("#revenue-report").serializeArray();
@@ -66,32 +66,32 @@ var Revenuereport = function () {
 
     return {
         //main function to initiate the module
-        init: function () {
+        init: function() {
             handleRevenue();
         }
     };
 }();
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     Revenuereport.init();
 });
 
-jQuery(function () {
-     $("#servicedateFrom").datepicker({
+jQuery(function() {
+    $("#servicedateFrom").datepicker({
         showButtonPanel: true,
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
@@ -101,26 +101,26 @@ jQuery(function () {
         dateFormat: 'dd-mm-yy',
         defaultDate: null,
         autoUpdateInput: false,
-        beforeShow: function (input) {
-            setTimeout(function () {
+        beforeShow: function(input) {
+            setTimeout(function() {
                 var buttonPane = $(input)
-                        .datepicker("widget")
-                        .find(".ui-datepicker-buttonpane");
+                    .datepicker("widget")
+                    .find(".ui-datepicker-buttonpane");
                 var btn = $('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all">Clear</button>');
                 btn.unbind("click")
-                        .bind("click", function () {
-                            $.datepicker._clearDate(input);
-                        });
+                    .bind("click", function() {
+                        $.datepicker._clearDate(input);
+                    });
                 btn.appendTo(buttonPane);
             }, 1);
         }
     });
-   
+
 
 });
 
 function ajaxRevenuereport(formData) {
-
+    jQuery('.ajaxLoader').show();
     /**
      * Edit enquiry data......................@DRCZ
      */
@@ -128,19 +128,18 @@ function ajaxRevenuereport(formData) {
         type: 'POST',
         url: BASE_URL + "revenueReport/viewRevenueReport",
         data: formData,
-        success: function (response) {
-            if (response.trim()=="0") {
+        success: function(response) {
+            jQuery('.ajaxLoader').hide();
+            if (response.trim() == "0") {
                 jQuery(".alert-danger").show();
                 jQuery(".alert-danger").html("No Records Found.");
                 jQuery(".reports").html("<div>No Records Found.</div>");
-            } else {				
+            } else {
                 jQuery(".reports").html(response);
                 //toastr.success('Data added succefully');
-               // jQuery("#revenue-report").trigger('reset');
+                // jQuery("#revenue-report").trigger('reset');
             }
         }
     })
 
 }
-
-

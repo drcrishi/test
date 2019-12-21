@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <title><?php echo $title; ?></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1.0"  name="viewport" />
-        <meta content="<?php echo $description;?>" name="description" />
+        <meta content="<?php echo  $description ?? '';?>" name="description" />
         <!--<link rel="icon" href="<?php echo base_url()?>favicon.gif" type="image/gif">
         <link rel="shortcut icon" href="<?php echo base_url()?>favicon.ico" type="image/x-icon">
 <link rel="icon" href="<?php echo base_url()?>favicon.ico" type="image/x-icon">-->

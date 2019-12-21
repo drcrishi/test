@@ -203,6 +203,12 @@ $sessionId = $this->session->userdata('admin_id');
                                             <span class="selected"> </span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="<?php echo base_url("storageReport"); ?>" id="storageReport">
+                                            <i class="fa fa-file-word-o" aria-hidden="true"></i> HS - Storage Report 
+                                            <span class="selected"> </span>
+                                        </a>
+                                    </li>
                                 <?php } 
                                     ?> 
 

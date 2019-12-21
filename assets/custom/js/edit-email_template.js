@@ -1,7 +1,7 @@
 var summerNote = "";
-var EmailTemplate = function () {
+var EmailTemplate = function() {
 
-    var handleEmailTemplate = function () {
+    var handleEmailTemplate = function() {
 
         var emailTemplateForm = $('#email_template');
         var error1 = $('.alert-danger', emailTemplateForm);
@@ -45,7 +45,10 @@ var EmailTemplate = function () {
                     required: true,
                     maxlength: 70,
                 },
-
+                phonenumber: {
+                    required: true,
+                    number: true,
+                },
             },
             messages: {
                 temp_name: {
@@ -73,19 +76,23 @@ var EmailTemplate = function () {
                 subject: {
                     required: "Subject is required."
                 },
+                phonenumber: {
+                    required: "Phone is required.",
+                    number: "Numbers only allowed",
+                },
             },
-            invalidHandler: function (event, validator) { //display error alert on form submit   
+            invalidHandler: function(event, validator) { //display error alert on form submit   
 
             },
-            highlight: function (element) { // hightlight error inputs
+            highlight: function(element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
-            success: function (label) {
+            success: function(label) {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 if (element.is(':checkbox')) {
                     error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
                 } else if (element.is(':radio')) {
@@ -95,14 +102,14 @@ var EmailTemplate = function () {
                 }
             },
 
-            submitHandler: function (form) {
+            submitHandler: function(form) {
                 jQuery(".editor2").val(summerNote.summernote('code'));
                 var formData = jQuery("#email_template").serializeArray();
                 ajaxEmailTemplate(formData);
             }
         });
 
-        $('#email_template input').keypress(function (e) {
+        $('#email_template input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('#email_template').validate().form()) {
                     jQuery(".editor2").val(summerNote.summernote('code'));
@@ -116,13 +123,13 @@ var EmailTemplate = function () {
 
     return {
         //main function to initiate the module
-        init: function () {
+        init: function() {
             handleEmailTemplate();
         }
     };
 }();
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     EmailTemplate.init();
     summerNote = jQuery('#summernote_1').summernote({
         height: 350,
@@ -133,36 +140,63 @@ jQuery(document).ready(function () {
 });
 
 function ajaxEmailTemplate(formData) {
-   //var enquiryID = '<?php echo $this->uri->segment(3);?>';
-  // alert(EnquiryId);
-    //sendEditQuoteEmail
-     $(".ajaxLoader").show();
-    jQuery.ajax({
-        type: 'POST',
-        url: BASE_URL + "email/sendEditQuoteEmail/"+templateID,
-        data: formData,
-        success: function (response) {
-             $(".ajaxLoader").hide();
-            var res = JSON.parse(response);
-              console.log(res);
-            if (res.error) {
-                toastr.error('Something wrong.');
-            } else if (res.success) {
-                toastr.success('Email has been sent.');
-                setTimeout(function () {
-                    window.close();
-                }, 3000);
-            } else if (res.expired) {
-                window.location = BASE_URL;
-            }
+    var smsVal = jQuery("#edit_sms").val();
+    var url = '';
+    if (typeof smsVal !== 'undefined') {
+        url = BASE_URL + "enquiries/sendEditSms/";
+        $(".ajaxLoader").show();
+        jQuery.ajax({
+            type: 'POST',
+            url: BASE_URL + "enquiries/sendEditSms/",
+            data: formData,
+            success: function(response) {
+                $(".ajaxLoader").hide();
+                var res = JSON.parse(response);
+                // console.log(res);
+                if (res.error) {
+                    toastr.error('Something wrong.');
+                } else if (res.success) {
+                    toastr.success('Sms has been sent.');
+                    setTimeout(function() {
+                        window.close();
+                    }, 3000);
+                } else if (res.expired) {
+                    window.location = BASE_URL;
+                }
 
-        }
-    })
+            }
+        })
+    } else {
+        url = BASE_URL + "email/sendEditQuoteEmail/" + templateID;
+        $(".ajaxLoader").show();
+        jQuery.ajax({
+            type: 'POST',
+            url: BASE_URL + "email/sendEditQuoteEmail/" + templateID,
+            data: formData,
+            success: function(response) {
+                $(".ajaxLoader").hide();
+                var res = JSON.parse(response);
+                // console.log(res.success);
+                if (res.error) {
+                    toastr.error('Something wrong.');
+                } else if (res.success) {
+                    toastr.success('Email has been sent.');
+                    setTimeout(function() {
+                        window.close();
+                    }, 3000);
+                } else if (res.expired) {
+                    window.location = BASE_URL;
+                }
+
+            }
+        })
+    }
+    return false;
 }
 
-$(".edit-close").click(function () {
+$(".edit-close").click(function() {
     self.close();
 });
-$(".edit-send").click(function () {
+$(".edit-send").click(function() {
     $(".editSend").trigger('click');
 })

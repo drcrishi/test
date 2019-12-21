@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <!-- END PAGE TITLE-->
                 <!-- END PAGE HEADER-->
-                <div class="row peoles-nav-border people-wrapper">
+                <div class="row peoles-nav-border people-wrapper" style="background-color: #ffa5008c;">
                     <div class="col-md-4 col-xs-12 col-sm-2 people-left">
                         <h4 class="peoples-page-title"><i class="fa fa-users" style="display: unset"></i>&nbsp;Enquiry - <?php echo ucwords(strtolower($enquiry[0]['en_fname'])) . " " . ucwords(strtolower($enquiry[0]['en_lname'])); ?></h4>
                         <div class="peop-btn-right">
@@ -286,7 +286,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group" id="deliveryDate">
                                                 <label class="col-md-4 control-label">Delivery date</label>
                                                 <div class="col-md-8">
@@ -340,12 +339,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control phone" name="en_phone" value="<?php echo $row['en_phone']; ?>"></div>
                                             </div>
-                                            <div class="form-group" id="email">
-                                                <label class="control-label col-md-4">Email<span class="required">*</span></label>
-                                                <span class="error"></span>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control email" name="en_email" value="<?php echo $row['en_email']; ?>"></div>
-                                            </div>
+                                            
                                             <div id="storageProvider">
                                                 <div class="form-group" id="storageProvider">
                                                     <label class="control-label col-md-4">Storage provider</label>
@@ -366,7 +360,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <input type="text" class="form-control" name="en_storage_phno" value="<?php echo $row['en_storage_phno']; ?>"></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group" id="removealist1">
+                                            <div class="form-group" id="email">
+                                                <label class="control-label col-md-2" style="padding: 5px 0 0 16px;">Email<span class="required">*</span></label>
+                                                <span class="error"></span>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control email" style="padding: 0px 6px;font-size: 13px;" name="en_email" value="<?php echo $row['en_email']; ?>"></div>
+                                            </div>
+                                            <div class="form-group" id="removealist1" style="margin-top:45px;">
                                                 <label class="control-label col-md-4">Removalist</label>
                                                 <span class="error"></span>
                                                 <div class="col-md-8">
@@ -437,6 +437,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--                                            <input type="text" class="form-control" name="en_note">-->
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="portlet xs-internal-notes">
@@ -1044,7 +1045,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="portlet">
                                         <div class="portlet-title">
                                             <div class="caption">                                
-                                                <span class="caption-subject font-dark sbold uppercase">Activities</span>
+                                                <span class="caption-subject font-dark sbold uppercase">History</span>
                                             </div>                            
                                         </div>
 
@@ -1058,7 +1059,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 <div class="mt-actions frame-box">
                                                                     <?php if (!empty($activitylog)) { ?>        
                                                                         <?php
-
                                                                         foreach ($activitylog as $al) {
                                                                             $adminname = $al['admin_firstname'];
                                                                             $sub = $al['email_log_subject'];
@@ -1097,8 +1097,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                                                     ?></span>
                                                                                                 <p class="mt-action-desc"><?php echo $sub; ?></p>
                                                                                                 To: <?php echo $newemail; ?>
-                                                                                                <?php echo $email_log_time; ?>
-                                                                                                <div class="mt-action-desc action-main-div frame-size" ><iframe width="100%" height="100%" scrolling="yes" src="<?php echo base_url();?>emailtemplate/getEmailLog/<?php echo $email_log_id;?>/<?php echo $row['enquiry_id'];?>"></iframe><?php //echo $email_log_editor;     ?></div>
+                                                                                                <?php echo $email_log_time; 
+                                                                                                    if (strpos($al['email_log_subject'], 'SMS') === false) {
+                                                                                                    ?>
+                                                                                                        <div class="mt-action-desc action-main-div frame-size" ><iframe width="100%" height="100%" scrolling="yes" src="<?php echo base_url();?>emailtemplate/getEmailLog/<?php echo $email_log_id;?>/<?php echo $row['enquiry_id'];?>"></iframe><?php //echo $email_log_editor;     ?></div>
+                                                                                                    <?php
+                                                                                                    }
+                                                                                                ?>
+                                                                                                
                                                                                             </div> 
                                                                                         </div>                                                                                    
                                                                                     </div>
@@ -1133,13 +1139,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <a href="#"  data-id="<?php echo $row['enquiry_id']; ?>"  class="btn blue-madison send-quote-mail">Send Email</a>
                                                         <a href="#" data-id="<?php echo $row['enquiry_id']; ?>"  class="btn blue-madison edit-quote-mail">Edit Email</a>
                                                     </span>
-                                                </h3>                                                                
+                                                </h3>     
+                                                <h3><span class="mail-title">Send SMS</span>
+		                                            <span class="mail-btn">
+                                                        <a href="JavaScript:void(0)"  data-id="<?php echo $row['enquiry_id']; ?>"  class="btn blue-madison send-quote-sms">Send SMS</a>
+                                                        <!--<a href="JavaScript:void(0)" data-id="<?php echo $row['enquiry_id']; ?>"  class="btn blue-madison edit-quote-sms">Edit SMS</a>-->
+                                                        <a href="JavaScript:void(0)" data-id="<?php echo $row['enquiry_id']; ?>"  class="btn blue-madison edit-quote-sms">Edit SMS</a>
+                                                    </span>
+	                                            </h3>                                                           
                                                 <h3><span class="mail-title">Follow Up Quote</span> 
                                                     <span class="mail-btn"> 
                                                         <a href="#"  data-id="<?php echo $row['enquiry_id']; ?>"  class="btn blue-madison send-follow-quote-mail">Send Email</a>
                                                         <a href="#" data-id="<?php echo $row['enquiry_id']; ?>" class="btn blue-madison edit-follow-quote-mail">Edit Email</a>
                                                     </span>
-                                                </h3>                                                          
+                                                </h3>
                                             </div>
                                         </div>
                                     </div>   
@@ -1330,8 +1343,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                             <input type="text" class="form-control trucks text-trucks" id="trucks" name="en_no_of_trucks" value="<?php echo $row['en_no_of_trucks']; ?>" style="display: none;">
                                                         </div>
                                                     </div>
+                                                    <div class="form-group" id="clientHourlyRate">
+                                                        <label class="control-label col-md-6">Client Hourly Rate<span class="required">*</span></label>
+                                                        <span class="error"></span>
+                                                        <div class="col-md-6">
+                                                            <div class="input-icon input-icon">
+                                                                <i class="fa fa-usd"></i>
+                                                                <?php
+                                                                if ($row['en_client_hourly_rate'] == "0.00") {
+                                                                    $chrate = "";
+                                                                } else {
+                                                                    $chrate = $row['en_client_hourly_rate'];
+                                                                }
+                                                                ?>
+                                                                <input type="text" class="form-control chr" id="clienthourlyrate" name="en_client_hourly_rate" value="<?php echo $chrate; ?>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group" id="travelFeeSell">
-                                                        <label class="control-label col-md-6">Travel Fee<span class="required">*</span></label>
+                                                        <label class="control-label col-md-6">Callout Fee<span class="required">*</span></label>
                                                         <span class="error"></span>
                                                         <div class="col-md-6">
                                                             <div class="input-icon input-icon">
@@ -1365,23 +1395,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group" id="clientHourlyRate">
-                                                        <label class="control-label col-md-6">Client Hourly Rate<span class="required">*</span></label>
-                                                        <span class="error"></span>
-                                                        <div class="col-md-6">
-                                                            <div class="input-icon input-icon">
-                                                                <i class="fa fa-usd"></i>
-                                                                <?php
-                                                                if ($row['en_client_hourly_rate'] == "0.00") {
-                                                                    $chrate = "";
-                                                                } else {
-                                                                    $chrate = $row['en_client_hourly_rate'];
-                                                                }
-                                                                ?>
-                                                                <input type="text" class="form-control chr" id="clienthourlyrate" name="en_client_hourly_rate" value="<?php echo $chrate; ?>">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="form-group" id="additionalCharges">
                                                         <label class="control-label col-md-6">Additional Charges</label>
                                                         <span class="error"></span>
@@ -1430,6 +1444,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                             }
                                                             ?>
                                                             <input type="text" id="hoursbooked" class="form-control hoursbook" name="en_initial_hours_booked" value="<?php echo $hrbook; ?>">
+                                                            <input type="hidden" name="packing-interval-time" id="packing-interval-time" value="<?php echo $hrbook; ?>" >
                                                         </div>
                                                     </div>
 

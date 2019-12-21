@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost;dbname=ci_crm',
+	'dsn'	=> 'mysql:host=localhost;dbname=hireabox_newcrmdrc',
 	'hostname' => 'localhost',
-	'username' => 'root',
+	'username' => '',
 	'password' => '',
-	'database' => 'ci_crm',
+	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

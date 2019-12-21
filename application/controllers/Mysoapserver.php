@@ -1027,6 +1027,52 @@ class Mysoapserver extends CI_Controller {
             return $hmm = $CI->contact_model->newContactId($contactDataArray1);
         }
 
+    # set waiver info in db
+    # waiver info start
+    // $this->nusoap_server->wsdl->addComplexType(
+    //     'setWaiverDataArrayStruct', 'complexType', 'struct', 'sequence', '', array(
+    //     'enquiry_unique_id' => array(
+    //         'name' => 'enquiry_unique_id',
+    //         'type' => 'xsd:string'
+    //     ),
+    //     'waiver_count' => array(
+    //         'name' => 'waiver_count',
+    //         'type' => 'xsd:integer'
+    //     ),
+    //     )
+    // );
+    
+    $this->nusoap_server->register(
+            "setWaiverInfo", array("enquiryUID" => "xsd:string"), array("return" => "xsd:string"), "urn:MySoapServer", "setWaiverInfo", "rpc", "encoded", ""
+    );
+    
+    function setWaiverInfo($enquiryUID) {
+        // echo $enquiryUID;
+        // $data = array(
+        //     'enquiry_unique_id' => $enquiryUID,
+        // );
+        $CI = & get_instance();
+        $CI->load->model("enquiry_model");
+        $CI->enquiry_model->updateWaiverInfo($enquiryUID);
+        return json_encode(array('1'=>'success'));
+    }
+
+    $this->nusoap_server->register(
+		"getWaiverCounter", array("enquiryUID" => "xsd:string"), array("return" => "tns:getMoverDataArrayStruct"), "urn:MySoapServer", "getWaiverCounter", "rpc", "encoded", ""
+    );
+
+    function getWaiverCounter($enquiryUID) {
+        $CI = &get_instance();
+        $CI->load->model("enquiry_model");
+        $enquiryData = $CI->enquiry_model->getWaiverCount($enquiryUID);
+        $returnArray = array(
+            "en_uuid" => $enquiryData['waiver_count'],
+        );
+        return $returnArray;
+    }
+    
+    # waiver info end
+
     }
 
     function index() {

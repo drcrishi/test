@@ -11,9 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
     <script type="text/javascript">
-       	// var chartData = [['Month', 'Enquiry', 'Booking']];
-      	//  var chartData = [['Month', 'Enquiry', 'Removal bookings','Packing/Unpacking bookings']];
-      	// var chartData = [['Month', 'Total', 'Removal bookings','Packing/Unpacking bookings','Storage']];
+        // var chartData = [['Month', 'Enquiry', 'Booking']];
+        //  var chartData = [['Month', 'Enquiry', 'Removal bookings','Packing/Unpacking bookings']];
+        // var chartData = [['Month', 'Total', 'Removal bookings','Packing/Unpacking bookings','Storage']];
         var chartData = [['Month', 'Removal bookings','Packing/Unpacking bookings','Storage']];
         
 <?php
@@ -191,11 +191,42 @@ foreach ($getChartForFiveMonth as $getEnquiryChartData) {
                             </div>
                             <div class="details">
                                 <div class="number">
-                                    <?php $AvgBooking = $thismonthBookings/date('d');
-                                $avgb =  number_format($AvgBooking, 2);
-                                $mull = $avgb*date('t');
-                                $mul = (round($mull,0));
-                                echo $mul;?>
+                                    <?php
+                                        $workdays = 0;
+                                        $tillworkdays = 0;
+                                        $type = CAL_GREGORIAN;
+                                        $month = date('n'); // Month ID, 1 through to 12.
+                                        $year = date('Y'); // Year in 4 digit 2009 format.
+                                        $day_count = cal_days_in_month($type, $month, $year); // Get the amount of days
+                                        $days_till_now = date('d'); 
+                                        for ($i = 1; $i <= $day_count; $i++) {
+                                                $date = $year.'/'.$month.'/'.$i; //format date
+                                                $get_name = date('l', strtotime($date)); //get week day
+                                                $day_name = substr($get_name, 0, 3); // Trim day name to 3 chars
+                                                if($day_name != 'Sun' && $day_name != 'Sat'){
+                                                    $workdays++;
+                                                }
+                                        }
+                                        // echo $workdays."<br>";
+                                        
+                                        for ($i = 1; $i <= $days_till_now; $i++) {
+                                                $date = $year.'/'.$month.'/'.$i; //format date
+                                                $get_name = date('l', strtotime($date)); //get week day
+                                                $day_name = substr($get_name, 0, 3); // Trim day name to 3 chars
+                                                if($day_name != 'Sun' && $day_name != 'Sat'){
+                                                    $tillworkdays++;
+                                                }
+                                        }
+                                        // echo $tillworkdays;
+
+                                        echo round(($thismonthBookings/$tillworkdays) * $workdays);
+
+                                        // $AvgBooking = $thismonthBookings/date('d');
+                                        // $avgb =  number_format($AvgBooking, 2);
+                                        // $mull = $avgb*date('t');
+                                        // $mul = (round($mull,0));
+                                        // echo $mul;
+                                    ?>
                                     </div>
                                 <div class="desc"> Monthly Estimate </div>
                             </div>

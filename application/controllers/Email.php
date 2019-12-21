@@ -261,8 +261,6 @@ class Email extends CI_Controller {
                 exit;
             }
             $movetype = $this->input->post('movetype');
-//print_r($movetype);
-//die;
             $emailData[] = array(
                 'email_master_id' => $this->input->post('email_master_id'),
                 'email_editor' => $this->input->post('editor2'),
@@ -272,9 +270,8 @@ class Email extends CI_Controller {
                 'email_cc' => $this->input->post('cc'),
                 'email_subject' => $this->input->post('subject'),
             );
-            $emailData[0]['email_editor']=html_entity_decode($emailData[0]['email_editor']);
-//            print_r($emailData);
-//            die;
+            // $emailData[0]['email_editor']=html_entity_decode($emailData[0]['email_editor']);
+            $emailData[0]['email_editor']=$emailData[0]['email_editor'];
             if ($this->email_template_model->addEmailLog($emailData, $id) !== FALSE) {
 
                 if ($emailType[0]['template_master_id'] == 1) {
@@ -296,6 +293,9 @@ class Email extends CI_Controller {
                 }
 
                 if (sendEmail($emailData, $type11) !== FALSE) {
+                    if($emailData[0]['email_master_id'] =='13' || $emailData[0]['email_master_id'] == '14'){
+                        $this->booking_model->updateCronJobsheetMail($id);
+                    }
                     echo json_encode(array("success" => 1));
                 } else {
                     echo json_encode(array("error" => 1));
@@ -451,9 +451,6 @@ class Email extends CI_Controller {
                 $pickupdata = json_decode($result[0]['additional_pickup'], true);
                 $deliverydata = json_decode($result[0]['additional_delivery'], true);
 
-                /**
-                 * Additional Items in Email
-                 */
                 $result[0]['en_additional_charges'] = trim($result[0]['en_additional_charges']);
                 $result[0]['en_additional_item'] = trim($result[0]['en_additional_item']);
                 if ($result[0]['en_additional_charges'] != "" && $result[0]['en_additional_charges'] != NULL && $result[0]['en_additional_charges'] != "NULL" && $result[0]['en_additional_item'] != "" && $result[0]['en_additional_item'] != NULL && $result[0]['en_additional_item'] != "NULL") {
@@ -487,10 +484,7 @@ class Email extends CI_Controller {
                 } else {
                     $emailData[0]['email_editor'] = str_replace("{{additionalpickup}}", " ", $emailData[0]['email_editor']);
                 }
-// Delivery data display in booking........................   
-//            print_r($deliverydata);
-//            die;
-                /* if ($deliverydata['en_adddelivery_postcode'] != "") { */
+
                 if (count($deliverydata['en_adddelivery_postcode']) > 0) {
                     $count1 = count($deliverydata['en_adddelivery_postcode']);
                     if ($count1 > 0) {
@@ -519,6 +513,10 @@ class Email extends CI_Controller {
                     $movingFromFullAddress = $result[0]['en_movingfrom_street'] . ',' . $result[0]['en_movingfrom_suburb'] . ',' . $result[0]['en_movingfrom_state'] . ',' . $result[0]['en_movingfrom_postcode'];
                     $movingToFullAddress = $result[0]['en_movingto_street'] . ',' . $result[0]['en_movingto_suburb'] . ',' . $result[0]['en_movingto_state'] . ',' . $result[0]['en_movingto_postcode'];
                     $emailData[0]['email_to'][] = $result[0]['removalistEmail'];
+                    if($result[0]['removalistEmail2'] != ''){
+                        $emailData[0]['email_to'][] = $result[0]['removalistEmail2'];
+                    }
+                    // prd($emailData[0]['email_to']);
                     if ($result[0]['en_no_of_trucks'] > 1) {
                         $truck = "trucks";
                     } else {
@@ -562,6 +560,7 @@ class Email extends CI_Controller {
                     $packerPaidStatus = $result[0]['en_deposit_received'] == 1 ? "Paid" : "Unpaid";
 
                     $getPackersEmail = $this->contact_model->getPackerstByUUID($result[0]['en_unique_id']);
+                    // prd($getPackersEmail);
                     if ($getPackersEmail != NULL) {
                         foreach ($getPackersEmail as $em) {
                             $emailData[0]['email_to'][] = $em['contact_email'];
@@ -585,13 +584,11 @@ class Email extends CI_Controller {
 
                 $encodeData = base64_encode(json_encode($pdfArrayData));
 
-
-
                 $emailData[0]['email_editor'] = str_replace("{{amt}}", $result[0]["en_deposit_amt"], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{uuid}}", $result[0]["en_unique_id"], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{noofmover}}", $result[0]["en_no_of_movers"], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{nooftruck}}", $result[0]["en_no_of_trucks"], $emailData[0]['email_editor']);
-                $emailData[0]['email_editor'] = str_replace("{{jobsheetnotes}}", $result[0]["en_note"], $emailData[0]['email_editor']);
+                $emailData[0]['email_editor'] = nl2br(str_replace("{{jobsheetnotes}}", $result[0]["en_note"], $emailData[0]['email_editor']));
                 $emailData[0]['email_editor'] = str_replace("{{hourlyrate}}", (int) $result[0]["en_client_hourly_rate"], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{initialsellprice}}", (int) $result[0]["en_initial_sellprice"], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{noofladiesbooked}}", $result[0]["en_ladies_booked"], $emailData[0]['email_editor']);
@@ -615,8 +612,6 @@ class Email extends CI_Controller {
                 $emailData[0]['email_editor'] = str_replace("{{fromadd}}", $fromadd, $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{toadd}}", $toadd, $emailData[0]['email_editor']);
 
-//                echo "<pre>";
-//                print_r($result);
                 if ($result[0]['en_movetype'] == 4 || $result[0]['en_movetype'] == 5) {
                     $type11 = "JobSheetP";
                 } else if ($result[0]['en_movetype'] == 7 || $result[0]['en_movetype'] == 8) {
@@ -626,9 +621,18 @@ class Email extends CI_Controller {
                 } else {
                     $type11 = $type;
                 }
-//                die;
+                // prd($emailData);
+                // if(($result[0]['en_movetype'] == 1 || $result[0]['en_movetype'] == 2 ) && count($emailData[0]['email_to'])> 1){
+                //     $tempArr = $emailData;
+                //     $tempArr[0]['email_to'][0] = $tempArr[0]['email_to'][1];
+                //     sendEmail($tempArr, $type11);
+                //     $this->email_template_model->addEmailLog($emailData, $id);
+                // }
                 if (sendEmail($emailData, $type11) !== FALSE) {
                     if ($this->email_template_model->addEmailLog($emailData, $id) !== FALSE) {
+                        if($type11 == 'JobSheetR'){
+                            $this->booking_model->updateCronJobsheetMail($id);
+                        }
                         $this->booking_model->addJobsheetMailLog($enqId);
                         return true;
                     } else {
@@ -646,15 +650,10 @@ class Email extends CI_Controller {
     }
 
     private function sendBookingConfirmation($id, $type) {
-//       echo $id;
-//       die;
+
         $enqId = $this->booking_model->getBookingUUID($id);
         $uuid = $enqId[0]['en_unique_id'];
-
         $packersId = $this->contact_model->getPackerstByUUID($uuid);
-//        echo "<pre>";
-//        print_r($packersId);
-//        die;
         foreach ($packersId as $packer) {
 
 
@@ -669,9 +668,6 @@ class Email extends CI_Controller {
 
         $result = $this->booking_model->getBookingDataByBookingID($id);
         $enqId = $result[0]['enquiry_id'];
-//        echo "<pre>";
-//        print_r($result);
-//        die;
         if ($result !== FALSE) {
             $emailTypeArray = $this->email_template_model->getEmailIDByName($type);
             if ($emailTypeArray === FALSE) {
@@ -727,9 +723,7 @@ class Email extends CI_Controller {
             } else {
                 $emailData[0]['email_editor'] = str_replace("{{additionalpickup}}", " ", $emailData[0]['email_editor']);
             }
-// Delivery data display in booking........................   
-//            print_r($deliverydata);
-//            die;
+
             if ($deliverydata['en_adddelivery_postcode'] != "") {
                 $count1 = count($deliverydata['en_adddelivery_postcode']);
                 if ($count1 > 0) {
@@ -812,11 +806,9 @@ class Email extends CI_Controller {
 //                die;
 
                 if ($result[0]['en_movetype'] == 4 || $result[0]['en_movetype'] == 5) {
-                    //   echo "hiiii";
                     $type11 = "BookingConfirmationP";
                     // $type11 = "BP";
                 } else if ($result[0]['en_movetype'] == 7 || $result[0]['en_movetype'] == 8) {
-                    //   echo "hiiii";
                     $type11 = "BookingConfirmationLP";
                     // $type11 = "BP";
                 } else if ($result[0]['en_movetype'] == 1 || $result[0]['en_movetype'] == 2 || $result[0]['en_movetype'] == 3) {
@@ -844,15 +836,9 @@ class Email extends CI_Controller {
     }
 
     private function sendFeedback($id, $type) {
-//       echo $id;
-//       die;
         $enqId = $this->booking_model->getBookingUUID($id);
         $uuid = $enqId[0]['en_unique_id'];
-
         $packersId = $this->contact_model->getPackerstByUUID($uuid);
-//        echo "<pre>";
-//        print_r($packersId);
-//        die;
         if ($packersId[0]['contact_fname'] == "") {
             $packers = "null";
         } else {
@@ -904,8 +890,6 @@ class Email extends CI_Controller {
                 $emailData[0]['email_editor'] = str_replace("{{emailTo}}", $result[0]['en_email'], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{status}}", $packingstatus, $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{packers}}", $packers, $emailData[0]['email_editor']);
-//                print_r($emailData);
-//                die;
 
                 if ($result[0]['en_movetype'] == 4 || $result[0]['en_movetype'] == 5) {
                     $type11 = "SendFeedbackP";
@@ -999,8 +983,6 @@ class Email extends CI_Controller {
                 $emailData[0]['email_editor'] = str_replace("{{emailTo}}", $result[0]['en_email'], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{status}}", $packingstatus, $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{packers}}", $packers, $emailData[0]['email_editor']);
-//                print_r($emailData);
-//                die;
 
                 if ($result[0]['en_movetype'] == 4 || $result[0]['en_movetype'] == 5) {
                     $type11 = "SendReminderP";
@@ -1040,15 +1022,9 @@ class Email extends CI_Controller {
     /* No Answer Feedback email...............@DRCZ 17-5-2018 */
 
     private function sendNoAnswerFeedback($id, $type) {
-//       echo $id;
-//       die;
         $enqId = $this->booking_model->getBookingUUID($id);
         $uuid = $enqId[0]['en_unique_id'];
-
         $packersId = $this->contact_model->getPackerstByUUID($uuid);
-//        echo "<pre>";
-//        print_r($packersId);
-//        die;
         if ($packersId[0]['contact_fname'] == "") {
             $packers = "null";
         } else {
@@ -1100,8 +1076,6 @@ class Email extends CI_Controller {
                 $emailData[0]['email_editor'] = str_replace("{{emailTo}}", $result[0]['en_email'], $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{status}}", $packingstatus, $emailData[0]['email_editor']);
                 $emailData[0]['email_editor'] = str_replace("{{packers}}", $packers, $emailData[0]['email_editor']);
-//                print_r($emailData);
-//                die;
 
                 if ($result[0]['en_movetype'] == 4 || $result[0]['en_movetype'] == 5) {
                     $type11 = "NoAnswerFeedbackP";

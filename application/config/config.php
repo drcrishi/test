@@ -24,8 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'https://crm.hireamover.com.au/';
-// $config['base_url'] = 'https://crm.hireamover.com.au/';
-$config['base_url'] = 'http://192.168.15.173/crm/';
+$config['base_url'] = 'https://crm.hireamover.com.au/';
 
 
 /*
@@ -237,7 +236,7 @@ $config['log_threshold'] = 1;
 | application/logs/ directory. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = 'application/logs/';
+$config['log_path'] = '../application/logs/';
 
 /*
 |--------------------------------------------------------------------------
@@ -525,7 +524,7 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-if($_SERVER['REMOTE_ADDR'] == "167.99.222.137")
+if(@$_SERVER['REMOTE_ADDR'] == "167.99.222.137")
 {
     header("HTTP/1.1 403 Forbidden" ); exit;
 }

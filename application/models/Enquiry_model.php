@@ -36,8 +36,6 @@ class Enquiry_model extends CI_Model {
         $this->db->where('contact_reltype', 1);
         $this->db->where('is_deleted', 0);
         $query = $this->db->get('contact');
-//         echo $this->db->last_query();
-//         die;
         $y = 0;
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -79,16 +77,15 @@ class Enquiry_model extends CI_Model {
                 ->where('contact.contact_reltype', 1)
                 ->where('enquiry.en_unique_id', $en_unique_id);
         $query = $this->db->get();
-//echo $this->db->last_query();
-//die;
+
         if ($query->num_rows() > 0) {
             return $query->result_array();
-//            foreach ($query->result_array() as $row) {
-//                $contactfname = htmlentities(stripslashes($row['contact_fname'])) . " " . htmlentities(stripslashes($row['contact_state']));
-//                $contactid = htmlentities(stripslashes($row['contact_id']));
-//                $row_set[] = $contactfname;
-//            }
-//            return json_encode($row_set); //format the array into json data
+            //            foreach ($query->result_array() as $row) {
+            //                $contactfname = htmlentities(stripslashes($row['contact_fname'])) . " " . htmlentities(stripslashes($row['contact_state']));
+            //                $contactid = htmlentities(stripslashes($row['contact_id']));
+            //                $row_set[] = $contactfname;
+            //            }
+            //            return json_encode($row_set); //format the array into json data
         } else {
             return false;
         }
@@ -193,6 +190,7 @@ class Enquiry_model extends CI_Model {
                 }
             }
         }
+
         // packing hours
             return $rowFetchUUID[0]['en_unique_id'];
         } else {
@@ -568,14 +566,10 @@ class Enquiry_model extends CI_Model {
 
 //From enquirylist.......................
     function getDuplicateEnqueryListData($en_unique_ids) {
-        // echo $enq_id;
         $enq_id = $en_unique_ids[0];
-        // echo $enq_id;
         $this->db->select("*")->from('enquiry')
                 ->where('en_unique_id', $enq_id);
         $query = $this->db->get();
-//         echo $this->db->last_query();
-//         die;
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
             $data = array(
@@ -666,8 +660,6 @@ class Enquiry_model extends CI_Model {
         $this->db->select("*")->from('enquiry')
                 ->where('en_unique_id', $en_unique_ids);
         $query = $this->db->get();
-//         echo $this->db->last_query();
-//         die;
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
             $data = array(
@@ -805,8 +797,6 @@ class Enquiry_model extends CI_Model {
         }
         $this->db->where('enquiry_id', $enquiryId);
         return $this->db->update('enquiry', $data);
-//         echo $this->db->last_query();
-//         die;
     }
 
     /**
@@ -837,30 +827,14 @@ class Enquiry_model extends CI_Model {
         }
     }
 
-//Changes on 21-11-2017..................
-//    function checkContactEmail($contactemail) {
-//        $this->db->select("*");
-//        $this->db->where('contact_email', $contactemail);
-//        $this->db->from("contact");
-//        $query = $this->db->get();
-//        //  echo $this->db->last_query();
-//        if ($query->num_rows() > 0) {
-//            $row = $query->result_array();
-//            return $row;
-//        } else {
-//            return false;
-//        }
-//    }
-//Changes on 21-11-2017..................
-
     function disableEnquiry($en_unique_id) {
-      if($this->session->admin_id == '1' || $this->session->admin_id == '2'){
-        $this->db->update("enquiry", array("is_deleted" => 1), array("en_unique_id" => $en_unique_id));
-        return true;
-      }
-      else{
-        return false;
-      }
+        if($this->session->admin_id == '1' || $this->session->admin_id == '2'){
+          $this->db->update("enquiry", array("is_deleted" => 1), array("en_unique_id" => $en_unique_id));
+          return true;
+        }
+        else{
+          return false;
+        }
     }
 
     function disqualifyBooking($en_unique_id) {
@@ -1102,7 +1076,7 @@ class Enquiry_model extends CI_Model {
     /* Multiple Enquiry List Delete Start DRC@D */
 
     function getAjaxDeleteFromEnqueryList($ids) {
-      if($this->session->admin_id == '1' || $this->session->admin_id == '2'){
+        if($this->session->admin_id == '1' || $this->session->admin_id == '2'){
           if (count($ids) > 0) {
             $this->db->where_in("en_unique_id", $ids);
             $num_rows = $this->db->count_all_results('enquiry');
@@ -1114,11 +1088,11 @@ class Enquiry_model extends CI_Model {
             } else {
                 return false;
             }
+          }
         }
-      }
-      else {
-        return false;
-      }
+        else {
+          return false;
+        }
     }
 
     /* Multiple Enquiry List Delete Over */
@@ -1662,10 +1636,6 @@ FROM
         ->where('depositreceiveddate !=', '0000-00-00 00:00:00');
         // ->where('is_qualified', 0);
         return $query = $this->db->get()->result_array();
-        // $query = $this->db->get();
-        // echo $this->db->last_query();
-        // die;
-        // return $query->num_rows();
     }
 
     public function getBookingCompletedRecords(){
@@ -1822,6 +1792,7 @@ FROM
       WHERE ee.email_log_id = data.emailLOGID 
       and ee.email_log_date".$endQuery;
       $query=$this->db->query($fullQuery);
+
     //   $queryFiresAt = date('d-m-Y H:i:s');
     //   $queryFired= $this->db->last_query();
 
@@ -1907,6 +1878,223 @@ FROM
           ->where('is_deleted','0')
           ->order_by('enquiry_id','desc')
           ->get('enquiry')->result_array();
+    }
+
+
+	/**
+	 * Returns the mobile token used for SMS quotes
+	 * or creates a new one if expired
+	 * @param int $enquiryId
+	 * @return string
+	 * @throws Exception
+	 */
+	public function getMobileToken(int $enquiryId)
+	{
+		$query = $this->db->get_where("enquiry", array("enquiry_id" => $enquiryId, "is_qualified" => 0));
+		if ( $query->num_rows() == 0 ){
+			throw new Exception('enquiry id ' . $enquiryId . ' not found');
+		}
+		$enquiry = $query->result()[0];
+		#dd(\Carbon\Carbon::parse($enquiry->mobile_token_expire)->timestamp < \Carbon\Carbon::now()->timestamp);
+
+
+		if ( $enquiry->mobile_token === NULL || $enquiry->mobile_token_expire === NULL ){
+			$token = getToken(6);
+			$this->db->reset_query();
+			$this->db->set('mobile_token', $token);
+			$this->db->set('mobile_token_expire', \Carbon\Carbon::now()->addHours($this->config->item('sms')->mobile_token_expire_hours));
+			$this->db->where('enquiry_id', $enquiryId);
+			$this->db->update('enquiry');
+			return $token;
+		}
+
+		return $enquiry->mobile_token;
+	}
+	/**
+	 *
+	 * @param type $enquiryID
+	 */
+	function getEnquiryDataByMobileToken($mobileToken) {
+		$query = $this->db->get_where("enquiry", [
+			"mobile_token" => $mobileToken,
+			"is_qualified" => 0
+		]);
+		if ( $query->num_rows() == 0 ){
+			return false;
+		}
+		$enquiry = $query->result()[0];
+
+		if ( $enquiry->mobile_token === NULL || $enquiry->mobile_token_expire === NULL ){
+			return false;
+		}
+        
+		return (array) $enquiry;
+	}
+
+    public function isSmsSent(){
+        $eId= $this->input->post('enquiryId');
+        return $this->db->select('is_sms_sent')
+        ->where('enquiry_id',$eId)
+        ->get('enquiry')->row();
+    }
+
+    public function addSmsActivity($id,$number,$type,$isEdited=''){
+        $this->db->where('enquiry_id',$id)
+        ->update('enquiry',array('is_sms_sent'=>'1'));
+        $enquiry = $this->db->where('enquiry_id',$id)
+        ->get('enquiry')->row_array();
+        $template ='';
+        if($type =='send'){
+            $editedMsgCount = $this->db->select('email_log_editor')
+            ->where('enquiry_id',$id)
+            ->where('email_master_id','62')
+            ->or_where('email_master_id','63')
+            ->or_where('email_master_id','64')
+            ->where('is_edited','1')
+            ->order_by('email_log_id','desc')
+            ->limit('1')
+            ->get('email_log')->result_array();
+            if(count($editedMsgCount) > 0){
+                $template  = $editedMsgCount[0]['email_log_editor'];
+            }
+            else{
+                $template  = $this->getSmsTemplate($enquiry);
+            }
+        }
+        else if($type == 'edit'){
+            $template  = $this->input->post('editor2');
+        }
+        $isEditedVar = '0';
+        if($isEdited != ''){
+            $isEditedVar = '1';
+        }
+        
+        $emailLogArr=array(
+            'email_master_id'=>'62',
+            'enquiry_id'=> $id,
+            'email_log_from' => '',
+            'email_log_to' => serialize($number),
+            'email_log_cc' =>'',
+            'email_log_bcc' => '',
+            'email_log_subject' => 'SMS Sent',
+            'email_log_editor' => $template,
+            'email_log_date' => date("Y-m-d H:i:s", time()),
+            'email_sent_by' => $this->session->userdata('admin_id'),
+            'is_edited' => $isEditedVar
+        );
+        $this->db->insert('email_log',$emailLogArr);
+    }
+
+    public function getSmsTemplate($enquiry){
+
+        if ($enquiry['en_additional_charges'] != "0.00" && $enquiry['en_additional_charges'] != NULL) {
+			$addcharge = '. There is also a charge of $' . (int)$enquiry["en_additional_charges"] . ' for the ' . $enquiry["en_additional_item"] . '.';
+		} else {
+			$addcharge = '';
+		}
+		if ($enquiry["en_no_of_trucks"] == 1) {
+			$truck = $enquiry["en_no_of_trucks"] . " truck";
+		} else {
+			$truck = $enquiry["en_no_of_trucks"] . " trucks";
+		}
+
+        $this->load->model('email_template_model');
+		$emailTypeArray = $this->email_template_model->getEmailIDByName('Sms');
+		if ($emailTypeArray === FALSE) {
+			return false;
+		}
+		// $emailData = $this->email_template_model->getEmailTemplate($result[0]['en_movetype'], $emailTypeArray[0]['template_master_id']);
+		$moveType='';
+		if($enquiry['en_movetype'] == '1' || $enquiry['en_movetype'] == '2' ){
+			$moveType = '1'; 
+		}
+		else if($enquiry['en_movetype'] == '4'){
+			$moveType = '4'; 
+        }
+        else if($enquiry['en_movetype'] == '5'){
+			$moveType = '5'; 
+		}
+		$emailData = $this->email_template_model->getEmailTemplate($moveType, $emailTypeArray[0]['template_master_id']);
+		if ($emailData !== FALSE) {
+
+			if ($emailData[0]['en_movetype'] == 4 || $emailData[0]['en_movetype'] == 5 || $emailData[0]['en_movetype'] == 7 || $emailData[0]['en_movetype'] == 8) {
+				$emailData[0]['email_editor'] = str_replace("{{amt}}", $enquiry["en_initial_sellprice"], $emailData[0]['email_editor']);
+			} else {
+				$emailData[0]['email_editor'] = str_replace("{{amt}}", $enquiry["en_deposit_amt"], $emailData[0]['email_editor']);
+			}
+			$servicet = strrpos($enquiry['en_servicetime'], "-");
+
+
+			if ($emailData[0]['en_movetype'] == 1 || $emailData[0]['en_movetype'] == 2) {
+				if ($servicet > 0) {
+					$emailData[0]['email_editor'] = str_replace("{{datetimepre}}", "between ", $emailData[0]['email_editor']);
+					$emailData[0]['email_editor'] = str_replace("{{datetime}}", $enquiry['en_servicetime'] . " on " . date('l d/m/Y', strtotime($enquiry['en_servicedate'])), $emailData[0]['email_editor']);
+					// $emailData[0]['email_editor'] = str_replace("{{datetime}}", $result[0]['en_servicetime'], $emailData[0]['email_editor']);
+				} else {
+					$emailData[0]['email_editor'] = str_replace("{{datetimepre}}", "at ", $emailData[0]['email_editor']);
+					// $emailData[0]['email_editor'] = str_replace("{{datetime}}", $result[0]['en_servicetime'], $emailData[0]['email_editor']);
+					$emailData[0]['email_editor'] = str_replace("{{datetime}}", $enquiry['en_servicetime'] . " on " . date('l d/m/Y', strtotime($enquiry['en_servicedate'])), $emailData[0]['email_editor']);
+				}
+			} else {
+				$emailData[0]['email_editor'] = str_replace("{{datetime}}", $enquiry['en_servicetime'] . " on " . date('l d/m/Y', strtotime($enquiry['en_servicedate'])), $emailData[0]['email_editor']);
+			}
+			$emailData[0]['email_to'] = $enquiry['en_email'];
+			// $emailData[0]['email_editor'] = str_replace("{{amt}}", $result[0]["en_deposit_amt"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{uuid}}", $enquiry["en_unique_id"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{noofmover}}", $enquiry["en_no_of_movers"], $emailData[0]['email_editor']);
+			//  $emailData[0]['email_editor'] = str_replace("{{nooftruck}}", $result[0]["en_no_of_trucks"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{nooftruck}}", $truck, $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{hourlyrate}}", (int)$enquiry["en_client_hourly_rate"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{initialsellprice}}", (int)$enquiry["en_initial_sellprice"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{noofladiesbooked}}", $enquiry["en_ladies_booked"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{initialhoursbooked}}", (int)$enquiry["en_initial_hours_booked"], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{tavelfee}}", (int)$enquiry["en_travelfee"], $emailData[0]['email_editor']);
+			$emailData[0]['email_subject'] = str_replace("{{subjectdatetime}}", date('d/m/Y', strtotime($enquiry['en_servicedate'])) . ' ' . $enquiry['en_servicetime'], $emailData[0]['email_subject']);
+			$emailData[0]['email_editor'] = str_replace("{{subjectdatetime}}", date('d/m/Y', strtotime($enquiry['en_servicedate'])) . ' ' . $enquiry['en_servicetime'], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{sendername}}", $this->session->userdata('admin_firstname') . ' ' . $this->session->userdata('admin_lastname'), $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{clientfirstname}}", $enquiry['en_fname'], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{emailTo}}", $enquiry['en_email'], $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{additionalcharges}}", $addcharge, $emailData[0]['email_editor']);
+			$emailData[0]['email_editor'] = str_replace("{{additionalchargeitem}}", $enquiry["en_additional_item"], $emailData[0]['email_editor']);
+			if ($enquiry['en_additional_charges'] != 0.00 && $enquiry['en_additional_charges'] != NULL) {
+				$emailData[0]['email_editor'] = str_replace("{{additionalchargeforpacker}}", "and " . $enquiry["en_additional_item"], $emailData[0]['email_editor']);
+			} else {
+				$emailData[0]['email_editor'] = str_replace("{{additionalchargeforpacker}}", "", $emailData[0]['email_editor']);
+			}
+
+			if ($enquiry['en_movetype'] == 4 || $enquiry['en_movetype'] == 5) {
+				$type11 = "QuoteP";
+			} else if ($enquiry['en_movetype'] == 7 || $enquiry['en_movetype'] == 8) {
+				$type11 = "QuoteLP";
+			} else if ($enquiry['en_movetype'] == 1 || $enquiry['en_movetype'] == 2 || $enquiry['en_movetype'] == 3) {
+				$type11 = "QuoteR";
+			} else {
+				$type11 = "Quote";
+			}
+			if ($enquiry['en_servicetime'] == "" || $enquiry['en_servicetime'] == "No preference") {
+				return false;
+			}
+		}
+
+        return $emailData[0]['email_editor'];
+
+    }
+
+    function getLatestSmsTemplate($eId){
+        $sql ="SELECT email_log_editor FROM `email_log` WHERE enquiry_id = '$eId' AND email_log_subject like 'SMS Sent%' 
+        ORDER BY email_log_id DESC LIMIT 1";
+        return $res = $this->db->query($sql)->row_array();
+    }
+
+    public function updateWaiverInfo($id) {
+        $sql = "UPDATE enquiry SET waiver_count = waiver_count + 1 WHERE en_unique_id = '$id'";
+        $this->db->query($sql);
+    }
+
+    public function getWaiverCount($id) {
+        return $res = $this->db->select('waiver_count')
+        ->where('en_unique_id',$id)
+        ->get('enquiry')->row_array();
     }
 
 }

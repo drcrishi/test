@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <!-- END PAGE TITLE-->
                 <!-- END PAGE HEADER-->
-                <div class="row peoles-nav-border people-wrapper">
+                <div class="row peoles-nav-border people-wrapper" style="background-color: #a8eca8;">
                     <div class="col-md-4 col-xs-12 col-sm-2 people-left">
                         <?php if (!empty($clientname)) {
                             ?> 
@@ -87,8 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li>
                                 <a href="#" data-id="<?php echo $enquiry[0]['en_unique_id']; ?>" class="deletebooking"><i class="fa fa-trash-o"></i> Delete </a>
                             </li>
-                            <?php
-                                } 
+                            <?php 
+                                }
                                 if ($enquiry[0]['booking_status'] == "1" || $enquiry[0]['booking_status'] == "2") {
                                 ?>
                                 <li>
@@ -141,6 +141,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     ?>>Completed</option>
 
                                                 </select></div>
+                                        </div>
+                                        <div class="form-group hide" id="completedStorageDateDiv">
+                                            <label class="col-md-4 control-label">Completed date storage</label>
+                                            <div class="col-md-8">
+                                                <?php
+                                                if ($enquiry[0]['storage_completed_date'] == NULL) {
+                                                    $storageCompleteDate  = "";
+                                                } else {
+                                                    $storageCompleteDate = date("d-m-Y", strtotime($enquiry[0]['storage_completed_date']));
+                                                }
+                                                ?>
+                                                <input class="form-control form-control-inline date-picker date-hide" id="completedStorageDate" name="completedStorageDate" size="16" type="text" value="<?php echo $storageCompleteDate; ?>"/>
+                                            </div>
                                         </div>
                                         <div class="form-group" id="moveType">
                                             <label class="col-md-4 control-label" for="form_control_1">Move type<span class="required">*</span></label>
@@ -329,7 +342,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group" id="deliveryDate">
                                             <label class="col-md-4 control-label">Delivery date</label>
                                             <div class="col-md-8">
@@ -390,12 +402,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-md-8">
                                                 <input type="text" id="bookingPhone" class="form-control phone" name="en_phone" value="<?php echo $enquiry[0]['en_phone']; ?>"></div>
                                         </div>
-                                        <div class="form-group" id="email">
-                                            <label class="control-label col-md-4">Email<span class="required">*</span></label>
-                                            <span class="error"></span>
-                                            <div class="col-md-8">
-                                                <input type="text" id="bookingEmail" class="form-control email" name="en_email" value="<?php echo $enquiry[0]['en_email']; ?>"></div>
-                                        </div>
+                                        
                                         <div id="storageProvider">
                                             <!-- <div class="form-group" id="storageProvider">
                                                 <label class="control-label col-md-4">Storage provider</label>
@@ -409,12 +416,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control" name="en_storage_address" value="<?php //echo $enquiry[0]['en_storage_address']; ?>"></div>
                                             </div> -->
-                                            <div class="form-group" id="storagePhoneNumber">
+                                            <!-- <div class="form-group" id="storagePhoneNumber">
                                                 <label class="control-label col-md-4">Storage phone number</label>
                                                 <span class="error"></span>
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control" name="en_storage_phno" value="<?php echo $enquiry[0]['en_storage_phno']; ?>"></div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group" id="storagePaymentreminderDateDiv">
                                                 <label class="control-label col-md-4">Storage Payment Reminder Date</label>
                                                 <span class="error"></span>
@@ -423,7 +430,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group" id="removealist1">
+                                        <div class="form-group" id="email">
+                                            <label class="control-label col-md-2" style="padding: 5px 0 0 16px;">Email<span class="required">*</span></label>
+                                            <span class="error"></span>
+                                            <div class="col-md-10">
+                                                <input type="text" id="bookingEmail" class="form-control email" style="padding: 0px 6px;font-size: 13px;" name="en_email" value="<?php echo $enquiry[0]['en_email']; ?>"></div>
+                                        </div>
+                                        <div class="form-group" id="removealist1" style="margin-top:45px;">
                                             <label class="control-label col-md-4">Removalist
 <!--                                                <span class="required">*</span>-->
                                             </label>
@@ -508,10 +521,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--                                            <input type="text" class="form-control" name="en_note">-->
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
 
-                                <div class="portlet">
+                                <div class="portlet xs-internal-notes">
                                     <div class="portlet-title">
                                         <div class="caption">                                
                                             <span class="caption-subject font-dark sbold uppercase">Internal Notes</span>
@@ -675,6 +689,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
                                     </div>
                                 </div>
+                                <div id="waiver-log">
+                                    <div class="portlet">
+                                        <div class="portlet-title">
+                                            <div class="caption jobsheet-log-title">                                
+                                                <span class="caption-subject font-dark sbold uppercase">Waiver Log</span>
+                                            </div>                            
+                                        </div>
+                                        <div class="jobsheet-logs porlet-section">
+                                            <div class="waiver-wrapepr">
+                                                <?php
+                                                    if($enquiry[0]['waiver_count'] > 0){
+                                                        for($i=1;$i<=$enquiry[0]['waiver_count'];$i++){
+                                                            $url ='https://www.hireamover.com.au/jobsheet/waiver_form_log/'.$enquiry[0]['en_unique_id'].'/'.$i.'.html';
+                                                            echo "<a target='_blank' href='$url'>Waiver log - $i</a><br>";
+                                                        }
+                                                    }
+                                                    else{
+                                                        echo "No log found.";
+                                                    }
+                                                    
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
 
@@ -769,7 +808,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                                                     <select name="en_storage_provider" id="en_storage_provider" class="form-control">
                                                                                         <?php
-                                                                                        $providerArr=array('','Storage Plus','Super Easy Storage','Holloways Storage');
+                                                                                        $providerArr=array('','Storage Plus','Super Easy Storage','Holloways Storage','Brilliance Removals');
                                                                                         foreach ($providerArr as $providerRow) {
                                                                                             ?>
                                                                                             <option <?php echo $enquiry[0]['en_storage_provider'] == $providerRow ? 'selected' :'' ?> value="<?php echo $providerRow ?>"><?php echo $providerRow ?></option>
@@ -848,7 +887,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 </div>
                                                             </div>                            
                                                         </div>
-                                                        <div class="porlet-section">  
+                                                        <div class="porlet-section">              
                                                             <div class="row" id="storageAgreementDiv">
                                                                 <div class="col-md-7">  
                                                                     <div class="form-group" id="storageAgreementDiv">
@@ -1297,7 +1336,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="portlet activitylog">
                             <div class="portlet-title">
                                 <div class="caption">                                
-                                    <span class="caption-subject font-dark sbold uppercase">Activities</span>
+                                    <span class="caption-subject font-dark sbold uppercase">History</span>
                                 </div>                            
                             </div>
 
@@ -1343,20 +1382,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                                         if ($adminname == "") {
                                                                                             $sentByContactName=(getContactFirstName($al['email_sent_by']));
 
-                                                                                            if($sentByContactName[0]['contact_fname'] != ''){
-                                                                                                echo  $sentByContactName[0]['contact_fname'];
-                                                                                            }
-                                                                                            else{
-                                                                                                echo "Auto email";
-                                                                                            }
+                                                                                                                            if($sentByContactName[0]['contact_fname'] != ''){
+                                                                                                                                echo  $sentByContactName[0]['contact_fname'];
+                                                                                                                            }
+                                                                                                                            else{
+                                                                                                                                echo "Auto email";
+                                                                                                                            }
                                                                                         } else {
                                                                                             echo $adminname;
                                                                                         }
                                                                                         ?></span>
                                                                                     <p class="mt-action-desc"><?php echo $sub; ?>
                                                                                         To: <?php echo $newemail; ?>
-                                                                                        <?php echo $email_log_time; ?></p>
+                                                                                        <?php echo $email_log_time; 
+                                                                                            if (strpos($al['email_log_subject'], 'SMS') === false) {
+                                                                                        ?></p>
                                                                                     <div class="mt-action-desc action-main-div"><?php echo $email_log_editor; ?></div>
+                                                                                        <?php  }?>
                                                                                 </div> 
                                                                             </div>                                                                                    
                                                                         </div>
@@ -1648,19 +1690,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <input type="text" class="form-control trucks text-trucks" id="trucks" name="en_no_of_trucks" value="<?php echo $enquiry[0]['en_no_of_trucks']; ?>" style="display: none;">
                                         </div>
                                     </div>
-                                    <div class="form-group" id="travelFeeSell">
-                                        <label class="control-label col-md-6">Travel Fee<span class="required">*</span></label>
+                                    <div class="form-group" id="clientHourlyRate">
+                                        <label class="control-label col-md-6">Client Hourly Rate<span class="required">*</span></label>
                                         <span class="error"></span>
                                         <div class="col-md-6">
                                             <div class="input-icon input-icon">
                                                 <i class="fa fa-usd"></i>
-                                                <?php
-//                                                if ($enquiry[0]['en_travelfee'] != "0.00") {
-//                                                    $travelfee = $enquiry[0]['en_travelfee'];
-//                                                } else {
-//                                                    $travelfee = "";
-//                                                }
-                                                ?>
+                                                <input type="text" class="form-control chr" id="clienthourlyrate" name="en_client_hourly_rate" value="<?php echo $enquiry[0]['en_client_hourly_rate']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="travelFeeSell">
+                                        <label class="control-label col-md-6">Callout Fee<span class="required">*</span></label>
+                                        <span class="error"></span>
+                                        <div class="col-md-6">
+                                            <div class="input-icon input-icon">
+                                                <i class="fa fa-usd"></i>
                                                 <input type="text" class="form-control travelfees" id="travelfee" name="en_travelfee" value="<?php echo $enquiry[0]['en_travelfee']; ?>">
                                             </div>
                                         </div>
@@ -1683,23 +1728,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
                                     </div>
 
-                                    <div class="form-group" id="clientHourlyRate">
-                                        <label class="control-label col-md-6">Client Hourly Rate<span class="required">*</span></label>
-                                        <span class="error"></span>
-                                        <div class="col-md-6">
-                                            <div class="input-icon input-icon">
-                                                <i class="fa fa-usd"></i>
-                                                <?php
-                                                /* if ($enquiry[0]['en_client_hourly_rate'] != "0.00") {
-                                                  $chrate = $enquiry[0]['en_client_hourly_rate'];
-                                                  } else {
-                                                  $chrate = "";
-                                                  } */
-                                                ?>
-                                                <input type="text" class="form-control chr" id="clienthourlyrate" name="en_client_hourly_rate" value="<?php echo $enquiry[0]['en_client_hourly_rate']; ?>">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group" id="additionalCharges">
                                         <label class="control-label col-md-6">Additional Charges</label>
                                         <span class="error"></span>
@@ -1748,6 +1777,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             }
                                             ?>
                                             <input type="text" id="hoursbooked" class="form-control hoursbook" name="en_initial_hours_booked" value="<?php echo $inihrbook; ?>">
+                                            <input type="hidden" name="packing-interval-time" id="packing-interval-time" value="<?php echo $inihrbook; ?>">
                                         </div>
                                     </div>
 

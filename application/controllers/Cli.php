@@ -332,4 +332,120 @@ class Cli extends CI_Controller {
         }
     }
 
+    function sendStorageAgreementNotRecieved($auth){
+        if ($auth != "rrrRishi987654321Ezhavaeee") {
+            exit;
+        }
+        $res= $this->db->select('enquiry_id,en_unique_id,en_movetype,CONCAT(en_fname, " " , en_lname) as client_name')
+        ->where('(booking_status = 1 or booking_status = 2)')
+        ->where('en_movetype','6')
+        ->where('is_deleted','0')
+        ->where('storage_agreement_recieved','2')
+        ->where('storage_agreement_flag','0')
+        ->order_by('enquiry_id','desc')
+        ->get('enquiry')->result_array();
+        foreach ($res as $row) {
+            $this->load->model('email_template_model');
+            $emailData = $this->email_template_model->getEmailTemplate('6','13');
+            if ($emailData !== FALSE) {
+                $emailData[0]['email_subject'] = str_replace("{{clientname}}", $row['client_name'], $emailData[0]['email_subject']);
+                $emailData[0]['email_editor'] = str_replace("{{clientname}}", $row['client_name'], $emailData[0]['email_editor']);
+                $emailData[0]['email_editor'] = str_replace("{{uuid}}", $row['en_unique_id'], $emailData[0]['email_editor']);
+            }
+            $sent = sendEmail($emailData, 'StoragePaymentReminder');
+            if($sent){
+                $this->db->where('enquiry_id',$row['enquiry_id'])
+                ->update('enquiry',array('storage_agreement_flag'=> '1'));
+                echo "sent ";
+                $logFile= fopen("./log_files/storage_agreement_not_received.txt", 'a+');
+                fwrite($logFile, "================================================================================\r\n");
+                fwrite($logFile, "sent successfully" . "\r\n");
+                fwrite($logFile, date("d-m-Y H:i:s") . "\r\n");
+                fwrite($logFile, print_r($emailData, true) . "\r\n");
+                fwrite($logFile, "================================================================================\r\n\r\n");
+            }
+            else{
+                echo "not sent ";
+                $logFile= fopen("./log_files/storage_agreement_not_received.txt", 'a+');
+                fwrite($logFile, "================================================================================\r\n");
+                fwrite($logFile, "not sent successfully" . "\r\n");
+                fwrite($logFile, date("d-m-Y H:i:s") . "\r\n");
+                fwrite($logFile, print_r($emailData, true) . "\r\n");
+                fwrite($logFile, "================================================================================\r\n\r\n");
+            }
+            unset($emailData);
+        }
+    }
+
+    function sendSmsQuoteReminder($auth){
+        if ($auth != "rrrRishi987654321Ezhavaeee") {
+            exit;
+        }
+        $this->load->model('email_template_model');
+
+        $startTime = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:00")." -5 minutes"));
+        $endTime = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:59")." -5 minutes"));
+        $query = "SELECT e.enquiry_id,e.en_unique_id, e.en_movetype, e.en_servicedate, e.en_fname, e.en_lname,
+        e.en_movingfrom_suburb, e.en_movingto_suburb     
+        FROM enquiry AS e
+        LEFT JOIN `email_log` AS el ON el.enquiry_id = e.enquiry_id
+        WHERE e.booking_status IS NULL AND e.is_deleted = '0' AND e.is_qualified = '0' AND e.is_sms_sent = '0' AND 
+        e.sms_quote_reminder_flag = 0 AND (el.email_log_subject LIKE 'Good news - we\'re available!%' 
+        || el.email_log_subject LIKE 'Unpacking Quote%' || el.email_log_subject LIKE 'Packing Quote%' ) 
+        AND (el.email_log_date >= '$startTime' and el.email_log_date <= '$endTime' )";
+        $res= $this->db->query($query)->result_array();
+        foreach($res as $row){
+            $emaildata[] = array(
+                'email_from' => 'info@hireamover.com.au',
+                'email_to' => 'info@hireamover.com.au',
+                'email_bcc' => '',
+                'email_cc' => '',
+                'email_subject' => 'No SMS quote sent - '. $row['en_fname']. ' ' . $row['en_lname'] ,
+                'email_editor' => "No SMS quote has been sent to  <a href=" . base_url('/enquiries/viewEnquiries/' . $row['en_unique_id']) . ">" . $row['en_fname']. ' ' . $row['en_lname'] . "</a>" . ". Please sent the client one now.",
+            );
+
+            $sendEmail = sendEmail($emaildata, 'feedbackreminder');
+            $this->email_template_model->addAutoEmailLog($emaildata, $row['enquiry_id']);
+            $this->db->where('enquiry_id',$row['enquiry_id']);
+            $this->db->update('enquiry',array('sms_quote_reminder_flag'=>1));
+            unset($emaildata);
+        }
+    }
+
+    public function sendJobsheetMails($auth){
+        if ($auth != "sssRishi987654321Ezhavaddd") {
+            exit;
+        }
+        $sql ="SELECT cm.*,e.en_unique_id, CONCAT(e.en_fname,' ',e.en_lname) as client
+        FROM cronjob_mails as cm
+        left join enquiry as e on cm.enquiry_id = e.enquiry_id
+        where cm.is_email_sent = '0' and e.is_deleted = '0'";
+        // where is_email_sent = '0'and created_date >= NOW() - INTERVAL 10 MINUTE ";
+
+        $bodyString = '';
+        $res =  $this->db->query($sql)->result_array();
+        if(!empty($res)){
+            foreach($res as $row){
+                $bodyString .= "<a href= ".base_url("booking/viewBooking/").$row['en_unique_id']." >". $row['client'] ."</a></br>";
+            }
+            $emaildata[] = array(
+                'email_from' => 'info@hireamover.com.au',
+                'email_to' => 'rishise@drcinfotech.com',
+                'email_bcc' => '',
+                'email_cc' => '',
+                'email_subject' => 'Send jobsheet mails to newly added removalist/removalists' ,
+                'email_editor' => 'The following removalist are needed to be sent their jobsheet </br>'.$bodyString,
+            );
+            sendEmail($emaildata, 'feedbackreminder');
+        }
+    }
+
+    public function deleteOldRecordsCronTable($auth){
+        if ($auth != "sssRishi987654321Ezhavaddd") {
+            exit;
+        }
+        $this->db->where('is_email_sent','1')
+            ->delete('cronjob_mails');
+    }
+
 }

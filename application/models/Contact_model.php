@@ -344,7 +344,7 @@ class Contact_model extends CI_Model {
      * @author Darshak Shah
      */
     function getRemovalistByUUID($uuid) {
-        $this->db->select("c.contact_fname,c.contact_middlename,c.contact_lname,c.contact_phno,c.company_name,c.contact_email,e.en_note");
+        $this->db->select("c.contact_fname,c.contact_middlename,c.contact_lname,c.contact_phno,c.company_name,c.contact_email,c.contact_email_2,e.en_note");
         $this->db->from("enquiry e");
         $this->db->join("contact c", "e.contact_id = c.contact_id");
         $this->db->where("contact_reltype", "1");
@@ -366,7 +366,7 @@ class Contact_model extends CI_Model {
      */
     function getPackerstByUUID($uuid) {
         $query = $this->db->query('SELECT 
-        c.contact_id, c.contact_fname,c.contact_middlename,c.contact_lname,c.contact_phno,c.company_name,c.contact_email,e.en_note
+        c.contact_id, c.contact_fname,c.contact_middlename,c.contact_lname,c.contact_phno,c.company_name,c.contact_email,c.contact_email_2,e.en_note
       FROM
           contact c,
           enquiry e
@@ -375,7 +375,6 @@ class Contact_model extends CI_Model {
         AND en_unique_id = "' . $uuid . '"
         AND (en_movetype = 4 OR en_movetype = 5 OR en_movetype = 7 OR en_movetype = 8) AND  contact_reltype = 2 order by c.contact_fname');
 
-        // echo $this->db->last_query(); die;
         if ($query->num_rows() > 0) {
             return $query->result_array();
         } else {
