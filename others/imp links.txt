@@ -1,22 +1,29 @@
-=================== text editor ===================
+=================== alert ===================
+https://craftpip.github.io/jquery-confirm/
 
+
+=================== datepicker ===================
+https://alloyui.com/examples/datepicker/index.html
+
+
+=================== text editor ===================
 https://ckeditor.com/
 https://quilljs.com/
 https://summernote.org/
 
 
 =================== mailing services ===================
-
 https://mailtrap.io
 
 
 =================== hosting /servers ===================
-
 https://laragon.org/
 https://ngrok.com
 
 
-
 =================== form/page builder ===================
-
 https://grapesjs.com/
+
+
+=================== remove backgorund ===================
+https://www.remove.bg/upload
