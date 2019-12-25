@@ -12,12 +12,6 @@ If you are making a new project then Make a folder of your project and go to the
 -> git commit -m [commit message] - commits the changes 
 -> git push- pushes the files to the git repository
 
-to temporarily remove some files from showing in changes execute the following command
--> git update-index --skip-worktree <file>
-
-to bring it back as before execute the following command
--> git update-index --no-skip-worktree <file>
-
 
 steps when already a project in local and upload to git
 -> goto the root of project folder
