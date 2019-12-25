@@ -1,0 +1,14 @@
+Laravel
+
+-> creating a project 												-	composer create-project laravel/laravel Project name
+-> starting the application 										- 	php artisan serve
+-> to cache all the configuration values							-	php artisan config:cache
+-> to enable the maintenance mode									- 	php artisan down/up
+-> to create controller												- 	php artisan make:controller ControllerName - app/http/controller
+-> to create model 													- 	php artisan make:model ModelName			- app/
+-> to create model with migration 									- 	php artisan make:model ModelName -m 
+-> Create TerminateMiddleware										-	php artisan make:middleware TerminateMiddleware
+
+
+to store global variables (like base_url in CI) you can save it in .env file
+
